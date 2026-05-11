@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brat Ventures — Reforma Estatutária BRATCARGAS</title>
+<meta name="description" content="Portal interno da Brat Ventures com o Compendium Cooperativo, o Bloco 3 de Reforma Estatutária e a ata da AGE de 17/04/2026.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700;9..144,900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F4F1EA; --bg-card: #FBFAF6; --bg-elevated: #FFFFFF;
+    --bg-dark: #1A1A1A; --bg-darker: #0F0F0F;
+    --ink: #1A1A1A; --ink-2: #3D3D3D; --ink-3: #6B6B6B; --ink-4: #A0A0A0; --ink-rev: #F4F1EA;
+    --line: #D5CFC0;
+    --green: #2D5A3D; --green-light: #4A7C5C; --green-pale: #DDE7DF;
+    --gold: #C8A951; --gold-deep: #9A7E2C; --gold-pale: #F2EBD3;
+    --red: #B23A2C; --red-pale: #F4DDD9;
+    --serif-display: 'Fraunces', 'Times New Roman', serif;
+    --serif-body: 'Newsreader', Georgia, serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--serif-body); font-size: 17px; line-height: 1.65;
+    color: var(--ink); background: var(--bg);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 200px 200px;
+    overflow-x: hidden; -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--gold); color: var(--ink); }
+  a { color: inherit; text-decoration: none; }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  .hero {
+    padding: 80px 0 48px; position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 88% 15%, rgba(200,169,81,0.18), transparent 38%),
+      radial-gradient(circle at 4% 90%, rgba(45,90,61,0.15), transparent 45%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; }
+
+  .brand {
+    font-family: var(--serif-display); font-weight: 900; font-size: 28px;
+    letter-spacing: -0.02em; color: var(--ink); margin-bottom: 8px;
+  }
+  .brand .ampersand { color: var(--gold-deep); font-style: italic; font-weight: 400; padding: 0 4px; }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.22em;
+    color: var(--green); border-top: 2px solid var(--green);
+    padding-top: 10px; margin-bottom: 24px;
+  }
+
+  h1.hero-title {
+    font-family: var(--serif-display); font-weight: 300;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 0.95; letter-spacing: -0.03em;
+    color: var(--ink); margin-bottom: 24px;
+    max-width: 880px;
+  }
+  h1.hero-title em { font-style: italic; font-weight: 400; color: var(--green); }
+  h1.hero-title .amp { font-family: var(--serif-display); font-style: italic; font-weight: 300; color: var(--gold-deep); }
+
+  .hero-lede {
+    font-family: var(--serif-body); font-size: 20px; font-weight: 300;
+    line-height: 1.5; color: var(--ink-2);
+    max-width: 720px; margin-bottom: 32px;
+  }
+
+  .hero-meta {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    padding-top: 24px; border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .hero-meta span strong {
+    color: var(--ink); display: block; font-weight: 600;
+    margin-top: 4px; font-size: 13px;
+  }
+
+  /* CARDS DE DOCUMENTOS */
+  section.docs {
+    padding: 64px 0 40px;
+  }
+
+  .section-title {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 32px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--line);
+  }
+
+  .doc-grid {
+    display: grid; gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    margin-bottom: 48px;
+  }
+
+  .doc-card {
+    background: var(--bg-elevated); border: 1px solid var(--line);
+    padding: 32px; position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .doc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(26,26,26,0.10);
+    border-color: var(--green);
+  }
+  .doc-card.featured {
+    background: var(--bg-dark); color: var(--ink-rev);
+    border-color: var(--gold-deep);
+  }
+  .doc-card.featured:hover { border-color: var(--gold); }
+
+  .doc-num {
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    color: var(--gold-deep); letter-spacing: 0.22em; margin-bottom: 18px;
+  }
+  .doc-card.featured .doc-num { color: var(--gold); }
+
+  .doc-card h3 {
+    font-family: var(--serif-display); font-weight: 500;
+    font-size: 26px; line-height: 1.18;
+    letter-spacing: -0.018em; color: inherit;
+    margin-bottom: 14px;
+  }
+  .doc-card h3 em { font-style: italic; color: var(--green); font-weight: 400; }
+  .doc-card.featured h3 em { color: var(--gold); }
+
+  .doc-card p {
+    font-family: var(--serif-body); font-size: 15px; line-height: 1.55;
+    color: var(--ink-2); margin-bottom: 24px; flex-grow: 1;
+  }
+  .doc-card.featured p { color: var(--ink-4); }
+
+  .doc-meta {
+    display: flex; gap: 18px; flex-wrap: wrap;
+    margin-bottom: 24px; padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    font-family: var(--mono); font-size: 10px;
+    color: var(--ink-3); letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .doc-card.featured .doc-meta { border-top-color: rgba(244,241,234,0.18); color: var(--ink-4); }
+  .doc-meta span strong {
+    color: var(--ink); font-weight: 600; display: block;
+    margin-top: 3px; font-size: 12px; letter-spacing: 0.04em;
+  }
+  .doc-card.featured .doc-meta span strong { color: var(--ink-rev); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 22px;
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    background: var(--ink); color: var(--ink-rev);
+    border: 1px solid var(--ink);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    align-self: flex-start;
+  }
+  .btn:hover { background: var(--green); border-color: var(--green); transform: translateY(-1px); }
+  .btn-gold { background: var(--gold-deep); border-color: var(--gold-deep); }
+  .btn-gold:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .btn-outline {
+    background: transparent; color: var(--ink); border-color: var(--ink);
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--ink-rev); }
+  .doc-card.featured .btn-outline {
+    color: var(--ink-rev); border-color: var(--ink-rev);
+  }
+  .doc-card.featured .btn-outline:hover {
+    background: var(--gold); color: var(--ink); border-color: var(--gold);
+  }
+  .btn .arr {
+    font-family: var(--serif-display); font-size: 14px; font-weight: 400;
+  }
+
+  /* AVISO DE CONFIDENCIALIDADE */
+  .conf {
+    background: var(--red-pale); border-left: 3px solid var(--red);
+    padding: 18px 22px; margin: 32px 0;
+  }
+  .conf-label {
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.22em;
+    color: var(--red); margin-bottom: 6px;
+  }
+  .conf p {
+    font-family: var(--serif-body); font-size: 14px; line-height: 1.55;
+    color: var(--ink); margin: 0;
+  }
+
+  /* LEGENDA / GLOSSÁRIO */
+  section.legend {
+    padding: 32px 0 80px;
+  }
+  .legend-grid {
+    display: grid; gap: 0;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    border-top: 1px solid var(--line);
+  }
+  .legend-item {
+    padding: 24px 24px 24px 0;
+    border-right: 1px solid var(--line);
+  }
+  .legend-item:last-child { border-right: none; padding-right: 0; }
+  @media (max-width: 720px) {
+    .legend-item { border-right: none; border-bottom: 1px solid var(--line); padding: 20px 0; }
+    .legend-item:last-child { border-bottom: none; }
+  }
+  .legend-item .num {
+    font-family: var(--serif-display); font-weight: 300;
+    font-size: 48px; line-height: 1; color: var(--gold-deep);
+    letter-spacing: -0.04em; margin-bottom: 8px;
+  }
+  .legend-item .lbl {
+    font-family: var(--mono); font-size: 10px; font-weight: 600;
+    color: var(--ink-3); letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .legend-item p {
+    font-family: var(--serif-body); font-size: 14px; line-height: 1.5;
+    color: var(--ink-2);
+  }
+
+  /* FOOTER */
+  footer.site {
+    background: var(--bg-darker); color: var(--ink-rev);
+    padding: 56px 0 32px;
+    border-top: 4px solid var(--gold);
+  }
+  footer.site .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr;
+    gap: 56px; margin-bottom: 36px;
+  }
+  @media (max-width: 720px) { footer.site .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+  footer.site h4 {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  footer.site p, footer.site li {
+    font-family: var(--serif-body); font-size: 14px;
+    line-height: 1.6; color: var(--ink-4);
+  }
+  footer.site ul { list-style: none; padding: 0; }
+  footer.site ul li { padding: 4px 0; }
+  footer.site .colophon {
+    padding-top: 24px; border-top: 1px solid rgba(244,241,234,0.1);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.16em; color: var(--ink-4);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="brand">BRAT<span class="ampersand">&amp;</span>Cooperativa</div>
+    <span class="eyebrow">Portal interno · Maio de 2026</span>
+
+    <h1 class="hero-title">
+      Reforma <em>cooperativa</em><br>
+      da BRATCARGAS <span class="amp">&amp;</span> Brat Agro
+    </h1>
+
+    <p class="hero-lede">
+      Portal com a documentação completa da reforma estatutária da BRATCARGAS aprovada
+      em Assembleia Geral Extraordinária de 17 de abril de 2026 — alinhamento ao
+      <strong>art. 271 da LC 214/2025</strong> (alíquota zero IBS+CBS no ato cooperado),
+      expansão do objeto social para cooperativa multifuncional, e habilitação para
+      operações de comércio exterior via Radar/Siscomex.
+    </p>
+
+    <div class="hero-meta">
+      <span>Cooperativa<strong>BRATCARGAS</strong></span>
+      <span>CNPJ<strong>63.531.166/0001-54</strong></span>
+      <span>NIRE<strong>29400047688</strong></span>
+      <span>Sede<strong>Luís Eduardo Magalhães — BA</strong></span>
+      <span>AGE realizada<strong>17.ABR.2026</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DOCUMENTOS
+     ============================================================ -->
+<section class="docs">
+  <div class="container">
+
+    <h2 class="section-title">Documentos do processo de reforma</h2>
+
+    <div class="doc-grid">
+
+      <!-- BLOCO 3 — Destaque -->
+      <article class="doc-card featured">
+        <div class="doc-num">DOCUMENTO 01 · PRINCIPAL</div>
+        <h3>Bloco 3 — <em>Reforma estatutária</em> da BRATCARGAS</h3>
+        <p>
+          Auditoria crítica do estatuto vigente (registrado em 05/11/2025), proposta de
+          reforma artigo por artigo, varredura JUCEB-BA com os 6 pontos onde a Junta tende
+          a empacar, ata da AGE de 17/04/2026 com todos os dados de quórum e votação, e
+          plano de implementação até a habilitação RADAR.
+        </p>
+        <div class="doc-meta">
+          <span>Formato<strong>HTML interativo</strong></span>
+          <span>Tamanho<strong>158 KB · 8 partes</strong></span>
+          <span>Versão<strong>v2.0 · auditada</strong></span>
+        </div>
+        <a href="bloco3.html" class="btn btn-gold">Ler o Bloco 3 <span class="arr">→</span></a>
+      </article>
+
+      <!-- COMPENDIUM -->
+      <article class="doc-card">
+        <div class="doc-num">DOCUMENTO 02</div>
+        <h3>Compendium <em>Cooperativo</em> Brat v2</h3>
+        <p>
+          Manual jurídico do cooperativismo na reforma tributária, cronograma 2026-2033,
+          caso Oleoplan-Iraquara com as 10 oportunidades dimensionadas (5 de compra +
+          5 de venda), calculadora interativa do ciclo bidirecional Brat, e auditoria
+          crítica dos 4 erros corrigidos.
+        </p>
+        <div class="doc-meta">
+          <span>Formato<strong>HTML interativo</strong></span>
+          <span>Tamanho<strong>153 KB · 7 partes</strong></span>
+          <span>Calculadora<strong>9 produtos</strong></span>
+        </div>
+        <a href="compendium.html" class="btn btn-outline">Ler o Compendium <span class="arr">→</span></a>
+      </article>
+
+      <!-- ATA AGE -->
+      <article class="doc-card">
+        <div class="doc-num">DOCUMENTO 03 · OPERACIONAL</div>
+        <h3>Ata da AGE — <em>17 de abril de 2026</em></h3>
+        <p>
+          Versão final editável (Word .docx) da ata da Assembleia Geral Extraordinária
+          de reforma estatutária. Contém todos os dados de quórum (5 / 7 / 14
+          cooperados nas três convocações), deliberações por aclamação, visto do
+          advogado OAB-BA 80891, e os campos remanescentes a preencher antes do
+          protocolo na JUCEB.
+        </p>
+        <div class="doc-meta">
+          <span>Formato<strong>Word .docx · 8 pp</strong></span>
+          <span>Status<strong>Pronta para assinaturas</strong></span>
+          <span>Protocolo<strong>JUCEB Ato 007</strong></span>
+        </div>
+        <a href="ata-age-bratcargas.docx" class="btn btn-outline">Baixar a ata <span class="arr">↓</span></a>
+      </article>
+
+      <!-- MANUAL JURÍDICO -->
+      <article class="doc-card">
+        <div class="doc-num">DOCUMENTO 04</div>
+        <h3>Manual Jurídico Brat <em>×</em> Oleoplan</h3>
+        <p>
+          Documento técnico-jurídico aprofundado sobre o tratamento tributário do
+          ato cooperado em operações com a Oleoplan Nordeste (Iraquara/BA). Cronograma
+          2026-2033, regime do art. 271 LC 214/2025, 8 pontos de atenção e roadmap
+          de 12 meses.
+        </p>
+        <div class="doc-meta">
+          <span>Formato<strong>Word .docx · denso</strong></span>
+          <span>Tamanho<strong>30 KB · 4 partes</strong></span>
+          <span>Audiência<strong>Banca jurídica</strong></span>
+        </div>
+        <a href="manual-juridico.docx" class="btn btn-outline">Baixar o manual <span class="arr">↓</span></a>
+      </article>
+
+      <!-- DOSSIE OLEOPLAN -->
+      <article class="doc-card">
+        <div class="doc-num">DOCUMENTO 05</div>
+        <h3>Dossiê <em>Oleoplan</em> Iraquara</h3>
+        <p>
+          Planilha de 15 abas com cadastro empresarial, perfil de compras, perfil de
+          vendas, tributos, comex, oportunidades para a Brat, base legal do cooperativismo,
+          cronograma 2026-2033 e pontos de atenção detalhados.
+        </p>
+        <div class="doc-meta">
+          <span>Formato<strong>Excel .xlsx</strong></span>
+          <span>Abas<strong>15 · interligadas</strong></span>
+          <span>Premissas<strong>Auditáveis</strong></span>
+        </div>
+        <a href="dossie-oleoplan.xlsx" class="btn btn-outline">Baixar o dossiê <span class="arr">↓</span></a>
+      </article>
+
+    </div>
+
+    <div class="conf">
+      <div class="conf-label">Confidencial · uso interno</div>
+      <p>
+        Este portal e os documentos aqui hospedados são <strong>confidenciais</strong>,
+        destinados exclusivamente aos cooperados da BRATCARGAS, integrantes do grupo
+        Brat Ventures, e à banca jurídica especializada contratada para validação técnica.
+        Não devem ser compartilhados externamente sem autorização expressa do
+        Conselho de Administração da Cooperativa.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     LEGENDA / KPI
+     ============================================================ -->
+<section class="legend">
+  <div class="container">
+
+    <h2 class="section-title">O processo em números</h2>
+
+    <div class="legend-grid">
+      <div class="legend-item">
+        <div class="num">12</div>
+        <div class="lbl">Pontos auditados</div>
+        <p>4 críticos, 4 altos e 4 médios identificados no estatuto vigente, todos endereçados na proposta de reforma.</p>
+      </div>
+      <div class="legend-item">
+        <div class="num">14</div>
+        <div class="lbl">Cooperados na AGE</div>
+        <p>Presentes na terceira convocação (16h00 de 17/04/2026), correspondente a 2/3 do total de 20 cooperados ativos.</p>
+      </div>
+      <div class="legend-item">
+        <div class="num">53</div>
+        <div class="lbl">Artigos do novo estatuto</div>
+        <p>Em substituição aos 58 artigos do estatuto vigente, com 13 alterações materiais e 7 artigos novos.</p>
+      </div>
+      <div class="legend-item">
+        <div class="num">5</div>
+        <div class="lbl">Seções operacionais</div>
+        <p>Transporte (já consolidada), Agro, Florestal, Animal e Trade — abertas pela reforma do Art. 5º.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="font-family: var(--serif-display); font-weight: 900; font-size: 28px; color: var(--ink-rev); letter-spacing: -0.02em; margin-bottom: 16px;">
+          BRAT<span style="color: var(--gold); font-style: italic; font-weight: 400; padding: 0 4px;">&amp;</span>Cooperativa
+        </div>
+        <p style="max-width: 540px;">
+          Portal interno da Brat Ventures dedicado à reforma estatutária da BRATCARGAS
+          e ao alinhamento ao Compendium Cooperativo Brat v2. Documentos auditados em
+          parecer técnico-jurídico antes da AGE e revisados após.
+        </p>
+      </div>
+      <div>
+        <h4>Equipe BRATCARGAS</h4>
+        <ul>
+          <li>Marcos Lima Caribé — Presidente</li>
+          <li>Nailde Caribé — Vice-Presidente</li>
+          <li>Roberto Ribeiro — Diretor Financeiro</li>
+          <li>Felipe Silva de Souza — Diretor Comercial</li>
+          <li>Rodrigo Bacellar Barbosa — Advogado (OAB-BA 80891)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Brat Ventures · Documento interno · CNPJ 63.531.166/0001-54</span>
+      <span>Edição v2.0 · 11.MAI.2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

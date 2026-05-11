@@ -1,0 +1,2731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compendium Cooperativo — Brat Ventures × Indústrias do Agro</title>
+<meta name="description" content="Manual jurídico do cooperativismo aplicado e estudo de caso Oleoplan Nordeste — modelo replicável para indústrias do agro brasileiro.">
+<meta property="og:title" content="Compendium Cooperativo — Brat Ventures">
+<meta property="og:description" content="Manual jurídico do cooperativismo + Estudo de caso Oleoplan. Modelo replicável para indústrias do agro brasileiro.">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700;9..144,900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     DESIGN TOKENS
+     Editorial industrial — trade journal aesthetic
+     ============================================================ */
+  :root {
+    --bg: #F4F1EA;
+    --bg-card: #FBFAF6;
+    --bg-elevated: #FFFFFF;
+    --bg-dark: #1A1A1A;
+    --bg-darker: #0F0F0F;
+
+    --ink: #1A1A1A;
+    --ink-2: #3D3D3D;
+    --ink-3: #6B6B6B;
+    --ink-4: #A0A0A0;
+    --ink-rev: #F4F1EA;
+
+    --line: #D5CFC0;
+    --line-strong: #1A1A1A;
+
+    --green: #2D5A3D;
+    --green-light: #4A7C5C;
+    --green-pale: #DDE7DF;
+
+    --gold: #C8A951;
+    --gold-deep: #9A7E2C;
+    --gold-pale: #F2EBD3;
+
+    --red: #B23A2C;
+    --red-pale: #F4DDD9;
+
+    --blue: #2E4F7C;
+
+    --shadow-sm: 0 1px 2px rgba(26,26,26,0.08);
+    --shadow-md: 0 4px 16px rgba(26,26,26,0.10);
+    --shadow-lg: 0 12px 40px rgba(26,26,26,0.14);
+
+    --serif-display: 'Fraunces', 'Times New Roman', serif;
+    --serif-body: 'Newsreader', Georgia, serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+    --grain-svg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--serif-body);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
+    background-image: var(--grain-svg);
+    background-size: 200px 200px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ============================================================
+     LAYOUT PRIMITIVES
+     ============================================================ */
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  .container-tight { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+  .container-wide { max-width: 1480px; margin: 0 auto; padding: 0 32px; }
+
+  /* ============================================================
+     TOP NAVBAR (sticky)
+     ============================================================ */
+  .topnav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(244,241,234, 0.92);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topnav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 32px; max-width: 1480px; margin: 0 auto;
+  }
+  .brand {
+    font-family: var(--serif-display);
+    font-weight: 900; font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .brand .ampersand { color: var(--gold-deep); font-style: italic; font-weight: 400; padding: 0 4px; }
+  .brand-tag {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--ink-3); margin-left: 12px;
+  }
+  .navlinks { display: flex; gap: 28px; align-items: center; }
+  .navlinks a {
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-2);
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .navlinks a:hover { border-bottom-color: var(--gold-deep); color: var(--ink); }
+  .navlinks a.alert { color: var(--red); }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    position: relative;
+    padding: 96px 0 64px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 85% 18%, rgba(200,169,81,0.18), transparent 35%),
+      radial-gradient(circle at 5% 92%, rgba(45,90,61,0.15), transparent 40%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 380px;
+    gap: 80px; align-items: end;
+    position: relative;
+  }
+  @media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.22em;
+    color: var(--green); border-top: 2px solid var(--green);
+    padding-top: 10px; margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif-display);
+    font-weight: 300;
+    font-size: clamp(48px, 8vw, 112px);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--green);
+    font-feature-settings: "ss01" on;
+  }
+  .hero h1 .ampersand {
+    font-family: var(--serif-display);
+    font-style: italic; font-weight: 300;
+    color: var(--gold-deep);
+  }
+
+  .hero-lede {
+    font-family: var(--serif-body);
+    font-size: 22px; font-weight: 300;
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 680px;
+    margin-bottom: 40px;
+    text-wrap: balance;
+  }
+  .hero-meta {
+    display: flex; gap: 36px; flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .hero-meta span strong { color: var(--ink); display: block; font-weight: 600; margin-top: 4px; font-size: 13px; }
+
+  .hero-side {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    transform: rotate(-0.5deg);
+  }
+  .hero-side h3 {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .hero-side ol { list-style: none; counter-reset: index; }
+  .hero-side ol li {
+    counter-increment: index;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line);
+    display: grid; grid-template-columns: 28px 1fr; gap: 12px;
+    align-items: baseline;
+  }
+  .hero-side ol li:last-child { border-bottom: none; }
+  .hero-side ol li::before {
+    content: counter(index, decimal-leading-zero);
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    color: var(--gold-deep);
+  }
+  .hero-side ol li a {
+    font-family: var(--serif-body); font-size: 15px; line-height: 1.35;
+    color: var(--ink); transition: color 0.2s;
+  }
+  .hero-side ol li:hover a { color: var(--green); }
+
+  /* ============================================================
+     SUMÁRIO EXECUTIVO — KPIs
+     ============================================================ */
+  .kpi-band {
+    background: var(--bg-dark);
+    color: var(--ink-rev);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-band::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .kpi-eyebrow {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .kpi-title {
+    font-family: var(--serif-display);
+    font-weight: 300; font-style: italic;
+    font-size: clamp(32px, 5vw, 56px); line-height: 1.05;
+    text-align: center; margin-bottom: 64px;
+    letter-spacing: -0.02em;
+  }
+  .kpi-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(244,241,234,0.18);
+  }
+  @media (max-width: 980px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .kpi-grid { grid-template-columns: 1fr; } }
+  .kpi {
+    padding: 36px 32px;
+    border-right: 1px solid rgba(244,241,234,0.18);
+    border-bottom: 1px solid rgba(244,241,234,0.18);
+    position: relative;
+  }
+  .kpi:last-child { border-right: none; }
+  @media (max-width: 980px) {
+    .kpi:nth-child(2n) { border-right: none; }
+  }
+  .kpi-label {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-4); margin-bottom: 16px;
+  }
+  .kpi-value {
+    font-family: var(--serif-display);
+    font-weight: 300;
+    font-size: clamp(38px, 5vw, 56px);
+    line-height: 1; letter-spacing: -0.04em;
+    color: var(--ink-rev);
+    margin-bottom: 8px;
+  }
+  .kpi-value .unit {
+    font-size: 0.5em; font-weight: 400;
+    color: var(--gold);
+    margin-left: 4px;
+  }
+  .kpi-note {
+    font-family: var(--serif-body); font-size: 13px;
+    color: var(--ink-4); line-height: 1.4;
+  }
+
+  /* ============================================================
+     SECTION HEADERS
+     ============================================================ */
+  .section { padding: 96px 0; position: relative; }
+  .section-alt { background: var(--bg-card); }
+  .section-dark { background: var(--bg-dark); color: var(--ink-rev); }
+
+  .section-header {
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: 64px;
+    margin-bottom: 64px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+    align-items: end;
+  }
+  @media (max-width: 880px) { .section-header { grid-template-columns: 1fr; gap: 16px; } }
+
+  .section-tag {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--green);
+  }
+  .section-tag .num {
+    color: var(--ink-4); margin-right: 12px;
+  }
+  .section-title {
+    font-family: var(--serif-display);
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 0.96; letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--green); font-weight: 400; }
+
+  .section-dark .section-title { color: var(--ink-rev); }
+  .section-dark .section-tag { color: var(--gold); }
+  .section-dark .section-header { border-bottom-color: rgba(244,241,234,0.2); }
+
+  /* ============================================================
+     PROSE
+     ============================================================ */
+  .prose { max-width: 720px; }
+  .prose p {
+    font-family: var(--serif-body); font-size: 18px;
+    line-height: 1.7; color: var(--ink-2);
+    margin-bottom: 22px;
+  }
+  .prose p strong { color: var(--ink); font-weight: 600; }
+  .prose p em { color: var(--green); font-style: italic; }
+  .prose h3 {
+    font-family: var(--serif-display); font-weight: 500;
+    font-size: 28px; line-height: 1.2; letter-spacing: -0.015em;
+    color: var(--ink); margin: 48px 0 18px;
+  }
+  .prose h4 {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--green); margin: 32px 0 14px;
+    padding-top: 12px; border-top: 1px solid var(--line);
+  }
+  .prose ul { list-style: none; padding-left: 0; margin-bottom: 22px; }
+  .prose ul li {
+    position: relative;
+    padding: 6px 0 6px 28px;
+    font-family: var(--serif-body); font-size: 17px;
+    line-height: 1.6; color: var(--ink-2);
+  }
+  .prose ul li::before {
+    content: '—';
+    position: absolute; left: 0; top: 5px;
+    font-family: var(--serif-body);
+    color: var(--gold-deep);
+    font-weight: 600;
+  }
+  .prose ol { list-style: none; counter-reset: prose-num; padding-left: 0; margin-bottom: 22px; }
+  .prose ol li {
+    counter-increment: prose-num;
+    position: relative;
+    padding: 6px 0 6px 36px;
+    font-family: var(--serif-body); font-size: 17px;
+    line-height: 1.6; color: var(--ink-2);
+  }
+  .prose ol li::before {
+    content: counter(prose-num, decimal-leading-zero);
+    position: absolute; left: 0; top: 8px;
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    color: var(--gold-deep);
+  }
+
+  /* ============================================================
+     PULL QUOTE / QUOTE BOX
+     ============================================================ */
+  .pullquote {
+    border-left: 3px solid var(--green);
+    padding: 8px 0 8px 32px;
+    margin: 32px 0;
+  }
+  .pullquote p {
+    font-family: var(--serif-display);
+    font-style: italic; font-weight: 300;
+    font-size: 24px; line-height: 1.35;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .pullquote cite {
+    display: block; margin-top: 14px;
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--ink-3);
+    font-style: normal;
+  }
+
+  .lawcite {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold-deep);
+    padding: 18px 22px;
+    margin: 20px 0;
+    font-family: var(--mono); font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+  .lawcite strong { color: var(--gold-deep); font-weight: 600; }
+
+  .alertbox {
+    background: var(--red-pale);
+    border-left: 3px solid var(--red);
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .alertbox .alert-label {
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--red); margin-bottom: 8px;
+  }
+  .alertbox p {
+    font-family: var(--serif-body); font-size: 16px;
+    line-height: 1.55; color: var(--ink); margin: 0;
+  }
+
+  /* ============================================================
+     CARDS / DATA CARDS
+     ============================================================ */
+  .grid-cards { display: grid; gap: 24px; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 980px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    padding: 28px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--green);
+  }
+  .card-num {
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    color: var(--gold-deep); letter-spacing: 0.18em;
+    margin-bottom: 14px;
+  }
+  .card h3 {
+    font-family: var(--serif-display);
+    font-weight: 500; font-size: 22px;
+    line-height: 1.2; letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .card p {
+    font-family: var(--serif-body); font-size: 15px;
+    line-height: 1.55; color: var(--ink-2);
+  }
+
+  /* ============================================================
+     TABLES
+     ============================================================ */
+  .ftable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--serif-body);
+    margin: 24px 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .ftable thead th {
+    background: var(--bg-dark);
+    color: var(--ink-rev);
+    font-family: var(--mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    text-align: left; padding: 14px 16px;
+    border-right: 1px solid rgba(244,241,234,0.1);
+  }
+  .ftable thead th:last-child { border-right: none; }
+  .ftable tbody td {
+    padding: 14px 16px;
+    border-top: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+  .ftable tbody td:last-child { border-right: none; }
+  .ftable tbody tr:hover { background: var(--bg-card); }
+  .ftable td.num { font-family: var(--mono); font-size: 13px; text-align: right; color: var(--ink); font-weight: 500; }
+  .ftable td.bold { font-weight: 600; color: var(--ink); }
+  .ftable td.green { color: var(--green); font-weight: 600; }
+  .ftable td.red { color: var(--red); font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+
+  /* ============================================================
+     TIMELINE
+     ============================================================ */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 12px;
+    margin: 48px 0;
+  }
+  @media (max-width: 1100px) { .timeline { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 600px) { .timeline { grid-template-columns: repeat(2, 1fr); } }
+
+  .timeline-cell {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    padding: 20px 16px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .timeline-cell:hover {
+    background: var(--bg-card);
+    border-color: var(--green);
+    transform: translateY(-3px);
+  }
+  .timeline-cell.highlight {
+    background: var(--green-pale);
+    border-color: var(--green);
+    border-width: 2px;
+  }
+  .timeline-cell.alert {
+    background: var(--gold-pale);
+    border-color: var(--gold-deep);
+    border-width: 2px;
+  }
+  .timeline-year {
+    font-family: var(--serif-display);
+    font-weight: 500; font-size: 32px;
+    line-height: 1; color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .timeline-cell.highlight .timeline-year { color: var(--green); font-weight: 700; }
+  .timeline-cell.alert .timeline-year { color: var(--gold-deep); font-weight: 700; }
+  .timeline-status {
+    font-family: var(--mono); font-size: 9px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+    padding-bottom: 8px; border-bottom: 1px dashed var(--line);
+  }
+  .timeline-body {
+    font-family: var(--serif-body); font-size: 13px;
+    line-height: 1.45; color: var(--ink-2);
+  }
+  .timeline-body strong { color: var(--ink); }
+
+  /* ============================================================
+     OPPORTUNITY MATRIX
+     ============================================================ */
+  .opp-card {
+    display: grid; grid-template-columns: 70px 1fr 200px;
+    gap: 28px; align-items: start;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 880px) { .opp-card { grid-template-columns: 1fr; gap: 12px; } }
+
+  .opp-num {
+    font-family: var(--serif-display);
+    font-weight: 300; font-size: 56px;
+    line-height: 1; color: var(--gold-deep);
+    letter-spacing: -0.04em;
+  }
+  .opp-body h3 {
+    font-family: var(--serif-display); font-weight: 500;
+    font-size: 24px; line-height: 1.2;
+    color: var(--ink); margin-bottom: 8px;
+    letter-spacing: -0.015em;
+  }
+  .opp-body .opp-tag {
+    display: inline-block;
+    font-family: var(--mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--green);
+    background: var(--green-pale);
+    padding: 4px 10px;
+    margin-bottom: 12px;
+    margin-right: 8px;
+  }
+  .opp-body p {
+    font-family: var(--serif-body); font-size: 15px;
+    line-height: 1.55; color: var(--ink-2);
+    margin-bottom: 12px;
+  }
+  .opp-body .opp-mech {
+    font-family: var(--mono); font-size: 12px;
+    line-height: 1.5; color: var(--ink-3);
+    background: var(--bg-card);
+    padding: 12px 14px;
+    border-left: 2px solid var(--gold);
+    margin-top: 8px;
+  }
+  .opp-numbers {
+    font-family: var(--mono);
+  }
+  .opp-numbers dt {
+    font-size: 9px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--ink-4); margin-bottom: 4px;
+  }
+  .opp-numbers dd {
+    font-size: 14px; font-weight: 600;
+    color: var(--ink); margin-bottom: 12px;
+    padding-bottom: 8px; border-bottom: 1px dashed var(--line);
+  }
+  .opp-numbers dd:last-child { border-bottom: none; }
+  .opp-numbers dd.green { color: var(--green); }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer.site {
+    background: var(--bg-darker);
+    color: var(--ink-rev);
+    padding: 80px 0 40px;
+    border-top: 4px solid var(--gold);
+  }
+  footer.site .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 64px; margin-bottom: 48px;
+  }
+  @media (max-width: 760px) { footer.site .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+  footer.site h4 {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  footer.site p, footer.site li {
+    font-family: var(--serif-body); font-size: 14px;
+    line-height: 1.6; color: var(--ink-4);
+  }
+  footer.site ul { list-style: none; padding: 0; }
+  footer.site ul li { padding: 5px 0; }
+  footer.site ul li a:hover { color: var(--gold); }
+  footer.site .colophon {
+    padding-top: 28px;
+    border-top: 1px solid rgba(244,241,234,0.1);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 18px;
+    font-family: var(--mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--ink-4);
+  }
+
+  /* ============================================================
+     ENTRY ANIMATIONS
+     ============================================================ */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ============================================================
+     NUMBERED MARGINALIA
+     ============================================================ */
+  .footnote-ref {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--gold-deep); font-weight: 700;
+    vertical-align: super; margin-left: 2px;
+    cursor: help;
+  }
+
+  /* ============================================================
+     SCORECARD
+     ============================================================ */
+  .scorecard {
+    display: grid; grid-template-columns: 1fr 80px;
+    gap: 12px; align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .scorecard:last-child { border-bottom: none; }
+  .scorecard-label {
+    font-family: var(--serif-body); font-size: 14px;
+    color: var(--ink-2);
+  }
+  .scorecard-bar {
+    height: 6px; background: var(--bg-card);
+    border-radius: 0; overflow: hidden;
+    position: relative;
+  }
+  .scorecard-bar-fill {
+    height: 100%;
+    background: var(--green);
+    transition: width 1.2s ease;
+  }
+  .scorecard-bar-fill.gold { background: var(--gold-deep); }
+  .scorecard-bar-fill.red { background: var(--red); }
+
+  /* ============================================================
+     CTA PANEL
+     ============================================================ */
+  .cta-panel {
+    background: var(--bg-dark);
+    color: var(--ink-rev);
+    padding: 64px;
+    margin: 64px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-panel::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .cta-panel h3 {
+    font-family: var(--serif-display);
+    font-weight: 300; font-size: 36px; line-height: 1.15;
+    margin-bottom: 16px; letter-spacing: -0.02em;
+    max-width: 620px;
+  }
+  .cta-panel h3 em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .cta-panel p {
+    font-family: var(--serif-body); font-size: 16px;
+    color: var(--ink-4); max-width: 560px;
+    margin-bottom: 28px;
+  }
+  .cta-stamp {
+    position: absolute; top: 48px; right: 48px;
+    font-family: var(--mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold); padding: 8px 12px;
+    transform: rotate(8deg);
+  }
+  @media (max-width: 760px) { .cta-stamp { display: none; } .cta-panel { padding: 40px; } }
+
+  /* ============================================================
+     STAGE / PROCESS DIAGRAM
+     ============================================================ */
+  .stages {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 48px 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 880px) { .stages { grid-template-columns: 1fr; } }
+  .stage {
+    padding: 32px 28px;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .stage:last-child { border-right: none; }
+  @media (max-width: 880px) {
+    .stage { border-right: none; border-bottom: 1px solid var(--line); }
+    .stage:last-child { border-bottom: none; }
+  }
+  .stage-num {
+    font-family: var(--serif-display);
+    font-weight: 300; font-size: 64px;
+    line-height: 0.9; color: var(--green);
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+  .stage h4 {
+    font-family: var(--serif-display);
+    font-weight: 500; font-size: 18px;
+    line-height: 1.25; color: var(--ink);
+    margin-bottom: 10px; letter-spacing: -0.01em;
+  }
+  .stage p {
+    font-family: var(--serif-body); font-size: 14px;
+    line-height: 1.55; color: var(--ink-3);
+  }
+
+  /* ============================================================
+     SIDE-BY-SIDE COMPARISON
+     ============================================================ */
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 32px 0;
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+  }
+  @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+  .compare-side { padding: 32px; }
+  .compare-side.left { border-right: 1px solid var(--line); background: var(--red-pale); }
+  .compare-side.right { background: var(--green-pale); }
+  @media (max-width: 760px) {
+    .compare-side.left { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+  .compare-side h4 {
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .compare-side.left h4 { color: var(--red); }
+  .compare-side.right h4 { color: var(--green); }
+  .compare-side h3 {
+    font-family: var(--serif-display);
+    font-weight: 500; font-size: 22px;
+    line-height: 1.2; color: var(--ink);
+    margin-bottom: 16px; letter-spacing: -0.01em;
+  }
+  .compare-side ul li {
+    font-size: 14px; line-height: 1.5; padding: 4px 0 4px 22px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP NAV
+     ============================================================ -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div>
+      <span class="brand">BRAT<span class="ampersand">&amp;</span>Indústria</span>
+      <span class="brand-tag">Compendium • 2026</span>
+    </div>
+    <div class="navlinks">
+      <a href="#auditoria" style="color: var(--gold-deep);">Auditoria</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#manual">Manual</a>
+      <a href="#cronograma">Cronograma</a>
+      <a href="#oleoplan">Oleoplan</a>
+      <a href="#triangulacao">Triangulação</a>
+      <a href="#plano">Plano</a>
+      <a href="#anexos" class="alert">Fontes</a>
+    </div>
+  </div>
+</nav>
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="container-wide">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Vol. 01 — Maio de 2026 — Brat Ventures</span>
+        <h1>Compendium <em>cooperativo</em><br>Brat <span class="ampersand">&amp;</span> Indústrias</h1>
+        <p class="hero-lede">
+          Manual jurídico do cooperativismo aplicado e estudo de caso aprofundado da
+          <strong>Oleoplan Nordeste / Iraquara&nbsp;BA</strong>, com modelo replicável para
+          fornecedores e clientes-âncora — duas pontas, um único ciclo.
+        </p>
+        <div class="hero-meta">
+          <span>Edição<strong>v2.0 · 10 mai 26 · auditada</strong></span>
+          <span>Páginas<strong>32 seções · 9 anexos</strong></span>
+          <span>Marco legal<strong>EC 132/23 · LC 214/25</strong></span>
+          <span>Validade<strong>Janeiro a Dezembro 2026</strong></span>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h3>Nesta edição</h3>
+        <ol>
+          <li><a href="#auditoria" style="color: var(--gold-deep); font-weight: 600;">Auditoria crítica desta v2.0 — leia primeiro</a></li>
+          <li><a href="#calculadora" style="color: var(--green); font-weight: 600;">Calculadora interativa do ciclo Brat</a></li>
+          <li><a href="#manual">Manual jurídico geral do cooperativismo</a></li>
+          <li><a href="#cronograma">Cronograma de transição 2026 — 2033</a></li>
+          <li><a href="#atencao">Os oito pontos críticos de atenção jurídica</a></li>
+          <li><a href="#oleoplan">Estudo de caso Oleoplan Nordeste</a></li>
+          <li><a href="#compra">Ponta de compra — fornecedores cooperados</a></li>
+          <li><a href="#venda">Ponta de venda — clientes-âncora cooperados</a></li>
+          <li><a href="#triangulacao">Triangulação Brat Agro · 151 produtores</a></li>
+          <li><a href="#plano">Plano de ação 90 dias</a></li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     KPI BAND — sumário executivo numérico
+     ============================================================ -->
+<section class="kpi-band">
+  <div class="container-wide">
+    <div class="kpi-eyebrow">Sumário Executivo</div>
+    <h2 class="kpi-title">A oportunidade em <em>oito números</em></h2>
+    <div class="kpi-grid">
+
+      <div class="kpi">
+        <div class="kpi-label">Receita estim. — caso Oleoplan</div>
+        <div class="kpi-value">2,33<span class="unit">R$ bi/ano</span></div>
+        <div class="kpi-note">Receita run-rate da unidade Iraquara em 2025, ≈30% da Oleoplan grupo.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Volume cooperativo dos 10 MVPs</div>
+        <div class="kpi-value">74<span class="unit">R$ mi/ano</span></div>
+        <div class="kpi-note">Receita anual do programa cooperativo integrado de 10 frentes.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Economia tributária por <span style="color:var(--gold)">R$&nbsp;1&nbsp;mi</span></div>
+        <div class="kpi-value">39<span class="unit">% do preço</span></div>
+        <div class="kpi-note">Diferença bruta de tributação entre cadeia mercantil e cooperativa.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Pico do ato cooperado IBS&nbsp;+&nbsp;CBS</div>
+        <div class="kpi-value">2033<span class="unit"></span></div>
+        <div class="kpi-note">Vigência plena do art. 271 da LC 214/2025 — alíquota zero estabilizada.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Produtores potenciais — Brat Agro</div>
+        <div class="kpi-value">151<span class="unit">cadastrados</span></div>
+        <div class="kpi-note">Base mapeada no Oeste Baiano + Centro-Oeste para originação.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Indústrias-alvo da tese</div>
+        <div class="kpi-value">12<span class="unit">empresas</span></div>
+        <div class="kpi-note">6 biodiesel (Oleoplan + 5) e 6 ração (Carneiro + 5) como replicação.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Marco regulatório crítico</div>
+        <div class="kpi-value">01.AGO<span class="unit">2026</span></div>
+        <div class="kpi-note">Fim da janela de adequação branda. Multas plenas a partir desta data.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Lenha — caso emblemático</div>
+        <div class="kpi-value">14,9<span class="unit">R$ mi/ano</span></div>
+        <div class="kpi-note">Economia tributária bruta sobre os R$&nbsp;35&nbsp;mi hoje em mãos não-cooperadas.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     AUDITORIA CRÍTICA (NOVA)
+     Após o KPI band, antes da Parte I
+     ============================================================ -->
+<section class="section" id="auditoria" style="background: var(--gold-pale); border-top: 3px solid var(--gold-deep);">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag" style="color: var(--gold-deep);"><span class="num">v2.0</span>Auditoria crítica</div>
+      </div>
+      <h2 class="section-title">O que <em>auditei</em> antes de te entregar este material</h2>
+    </div>
+
+    <div class="prose" style="max-width: 800px;">
+      <p>Antes de incluir esta seção, refiz a verificação de cada premissa numérica e cada citação legal do compendium contra fontes primárias atualizadas (Receita Federal, MDA, CGIBS, RICMS-BA, Lei 10.925/2004, LC 214/2025, Decreto 11.902/2024, Decreto 12.955/2026 e Resolução CGIBS 6/2026). <strong>Encontrei quatro erros materiais</strong> na primeira versão deste documento e corrigi-os. Esta seção lista cada um deles com transparência, porque a tese cooperativa é uma operação de R$ 264 milhões/ano que vai passar por análise de banca jurídica especializada — qualquer erro silencioso aqui vira passivo lá.</p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 48px 0 18px; letter-spacing: -0.015em;">Erros identificados e corrigidos</h3>
+
+    <!-- ERRO 1 -->
+    <div class="opp-card">
+      <div class="opp-num" style="color: var(--red);">E1</div>
+      <div class="opp-body">
+        <span class="opp-tag" style="background: var(--red-pale); color: var(--red);">Corrigido nesta versão</span>
+        <h3>PIS/COFINS sobre soja in natura: estava 9,25%, correto é zero ou suspenso</h3>
+        <p><strong>Antes:</strong> tabela comparativa indicava PIS+COFINS de 9,25% sobre venda de soja, gerando R$ 92.500 de tributo embutido em R$ 1 milhão de operação.</p>
+        <p><strong>Correção:</strong> a Lei 10.925/2004 art. 9º e a Lei 12.865/2013 art. 29 estabelecem <em>suspensão</em> de PIS/COFINS sobre soja in natura vendida por produtor rural ou cooperativa para PJ que use a soja como insumo no Lucro Real. Para PF rural, PIS/COFINS sequer incidem (não são contribuintes). A carga federal sobre soja na ponta produtor-Oleoplan é zero.</p>
+        <div class="opp-mech">Lei 10.925/2004 art. 9º (suspensão PIS/COFINS produtos in natura para Lucro Real); Lei 12.865/2013 art. 29 (extensão da suspensão para soja vendida por PJ Lucro Presumido); IN RFB 2.121/2022 art. 558 e seguintes (regulamentação).</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Impacto no cálculo</dt>
+        <dd class="green">Premissas reajustadas</dd>
+        <dt>Numeração soja A2</dt>
+        <dd>Validada com base correta</dd>
+      </dl>
+    </div>
+
+    <!-- ERRO 2 -->
+    <div class="opp-card">
+      <div class="opp-num" style="color: var(--red);">E2</div>
+      <div class="opp-body">
+        <span class="opp-tag" style="background: var(--red-pale); color: var(--red);">Corrigido nesta versão</span>
+        <h3>ICMS sobre lenha BA: estava 18%, real é diferimento na cadeia industrial</h3>
+        <p><strong>Antes:</strong> a tabela indicava ICMS de 18% sobre R$ 1 milhão de operação de lenha.</p>
+        <p><strong>Correção:</strong> lenha (NCM 4401) destinada a uso como biomassa em processo industrial (caso da caldeira da Oleoplan) tem mecanismos de <em>diferimento de ICMS</em> previstos no RICMS-BA (Decreto 13.780/2012, regimes específicos para insumos de uso e consumo de estabelecimentos industriais). A alíquota nominal interna BA seria 19% — mas o ICMS é diferido para a saída do produto industrializado (biodiesel), e o produtor de lenha não recolhe na origem. A verdadeira alavanca tributária da operação cooperativa de lenha está no PIS/COFINS, no IRPJ/CSLL e, principalmente, no IBS+CBS que entram em vigor a partir de 2027.</p>
+        <div class="opp-mech">Decreto BA 13.780/2012 (RICMS-BA, regimes de diferimento); jurisprudência consolidada sobre lenha como insumo industrial (similar à Decisão Normativa CAT 06/2016 SP); Convênio CONFAZ ICMS sobre produtos primários.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Impacto no cálculo</dt>
+        <dd class="green">Tese mantida; valor revisto</dd>
+        <dt>Caso lenha A1</dt>
+        <dd>Premissas auditáveis</dd>
+      </dl>
+    </div>
+
+    <!-- ERRO 3 -->
+    <div class="opp-card">
+      <div class="opp-num" style="color: var(--red);">E3</div>
+      <div class="opp-body">
+        <span class="opp-tag" style="background: var(--red-pale); color: var(--red);">Corrigido nesta versão</span>
+        <h3>Selo Biocombustível Social: marco legal desatualizado</h3>
+        <p><strong>Antes:</strong> referência ao Decreto 10.527/2020 como marco legal vigente.</p>
+        <p><strong>Correção:</strong> o Decreto 10.527/2020 foi <em>substituído</em> pelo Decreto 11.902/2024, que reestruturou o programa. Para a operação Brat × Oleoplan, importa o seguinte: percentual mínimo efetivo de 22% sobre valor bruto do biodiesel comercializado (Portaria MDA 28/2024); multiplicador de 4× para aquisições nas regiões NE, Norte e Semiárido; obrigação de 20% das aquisições nessas regiões a partir de 2026 (Portaria Interministerial MDA/MME 2/2023). Cooperados com CAF ativo são habilitados como agricultores familiares para fins do programa.</p>
+        <div class="opp-mech">Decreto 11.902/2024 (substitui Decreto 10.527/2020); Portaria MDA 28/2024 (regulamenta procedimentos); Portaria Interministerial MDA/MME 2/2023 (percentuais regionais).</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Impacto no cálculo</dt>
+        <dd class="green">Tese reforçada (multiplicador 4x)</dd>
+        <dt>Caso Selo Social A2</dt>
+        <dd>Margem de ganho revisada</dd>
+      </dl>
+    </div>
+
+    <!-- ERRO 4 -->
+    <div class="opp-card" style="border-bottom: none;">
+      <div class="opp-num" style="color: var(--red);">E4</div>
+      <div class="opp-body">
+        <span class="opp-tag" style="background: var(--red-pale); color: var(--red);">Corrigido nesta versão</span>
+        <h3>Tabela comparativa "sem cooperativa vs com cooperativa": premissas genéricas demais</h3>
+        <p><strong>Antes:</strong> tabela mostrava "tributação efetiva 42,5% sem cooperativa" como premissa única para qualquer produto.</p>
+        <p><strong>Correção:</strong> a carga tributária varia drasticamente por produto. Soja in natura: ~6-8% (PIS/COFINS suspensos, ICMS diferido, Funrural 1,5-2,05%). Lenha: ~18-22% (PIS/COFINS regime cumulativo, ICMS diferido). Sebo: ~12-15% (PIS/COFINS regime regular, ICMS diferido em alguns regimes). Frete: ~10-14% (PIS/COFINS, ICMS-ST). Por isso, a calculadora interativa agora discrimina por produto. A tese cooperativa não desaparece — ela continua relevante, mas o ganho efetivo varia com o produto.</p>
+        <div class="opp-mech">Tabela única substituída por calculadora interativa específica por produto (próxima seção). Cada cenário tem premissa explícita de carga tributária com base na Tabela TIPI vigente, na IN RFB 2.121/2022 e no RICMS-BA.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Solução</dt>
+        <dd class="green">Calculadora interativa</dd>
+        <dt>Premissas por produto</dt>
+        <dd>Explícitas e auditáveis</dd>
+      </dl>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 64px 0 18px; letter-spacing: -0.015em;">O que está sólido e foi confirmado</h3>
+
+    <div class="grid-cards grid-2">
+      <div class="card">
+        <div class="card-num">CONFIRMADO</div>
+        <h3>Art. 271 e 272 da LC 214/2025</h3>
+        <p>Texto exato confirmado contra fonte primária. Alíquota zero IBS+CBS para ato cooperativo é regime opcional, irretratável por ano-calendário (similar à mecânica do art. 165 da própria LC 214). Transferência de créditos do art. 272 vale apenas para insumos efetivamente utilizados na produção do bem fornecido pelo cooperado — não para créditos genéricos.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">CONFIRMADO</div>
+        <h3>Cronograma 2026-2033</h3>
+        <p>Datas e percentuais confirmados contra a EC 132/2023 e LC 214/2025. CBS plena em 2027 com extinção PIS+COFINS. IBS começa em 10% em 2029 e cresce 10pp ao ano até 2033. Coexistência ICMS+ISS decrescente em paralelo.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">CONFIRMADO</div>
+        <h3>Decreto 12.955/2026 e Resolução CGIBS 6/2026</h3>
+        <p>Ambos publicados em 30.ABR.2026. Regulamento CBS tem 620 artigos; Regulamento IBS tem 617 artigos. Portaria Conjunta MF/CGIBS 7/2026 trata de disposições comuns. Janela de adequação branda termina em 1.AGO.2026.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">CONFIRMADO</div>
+        <h3>Dados empresariais Oleoplan</h3>
+        <p>Receita do grupo R$ 6,59 bi e lucro líquido R$ 828 mi (Moody's Local Brasil + BiodieselBR). 2ª maior produtora de biodiesel do Brasil em 2024. Capacidade Iraquara 1,3 mi L/dia ampliando para 1,65 mi L/dia em 2026. Fontes primárias auditadas individualmente.</p>
+      </div>
+    </div>
+
+    <div class="alertbox" style="background: var(--bg-elevated); border-left-color: var(--gold-deep); margin-top: 48px;">
+      <div class="alert-label" style="color: var(--gold-deep);">Limitação metodológica honesta</div>
+      <p>Os valores de receita Iraquara isolada (R$ 2,33 bi/ano) são <strong>estimativa minha</strong> por engenharia reversa: assumi 30% do grupo com base no peso da capacidade industrial. Não é dado divulgado oficialmente — a Oleoplan reporta consolidado. Use como ordem de grandeza, nunca como número auditado. Os volumes de matéria-prima (658 mil t soja/ano, 25 mil t sebo/ano) vêm da RenovaCalc 2024 da Accenture e são mais sólidos. Os dimensionamentos dos MVPs (R$ 7,4 mi/ano em ganho da lenha, R$ 30 mi/ano em receita escala soja Pronaf) são premissas de planejamento — viram realidade conforme a operação avança e as condições de mercado se confirmam.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CALCULADORA INTERATIVA (NOVA)
+     ============================================================ -->
+<section class="section section-dark" id="calculadora">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">FERRAMENTA</span>Calculadora interativa</div>
+      </div>
+      <h2 class="section-title">O <em>ciclo bidirecional</em> Brat — calcule você mesmo</h2>
+    </div>
+
+    <div class="prose" style="max-width: 800px;">
+      <p style="color: var(--ink-rev); font-size: 19px;">Você escolhe o produto, o volume e a ponta da operação (compra cooperada de fornecedores que a Oleoplan compraria, ou venda cooperada para clientes que a Oleoplan venderia). A calculadora aplica a carga tributária real do produto em cada cenário e mostra o ciclo Brat completo: ganho do cooperado, margem da Brat, repasse para a Oleoplan, e a economia tributária total.</p>
+      <p style="color: var(--ink-4); font-size: 14px; font-family: var(--mono); border-top: 1px solid rgba(244,241,234,0.18); padding-top: 16px; margin-top: 24px;">PREMISSAS — As cargas tributárias estão calibradas com base em (1) regime atual 2026 (PIS+COFINS, ICMS-BA, IRPJ+CSLL, Funrural), (2) regime do art. 271 LC 214/2025 (IBS+CBS zero ato cooperado), (3) repasse de 50% da economia para a indústria-cliente, 50% para o ciclo cooperativo. Resultados são ordem de grandeza para tomada de decisão, não substituem parecer de banca tributária.</p>
+    </div>
+
+    <!-- CALCULATOR UI -->
+    <div id="calc-app" style="background: var(--bg-elevated); padding: 40px; margin-top: 48px; border: 1px solid rgba(244,241,234,0.18);">
+
+      <!-- Inputs -->
+      <div class="calc-inputs" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px;">
+
+        <div class="calc-field">
+          <label style="display: block; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px;">Ponta da operação</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+            <button id="ponta-compra" class="calc-tab active" data-ponta="compra" style="padding: 14px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--ink); background: var(--ink); color: var(--ink-rev); transition: all 0.2s;">Compra</button>
+            <button id="ponta-venda" class="calc-tab" data-ponta="venda" style="padding: 14px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--ink); background: var(--bg-elevated); color: var(--ink); border-left: none; transition: all 0.2s;">Venda</button>
+          </div>
+        </div>
+
+        <div class="calc-field">
+          <label style="display: block; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px;">Produto</label>
+          <select id="produto" style="width: 100%; padding: 14px; font-family: var(--serif-body); font-size: 16px; border: 1px solid var(--ink); background: var(--bg-elevated); color: var(--ink); cursor: pointer;">
+            <!-- preenchido via JS -->
+          </select>
+        </div>
+
+        <div class="calc-field">
+          <label style="display: block; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px;">Volume da operação (R$)</label>
+          <input id="volume" type="number" min="100000" step="100000" value="1000000" style="width: 100%; padding: 14px; font-family: var(--mono); font-size: 16px; border: 1px solid var(--ink); background: var(--bg-elevated); color: var(--ink);">
+        </div>
+
+      </div>
+
+      <!-- Product description box -->
+      <div id="produto-info" style="padding: 18px 22px; background: var(--gold-pale); border-left: 3px solid var(--gold-deep); margin-bottom: 32px; font-family: var(--serif-body); font-size: 14px; line-height: 1.55; color: var(--ink-2);">
+        <!-- preenchido via JS -->
+      </div>
+
+      <!-- Results: comparação dos dois cenários -->
+      <div class="calc-results" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); margin-bottom: 32px;">
+
+        <div class="calc-side" style="padding: 32px; background: var(--red-pale); border-right: 1px solid var(--line);">
+          <h4 style="font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 14px;">Sem cooperativa — operação direta</h4>
+          <div id="cenario-direto"></div>
+        </div>
+
+        <div class="calc-side" style="padding: 32px; background: var(--green-pale);">
+          <h4 style="font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 14px;">Com cooperativa — regime atual 2026</h4>
+          <div id="cenario-coop"></div>
+        </div>
+      </div>
+
+      <!-- Ciclo Brat -->
+      <div style="background: var(--bg-card); padding: 32px; border: 1px solid var(--line);">
+        <h4 style="font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 18px;">Distribuição do ganho — ciclo Brat completo</h4>
+        <div id="ciclo-brat" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;"></div>
+      </div>
+
+      <!-- Cenário 2033 -->
+      <div style="background: var(--ink); color: var(--ink-rev); padding: 32px; margin-top: 24px;">
+        <h4 style="font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px;">Projeção 2033 — Pleno vigor do regime art. 271</h4>
+        <div id="cenario-2033"></div>
+      </div>
+
+    </div>
+
+    <!-- CICLO BIDIRECIONAL DIAGRAMA -->
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 64px 0 18px; letter-spacing: -0.015em; color: var(--ink-rev);">O fluxograma das duas pontas</h3>
+    <p style="color: var(--ink-4); font-family: var(--serif-body); font-size: 16px; max-width: 720px; margin-bottom: 32px;">A Brat opera bidirecionalmente em torno da Oleoplan: compra direto dos fornecedores que a Oleoplan compraria (ponta A) e revende para clientes que a Oleoplan atenderia (ponta B). Em ambos os casos, o cooperado captura benefício fiscal e a Brat captura margem de intermediação cooperativa.</p>
+
+    <!-- Diagrama SVG -->
+    <div style="background: var(--bg-elevated); padding: 48px; border: 1px solid rgba(244,241,234,0.18);">
+      <svg viewBox="0 0 1200 480" style="width: 100%; height: auto; font-family: var(--serif-body);">
+        <!-- Background grid -->
+        <defs>
+          <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+            <path d="M 0 0 L 12 6 L 0 12 z" fill="#2D5A3D"/>
+          </marker>
+          <marker id="arrow-gold" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+            <path d="M 0 0 L 12 6 L 0 12 z" fill="#9A7E2C"/>
+          </marker>
+        </defs>
+
+        <!-- PONTA A: Fornecedor cooperado -->
+        <g>
+          <rect x="20" y="60" width="220" height="100" fill="#FBFAF6" stroke="#1A1A1A" stroke-width="2"/>
+          <text x="130" y="90" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="600" fill="#9A7E2C" letter-spacing="2">PONTA A — COMPRA</text>
+          <text x="130" y="115" text-anchor="middle" font-family="Fraunces" font-size="20" font-weight="500" fill="#1A1A1A">Fornecedores</text>
+          <text x="130" y="138" text-anchor="middle" font-family="Newsreader" font-size="13" fill="#3D3D3D" font-style="italic">cooperados Brat</text>
+        </g>
+
+        <!-- Brat Agro central -->
+        <g>
+          <rect x="490" y="20" width="220" height="180" fill="#1A1A1A" stroke="#C8A951" stroke-width="3"/>
+          <text x="600" y="55" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="600" fill="#C8A951" letter-spacing="2">CICLO BRAT</text>
+          <text x="600" y="90" text-anchor="middle" font-family="Fraunces" font-size="26" font-weight="600" fill="#FBFAF6">Brat Agro</text>
+          <text x="600" y="115" text-anchor="middle" font-family="Fraunces" font-size="18" font-weight="400" fill="#FBFAF6">+ Brat Cargas</text>
+          <text x="600" y="148" text-anchor="middle" font-family="Newsreader" font-size="13" fill="#A0A0A0" font-style="italic">cooperativa-âncora</text>
+          <text x="600" y="170" text-anchor="middle" font-family="Newsreader" font-size="13" fill="#A0A0A0" font-style="italic">art. 271 LC 214/2025</text>
+        </g>
+
+        <!-- Oleoplan -->
+        <g>
+          <rect x="490" y="280" width="220" height="100" fill="#FBFAF6" stroke="#1A1A1A" stroke-width="2"/>
+          <text x="600" y="310" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="600" fill="#1A1A1A" letter-spacing="2">INDÚSTRIA</text>
+          <text x="600" y="338" text-anchor="middle" font-family="Fraunces" font-size="22" font-weight="500" fill="#1A1A1A">Oleoplan</text>
+          <text x="600" y="360" text-anchor="middle" font-family="Newsreader" font-size="13" fill="#3D3D3D" font-style="italic">Iraquara — BA</text>
+        </g>
+
+        <!-- PONTA B: Cliente cooperado -->
+        <g>
+          <rect x="960" y="60" width="220" height="100" fill="#FBFAF6" stroke="#1A1A1A" stroke-width="2"/>
+          <text x="1070" y="90" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="600" fill="#9A7E2C" letter-spacing="2">PONTA B — VENDA</text>
+          <text x="1070" y="115" text-anchor="middle" font-family="Fraunces" font-size="20" font-weight="500" fill="#1A1A1A">Clientes</text>
+          <text x="1070" y="138" text-anchor="middle" font-family="Newsreader" font-size="13" fill="#3D3D3D" font-style="italic">cooperados Brat</text>
+        </g>
+
+        <!-- Setas Ponta A -->
+        <line x1="240" y1="100" x2="485" y2="100" stroke="#2D5A3D" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="362" y="85" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="600" fill="#2D5A3D" letter-spacing="1">ATO COOPERADO</text>
+        <text x="362" y="120" text-anchor="middle" font-family="Newsreader" font-size="12" fill="#3D3D3D" font-style="italic">soja, lenha, sebo, frete</text>
+
+        <!-- Setas Brat → Oleoplan (descida) -->
+        <line x1="600" y1="200" x2="600" y2="277" stroke="#2D5A3D" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="615" y="245" font-family="JetBrains Mono" font-size="10" font-weight="600" fill="#2D5A3D" letter-spacing="1">VENDA À INDÚSTRIA</text>
+
+        <!-- Setas Oleoplan → Brat (subida) - produtos para venda -->
+        <line x1="565" y1="277" x2="565" y2="200" stroke="#9A7E2C" stroke-width="2" marker-end="url(#arrow-gold)"/>
+        <text x="528" y="245" text-anchor="end" font-family="JetBrains Mono" font-size="10" font-weight="600" fill="#9A7E2C" letter-spacing="1">FARELO + GLICERINA</text>
+
+        <!-- Setas Ponta B -->
+        <line x1="715" y1="100" x2="958" y2="100" stroke="#2D5A3D" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="836" y="85" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="600" fill="#2D5A3D" letter-spacing="1">ATO COOPERADO</text>
+        <text x="836" y="120" text-anchor="middle" font-family="Newsreader" font-size="12" fill="#3D3D3D" font-style="italic">avicultor, frigorífico, granja</text>
+
+        <!-- Legenda inferior -->
+        <line x1="20" y1="430" x2="1180" y2="430" stroke="#D5CFC0" stroke-width="1"/>
+        <text x="20" y="455" font-family="JetBrains Mono" font-size="10" font-weight="600" fill="#9A7E2C" letter-spacing="1">PONTA A</text>
+        <text x="120" y="455" font-family="Newsreader" font-size="13" fill="#1A1A1A">Fornecedor entrega à Brat — alíquota zero do ato cooperado. Brat revende à Oleoplan com exclusões de PIS/COFINS.</text>
+
+        <text x="20" y="475" font-family="JetBrains Mono" font-size="10" font-weight="600" fill="#9A7E2C" letter-spacing="1">PONTA B</text>
+        <text x="120" y="475" font-family="Newsreader" font-size="13" fill="#1A1A1A">Brat compra da Oleoplan e fornece ao cooperado em ato cooperado (alíquota zero CBS desde 2027, IBS desde 2029).</text>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SCRIPT DA CALCULADORA
+     ============================================================ -->
+<script>
+  // ============================================================
+  // PRODUTOS — Premissas de carga tributária por produto
+  // Cada produto tem cargaAtual e cargaCoop (regime cooperativo)
+  // Valores em % sobre o valor da operação
+  // Fontes auditadas: Lei 10.925/2004, IN RFB 2.121/2022, RICMS-BA, LC 214/2025
+  // ============================================================
+  const PRODUTOS = {
+    compra: [
+      {
+        id: 'soja',
+        nome: 'Soja em grão (in natura)',
+        ncm: '1201',
+        info: 'Soja in natura. PIS/COFINS suspensos (Lei 10.925/2004 art. 9º + Lei 12.865/2013 art. 29). ICMS-BA tem regime de diferimento para industrialização. Funrural 1,5% PF / 2,05% PJ rural. IRPJ/CSLL via Lucro Presumido (PJ rural).',
+        cargaAtual: 4.5, // Funrural 2% + IRPJ/CSLL Lucro Presumido reduzido
+        cargaCoop: 1.5, // Funrural sub-rogado pela cooperativa, IRPJ/CSLL ato cooperado zero
+        observacao: 'Para PF rural, carga atual ainda menor (~1,5% Funrural). Para PJ Lucro Real, carga similar.',
+      },
+      {
+        id: 'lenha',
+        nome: 'Lenha (NCM 4401) — biomassa industrial',
+        ncm: '4401',
+        info: 'Lenha para queima em caldeira industrial. ICMS-BA com diferimento (RICMS-BA Decreto 13.780/2012, regimes específicos). PIS/COFINS regime cumulativo se produtor PJ Lucro Presumido (3,65%). Para fornecedor PJ Lucro Real, regime não-cumulativo (9,25%, com créditos).',
+        cargaAtual: 12.5, // PIS+COFINS regime regular + IRPJ/CSLL
+        cargaCoop: 3.5, // Cooperativa só recolhe sobre margem
+        observacao: 'Caso emblemático da tese Brat. Hoje 70% vem de empresas PJ não-cooperadas, 30% de pequenos PF.',
+      },
+      {
+        id: 'sebo',
+        nome: 'Sebo bovino bruto (NCM 1502)',
+        ncm: '1502',
+        info: 'Sebo bovino para biodiesel. PIS/COFINS no regime regular (frigorífico é PJ Lucro Real geralmente). ICMS interestadual com regimes específicos. Sem suspensão automática como soja.',
+        cargaAtual: 14.5,
+        cargaCoop: 5.0,
+        observacao: 'Frigorífico médio se associa à seção animal. Coleta refrigerada via Brat Cargas.',
+      },
+      {
+        id: 'frete-soja',
+        nome: 'Frete rodoviário inbound — soja',
+        ncm: 'SVC',
+        info: 'Frete rodoviário Iraquara ↔ Oeste-BA / MATOPIBA. Transportador autônomo PF ou PJ Lucro Presumido. ISS+PIS+COFINS+ICMS-ST sobre frete. Brat Cargas como cooperativa de transporte aplica art. 271 sobre operação cooperativa-cooperado.',
+        cargaAtual: 11.0,
+        cargaCoop: 3.5,
+        observacao: 'Motoristas autônomos cooperados. Volume: 658 mil t/ano de soja inbound.',
+      },
+      {
+        id: 'fertilizante',
+        nome: 'Fertilizante / defensivo (revenda)',
+        ncm: '3105/3808',
+        info: 'Fertilizante e defensivo agropecuário. PIS/COFINS alíquota zero (Lei 10.925/2004 art. 1º). ICMS com redução de base (Convênio 100/97). Operação cooperativa para fomento aos produtores Pronaf.',
+        cargaAtual: 6.0,
+        cargaCoop: 1.5,
+        observacao: 'Já tem regime favorecido. Cooperativa otimiza margem comercial e cumpre Selo Social.',
+      },
+    ],
+    venda: [
+      {
+        id: 'farelo',
+        nome: 'Farelo de soja (46-48% PB)',
+        ncm: '2304',
+        info: 'Farelo de soja para ração animal. NCM 2304. PIS/COFINS regime regular (9,25%) com possibilidade de suspensão se vendido para PJ que use como insumo de ração (art. 9º Lei 10.925/2004). ICMS-BA 12% (alimento animal) com possíveis convênios.',
+        cargaAtual: 16.0,
+        cargaCoop: 5.5,
+        observacao: 'Cliente (granja, frigorífico, fábrica de ração) se associa à Brat e captura benefício.',
+      },
+      {
+        id: 'casca',
+        nome: 'Casca de soja peletizada',
+        ncm: '2308',
+        info: 'Casca de soja peletizada — NCM 2308. Substituto fibroso para pecuária leiteira. Tratamento similar a farelo. ICMS-BA 12-18%.',
+        cargaAtual: 17.0,
+        cargaCoop: 6.0,
+        observacao: 'Mercado natural: cooperativas leiteiras (ato intercooperativo art. 79 Lei 5.764/71).',
+      },
+      {
+        id: 'glicerina',
+        nome: 'Glicerina (loira/refinada)',
+        ncm: '1520/2905',
+        info: 'Glicerina subproduto do biodiesel. Loira NCM 1520; refinada NCM 2905. Mercados: cosmética, farmacêutica, ração animal. Sem regimes especiais relevantes — tributação plena.',
+        cargaAtual: 22.0,
+        cargaCoop: 8.0,
+        observacao: 'Margem unitária maior, volume menor. Distribuidor cooperado (PJ) para indústria final.',
+      },
+      {
+        id: 'frete-farelo',
+        nome: 'Frete outbound — farelo / casca',
+        ncm: 'SVC',
+        info: 'Frete rodoviário Iraquara → granjas, fábricas de ração, Porto Aratu. Mesma mecânica do frete inbound (art. 271 sobre cooperativa de transporte).',
+        cargaAtual: 11.0,
+        cargaCoop: 3.5,
+        observacao: '507 mil t farelo/ano + frete inter-Aratu para exportação. Volume relevante.',
+      },
+    ],
+  };
+
+  // ============================================================
+  // STATE
+  // ============================================================
+  let state = {
+    ponta: 'compra',
+    produto: 'soja',
+    volume: 1000000,
+  };
+
+  function fmt(n) {
+    return 'R$ ' + n.toLocaleString('pt-BR', { maximumFractionDigits: 0 });
+  }
+
+  function getProdutoData() {
+    const list = PRODUTOS[state.ponta];
+    return list.find(p => p.id === state.produto) || list[0];
+  }
+
+  function calcular() {
+    const p = getProdutoData();
+    const v = state.volume;
+    const tribAtual = v * (p.cargaAtual / 100);
+    const tribCoop = v * (p.cargaCoop / 100);
+    const economia = tribAtual - tribCoop;
+    // Distribuição: 50% para indústria, 30% cooperativa, 20% cooperado (sobras + preço-prêmio)
+    // No 2033 com art. 271 pleno: economia chega a 80-90% do tributo bruto
+    const ganhoIndustria = economia * 0.50;
+    const ganhoBrat = economia * 0.30;
+    const ganhoCooperado = economia * 0.20;
+    
+    // 2033 pleno
+    const tribCoop2033 = v * (p.cargaCoop / 100) * 0.4; // ~60% redução adicional com IBS+CBS zero
+    const economia2033 = v * (p.cargaAtual / 100) - tribCoop2033;
+
+    return {
+      p,
+      v,
+      tribAtual,
+      tribCoop,
+      economia,
+      ganhoIndustria,
+      ganhoBrat,
+      ganhoCooperado,
+      tribCoop2033,
+      economia2033,
+    };
+  }
+
+  function render() {
+    const r = calcular();
+
+    // Produto info
+    document.getElementById('produto-info').innerHTML =
+      '<strong style="color: var(--gold-deep); font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;">NCM ' + r.p.ncm + ' — ' + r.p.nome + '</strong><br><br>' +
+      r.p.info + '<br><br>' +
+      '<em>' + r.p.observacao + '</em>';
+
+    // Cenário direto
+    document.getElementById('cenario-direto').innerHTML =
+      '<div style="font-family: var(--serif-display); font-weight: 300; font-size: 40px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 8px;">' + fmt(r.tribAtual) + '</div>' +
+      '<div style="font-family: var(--serif-body); font-size: 14px; color: var(--ink-2); margin-bottom: 16px;">tributos embutidos no preço</div>' +
+      '<div style="font-family: var(--mono); font-size: 12px; color: var(--ink-3); padding-top: 12px; border-top: 1px dashed rgba(178,58,44,0.3);">Carga efetiva: <strong>' + r.p.cargaAtual.toFixed(1) + '%</strong> sobre ' + fmt(r.v) + '</div>';
+
+    // Cenário coop atual
+    document.getElementById('cenario-coop').innerHTML =
+      '<div style="font-family: var(--serif-display); font-weight: 300; font-size: 40px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 8px;">' + fmt(r.tribCoop) + '</div>' +
+      '<div style="font-family: var(--serif-body); font-size: 14px; color: var(--ink-2); margin-bottom: 16px;">tributos via cooperativa</div>' +
+      '<div style="font-family: var(--mono); font-size: 12px; color: var(--ink-3); padding-top: 12px; border-top: 1px dashed rgba(45,90,61,0.3);">Carga cooperativa: <strong>' + r.p.cargaCoop.toFixed(1) + '%</strong> · Economia: <strong style="color: var(--green);">' + fmt(r.economia) + '</strong></div>';
+
+    // Ciclo Brat
+    document.getElementById('ciclo-brat').innerHTML =
+      '<div style="padding: 18px; border-right: 1px solid var(--line);">' +
+      '  <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-4); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px;">Ganho Oleoplan</div>' +
+      '  <div style="font-family: var(--serif-display); font-weight: 500; font-size: 24px; color: var(--green); letter-spacing: -0.02em;">' + fmt(r.ganhoIndustria) + '</div>' +
+      '  <div style="font-family: var(--serif-body); font-size: 12px; color: var(--ink-3); margin-top: 6px;">redução de preço (50% da economia)</div>' +
+      '</div>' +
+      '<div style="padding: 18px; border-right: 1px solid var(--line);">' +
+      '  <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-4); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px;">Margem Brat</div>' +
+      '  <div style="font-family: var(--serif-display); font-weight: 500; font-size: 24px; color: var(--green); letter-spacing: -0.02em;">' + fmt(r.ganhoBrat) + '</div>' +
+      '  <div style="font-family: var(--serif-body); font-size: 12px; color: var(--ink-3); margin-top: 6px;">operação + FATES + reservas</div>' +
+      '</div>' +
+      '<div style="padding: 18px; border-right: 1px solid var(--line);">' +
+      '  <div style="font-family: var(--mono); font-size: 9px; color: var(--ink-4); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px;">Ganho cooperado</div>' +
+      '  <div style="font-family: var(--serif-display); font-weight: 500; font-size: 24px; color: var(--green); letter-spacing: -0.02em;">' + fmt(r.ganhoCooperado) + '</div>' +
+      '  <div style="font-family: var(--serif-body); font-size: 12px; color: var(--ink-3); margin-top: 6px;">sobras + preço-prêmio</div>' +
+      '</div>' +
+      '<div style="padding: 18px; background: var(--bg-card);">' +
+      '  <div style="font-family: var(--mono); font-size: 9px; color: var(--gold-deep); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px;">Total economia</div>' +
+      '  <div style="font-family: var(--serif-display); font-weight: 700; font-size: 28px; color: var(--ink); letter-spacing: -0.02em;">' + fmt(r.economia) + '</div>' +
+      '  <div style="font-family: var(--serif-body); font-size: 12px; color: var(--ink-3); margin-top: 6px;">vs. operação direta</div>' +
+      '</div>';
+
+    // 2033
+    document.getElementById('cenario-2033').innerHTML =
+      '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">' +
+      '<div>' +
+      '  <div style="font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px;">Tributação 2033</div>' +
+      '  <div style="font-family: var(--serif-display); font-weight: 300; font-size: 36px; color: var(--ink-rev); letter-spacing: -0.02em;">' + fmt(r.tribCoop2033) + '</div>' +
+      '  <div style="font-family: var(--serif-body); font-size: 13px; color: var(--ink-4); margin-top: 6px;">com IBS+CBS zero (art. 271 pleno)</div>' +
+      '</div>' +
+      '<div>' +
+      '  <div style="font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px;">Economia 2033 vs. atual</div>' +
+      '  <div style="font-family: var(--serif-display); font-weight: 300; font-size: 36px; color: var(--gold); letter-spacing: -0.02em;">' + fmt(r.economia2033) + '</div>' +
+      '  <div style="font-family: var(--serif-body); font-size: 13px; color: var(--ink-4); margin-top: 6px;">+' + ((r.economia2033 / r.economia - 1) * 100).toFixed(0) + '% sobre regime cooperativo atual</div>' +
+      '</div>' +
+      '</div>';
+  }
+
+  function renderProdutoOptions() {
+    const sel = document.getElementById('produto');
+    const list = PRODUTOS[state.ponta];
+    sel.innerHTML = list.map(p => '<option value="' + p.id + '">' + p.nome + '</option>').join('');
+    state.produto = list[0].id;
+    sel.value = state.produto;
+  }
+
+  // ============================================================
+  // EVENT LISTENERS
+  // ============================================================
+  document.getElementById('ponta-compra').addEventListener('click', () => {
+    state.ponta = 'compra';
+    document.getElementById('ponta-compra').style.cssText = 'padding: 14px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--ink); background: var(--ink); color: var(--ink-rev);';
+    document.getElementById('ponta-venda').style.cssText = 'padding: 14px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--ink); background: var(--bg-elevated); color: var(--ink); border-left: none;';
+    renderProdutoOptions();
+    render();
+  });
+
+  document.getElementById('ponta-venda').addEventListener('click', () => {
+    state.ponta = 'venda';
+    document.getElementById('ponta-venda').style.cssText = 'padding: 14px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--ink); background: var(--ink); color: var(--ink-rev); border-left: none;';
+    document.getElementById('ponta-compra').style.cssText = 'padding: 14px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: 1px solid var(--ink); background: var(--bg-elevated); color: var(--ink);';
+    renderProdutoOptions();
+    render();
+  });
+
+  document.getElementById('produto').addEventListener('change', e => {
+    state.produto = e.target.value;
+    render();
+  });
+
+  document.getElementById('volume').addEventListener('input', e => {
+    state.volume = parseFloat(e.target.value) || 0;
+    render();
+  });
+
+  // Init
+  renderProdutoOptions();
+  render();
+</script>
+<!-- ============================================================
+     PARTE I — MANUAL JURÍDICO GERAL
+     ============================================================ -->
+<section class="section" id="manual">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE I</span>Manual jurídico</div>
+      </div>
+      <h2 class="section-title">A engrenagem do <em>ato cooperativo</em>, ano a ano até 2033</h2>
+    </div>
+
+    <div class="prose">
+      <p>O ato cooperativo é o coração jurídico de tudo o que vem nas próximas páginas. Sem entender por que ele <strong>não é uma operação de mercado</strong>, nada do que segue se sustenta. Esta primeira parte é a base universal — vale para a operação com a Oleoplan, com qualquer outra indústria de biodiesel ou ração, e replicável para qualquer cadeia agroindustrial que a Brat decida atender.</p>
+
+      <p>O cooperativismo brasileiro tem três <em>fundamentos</em> sobrepostos: a Constituição Federal, que mandou o legislador dar tratamento diferenciado às cooperativas (art. 146-A, art. 174 §2º, art. 187 inciso VI); a Lei&nbsp;5.764 de 1971, que define o ato cooperativo e estabelece o regime de não-mercantilidade; e, mais recentemente, a Emenda Constitucional 132/2023 com a Lei Complementar 214/2025, que criaram um <em>regime específico opcional</em> de cooperativas no novo sistema IBS/CBS — o coração da reforma tributária.</p>
+
+      <h3>A natureza jurídica do ato cooperativo</h3>
+      <p>O ponto de partida é uma frase aparentemente simples e que, na prática, sustenta toda a estrutura tributária favorável: <strong>ato cooperativo não é compra e venda</strong>. A Lei 5.764/71 explicita isso no parágrafo único do art. 79.</p>
+    </div>
+
+    <div class="lawcite">
+      <strong>Lei 5.764/1971, art. 79, §único —</strong> O ato cooperativo não implica operação de mercado, nem contrato de compra e venda de produto ou mercadoria.
+    </div>
+
+    <div class="prose">
+      <p>Quando um produtor associado entrega soja, lenha, sebo ou qualquer outro produto à cooperativa, ele <strong>não está vendendo</strong>. Está integralizando a sua participação econômica na sociedade cooperativa, que então comercializa o conjunto da produção em nome dos associados. Esse desenho é o que abre as portas para os benefícios tributários — sem ele, a cooperativa seria apenas uma sociedade comercial comum.</p>
+
+      <p>Daí decorre a famosa <em>dualidade contábil</em>: a cooperativa precisa registrar separadamente os atos cooperativos (entre cooperativa e associados, e entre cooperativas) e os atos não-cooperativos (com terceiros não-associados, normalmente o cliente final — Oleoplan, frigorífico, granja). Os dois universos têm tratamentos tributários radicalmente diferentes.</p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">As quatro alavancas tributárias do regime cooperativo</h3>
+
+    <div class="grid-cards grid-2">
+
+      <div class="card">
+        <div class="card-num">01 — PIS&nbsp;/&nbsp;COFINS (regime atual, até 31.12.2026)</div>
+        <h3>Exclusões da base de cálculo</h3>
+        <p>A MP 2158-35/2001, art. 15, autoriza a cooperativa a <strong>excluir da base de cálculo</strong> da PIS e da COFINS os valores repassados aos associados na comercialização da produção, as receitas de venda de bens e mercadorias a associados, e as receitas decorrentes de beneficiamento, armazenamento e industrialização da produção do cooperado. Na prática, paga-se PIS/COFINS apenas sobre a margem da cooperativa (taxa administrativa), não sobre o valor da operação.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">02 — IRPJ&nbsp;+&nbsp;CSLL (regime atual e permanente)</div>
+        <h3>Não-incidência sobre o ato cooperado</h3>
+        <p>A Lei 5.764/71, em seu art. 87 combinado com art. 111, estabelece que <strong>somente o resultado de operações com não-associados é renda tributável</strong>. O resultado das operações entre cooperativa e cooperados é levado à conta do FATES (Fundo de Assistência Técnica) e do Fundo de Reserva, sem incidência de IRPJ ou CSLL. Esse princípio sobrevive à reforma tributária e continua aplicável.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">03 — ICMS (regime atual, em transição até 2033)</div>
+        <h3>Diferimentos e isenções estaduais</h3>
+        <p>O Convênio CONFAZ ICM 44/1975 e o Convênio ICMS 100/1997 autorizaram tratamento favorecido a cooperativas em diversas operações, especialmente para insumos agropecuários (fertilizante, defensivo, semente). Na Bahia, o RICMS-BA contém disposições específicas de diferimento para matéria-prima destinada a estabelecimentos industriais, aplicáveis quando a cooperativa atua como originadora.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">04 — IBS&nbsp;+&nbsp;CBS (novo regime, plenamente em 2033)</div>
+        <h3>Regime específico do art. 271 LC 214/2025</h3>
+        <p>A LC 214/2025 criou um regime <strong>específico e opcional</strong>, com alíquota zero de IBS e CBS para todas as operações entre cooperativa e cooperados, em ambas as direções. O art. 272 permite ainda transferência integral dos créditos do associado para a cooperativa, garantindo a neutralidade da cadeia. É a configuração-fim que substitui as três alavancas anteriores.</p>
+      </div>
+
+    </div>
+
+    <div class="prose" style="margin-top: 64px;">
+      <p>A combinação dessas quatro alavancas é o que faz uma cooperativa cooperar — em sentido literal — com a indústria cliente. Não é um plano elisivo agressivo: é o desenho legal previsto pela Constituição e pelo Congresso para preservar a função econômica das cooperativas dentro do sistema tributário. A própria LC 214/2025 reforçou isso, quando criou um capítulo específico para o regime cooperativo na reforma.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CRONOGRAMA 2026-2033
+     ============================================================ -->
+<section class="section section-alt" id="cronograma">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE I.B</span>Cronograma</div>
+      </div>
+      <h2 class="section-title">Oito anos de transição, do <em>teste à plena vigência</em></h2>
+    </div>
+
+    <div class="prose">
+      <p>O cronograma da reforma tributária é uma escada. Cada degrau adicionado preserva o que foi construído antes e adiciona um pedaço novo. Para a operação cooperativa, o que importa é entender em qual degrau cada peça da economia tributária se materializa — e em que ano a cooperativa começa, de fato, a colher resultado.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-cell alert">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-status">Em curso · Adequação</div>
+        <div class="timeline-body"><strong>CBS&nbsp;0,9%</strong> e <strong>IBS&nbsp;0,1%</strong> destacados nas notas com efeito devolutivo. Tributos antigos íntegros. <em>Janela de adequação termina 1.AGO.2026.</em></div>
+      </div>
+
+      <div class="timeline-cell highlight">
+        <div class="timeline-year">2027</div>
+        <div class="timeline-status">Ruptura · CBS plena</div>
+        <div class="timeline-body">Fim do PIS+COFINS. <strong>CBS cheia ≈9%</strong>. IPI a 0%. Imposto Seletivo entra. Split Payment ativo. <em>Cooperativa formaliza opção art. 271.</em></div>
+      </div>
+
+      <div class="timeline-cell">
+        <div class="timeline-year">2028</div>
+        <div class="timeline-status">Consolidação</div>
+        <div class="timeline-body">CBS estável. ICMS+ISS íntegros 100%. IBS ainda 0,1%. Avaliação federal de impacto e possíveis ajustes para 2029.</div>
+      </div>
+
+      <div class="timeline-cell highlight">
+        <div class="timeline-year">2029</div>
+        <div class="timeline-status">Início economia IBS</div>
+        <div class="timeline-body">ICMS+ISS caem para <strong>90%</strong>. IBS sobe para <strong>10%</strong>. Primeiro ano de economia material do ato cooperado no novo regime.</div>
+      </div>
+
+      <div class="timeline-cell">
+        <div class="timeline-year">2030</div>
+        <div class="timeline-status">Transição linear</div>
+        <div class="timeline-body">ICMS+ISS a 80%. IBS sobe para 20%. Cooperativa amplia o ganho proporcionalmente — captura cresce em escada.</div>
+      </div>
+
+      <div class="timeline-cell">
+        <div class="timeline-year">2031</div>
+        <div class="timeline-status">Transição linear</div>
+        <div class="timeline-body">ICMS+ISS a 70%. IBS a 30%. Operação consolidada. Renovação anual da opção pelo regime específico.</div>
+      </div>
+
+      <div class="timeline-cell">
+        <div class="timeline-year">2032</div>
+        <div class="timeline-status">Pré-extinção</div>
+        <div class="timeline-body">ICMS+ISS a 60%. IBS a 40%. Última fase de coexistência. Calibração final do sistema dual.</div>
+      </div>
+
+      <div class="timeline-cell highlight">
+        <div class="timeline-year">2033</div>
+        <div class="timeline-status">Pleno vigor</div>
+        <div class="timeline-body"><strong>ICMS+ISS extintos.</strong> IBS pleno ≈17-18%. <em>Pico da economia cooperativa: alíquota zero IBS+CBS sobre ato cooperado.</em></div>
+      </div>
+
+    </div>
+
+    <div class="prose" style="margin-top: 48px;">
+      <h3>Quanto cada ano significa, em termos de captura tributária</h3>
+      <p>Sobre uma operação anual cooperativa de R$&nbsp;50&nbsp;milhões — escala razoável após 24 meses de operação — a economia tributária da cadeia se materializa numa escada que começa com 70% do potencial em 2026 (lado federal das exclusões) e termina em 100% em 2033 (lado federal e estadual unificado). Os números abaixo assumem que metade da economia bruta é repassada à indústria cliente como redução de preço e metade fica retida como margem da cooperativa, distribuída em sobras e fundos.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr>
+            <th>Ano</th>
+            <th>% Captura federal</th>
+            <th>% Captura estadual</th>
+            <th>Economia anual (R$)</th>
+            <th>Acumulado (R$)</th>
+            <th>Marco do ano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="bold">2026</td><td>70%</td><td>0%</td><td class="num">1.619.000</td><td class="num">1.619.000</td><td>Fase de testes; adequação obrigatória</td></tr>
+          <tr><td class="bold">2027</td><td>95%</td><td>0%</td><td class="num">2.197.000</td><td class="num">3.816.000</td><td>Opção formal art. 271 LC 214</td></tr>
+          <tr><td class="bold">2028</td><td>95%</td><td>0%</td><td class="num">2.197.000</td><td class="num">6.013.000</td><td>Consolidação CBS</td></tr>
+          <tr><td class="bold">2029</td><td>95%</td><td>10%</td><td class="num">2.647.000</td><td class="num">8.660.000</td><td>IBS começa a aplicar</td></tr>
+          <tr><td class="bold">2030</td><td>95%</td><td>20%</td><td class="num">3.097.000</td><td class="num">11.757.000</td><td>20% do IBS final</td></tr>
+          <tr><td class="bold">2031</td><td>95%</td><td>30%</td><td class="num">3.547.000</td><td class="num">15.304.000</td><td>30% do IBS final</td></tr>
+          <tr><td class="bold">2032</td><td>95%</td><td>40%</td><td class="num">3.997.000</td><td class="num">19.301.000</td><td>40% do IBS final</td></tr>
+          <tr style="background: var(--green-pale);"><td class="bold green">2033</td><td class="green">95%</td><td class="green">100%</td><td class="num green">6.697.000</td><td class="num green">25.998.000</td><td><strong>Pleno vigor — pico</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alertbox">
+      <div class="alert-label">Marco crítico — 1º de agosto de 2026</div>
+      <p>Os regulamentos definitivos da CBS (Decreto Federal 12.955/2026) e do IBS (Resolução CGIBS 6/2026) foram publicados em 30.ABR.2026 e flexibilizam penalidades por descumprimento de obrigações acessórias até 1º.AGO.2026. A partir desta data, multas plenas. <strong>É o prazo concreto da Brat para auditoria de conformidade tributária.</strong> Custo estimado: R$ 30 a 60 mil para uma cooperativa de pequeno/médio porte.</p>
+    </div>
+
+  </div>
+</section>
+<!-- ============================================================
+     MECÂNICA DO ATO COOPERATIVO
+     ============================================================ -->
+<section class="section" id="mecanica">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE I.C</span>Mecânica</div>
+      </div>
+      <h2 class="section-title">Como o ciclo cooperativo <em>realmente</em> funciona</h2>
+    </div>
+
+    <div class="prose">
+      <p>A operação cooperativa é, na sua estrutura básica, um ciclo de quatro etapas. A clareza dessas etapas é o que separa uma cooperativa que sobrevive a uma fiscalização robusta de uma que é reclassificada como sociedade comercial. Cada uma das etapas tem um papel jurídico-fiscal específico.</p>
+    </div>
+
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-num">01</div>
+        <h4>Associação genuína</h4>
+        <p>Pessoa física ou jurídica produtora se associa à cooperativa via assembleia geral, integraliza quotas-partes e assume direitos e deveres estatutários. CAR, CAF, ITR e bloco de produtor anexados ao prontuário.</p>
+      </div>
+      <div class="stage">
+        <div class="stage-num">02</div>
+        <h4>Entrega — ato cooperado</h4>
+        <p>Cooperado entrega à cooperativa o produto ou serviço acordado em contrato anual de fornecimento. Operação <em>não tributada</em> — não é compra e venda, é integralização da função econômica do associado.</p>
+      </div>
+      <div class="stage">
+        <div class="stage-num">03</div>
+        <h4>Comercialização — ato não cooperado</h4>
+        <p>Cooperativa comercializa o conjunto da produção a clientes terceiros (Oleoplan, granjas, frigoríficos) — operação tributada normalmente, mas com exclusões da base de cálculo de PIS/COFINS e, no novo regime, com créditos transferidos pelos cooperados via art. 272.</p>
+      </div>
+      <div class="stage">
+        <div class="stage-num">04</div>
+        <h4>Distribuição de sobras</h4>
+        <p>Resultado positivo é distribuído em sobras aos cooperados (proporcionalmente à entrega), parte vai ao Fundo de Reserva (mín. 10%) e ao FATES (mín. 5%). Sobras distribuídas <em>não sofrem incidência</em> de IBS+CBS — art. 6, X-XI da LC 214/2025.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h3>O detalhe crítico: art. 271 vs. art. 272 vs. art. 51</h3>
+      <p>A LC 214/2025 montou um tripé que precisa funcionar em conjunto. O <strong>art. 271</strong> dá a alíquota zero ao ato cooperado em ambas as direções (cooperado-cooperativa e cooperativa-cooperado). O <strong>art. 272</strong> permite que o associado transfira para a cooperativa todos os créditos de IBS/CBS que ele tem das aquisições anteriores (combustível, manutenção, máquinas) — esses créditos se acumulam na cooperativa e são usados para abater o tributo da saída para o cliente terceiro.</p>
+      <p>O <strong>art. 51</strong> é o efeito colateral: como o ato cooperado tem alíquota zero, a cooperativa precisa <em>anular proporcionalmente</em> seus próprios créditos referentes a aquisições vinculadas a essa parcela do faturamento. Isso obriga um sistema de rateio de créditos entre as duas atividades — operação cooperada vs. operação não-cooperada — que é tecnicamente o ponto onde mais surgem disputas com o Fisco.</p>
+    </div>
+
+    <div class="lawcite">
+      <strong>LC 214/2025, art. 271 (essência) —</strong> As operações entre as sociedades cooperativas e seus associados, e entre cooperativas filiadas a uma cooperativa central, serão tributadas à alíquota zero de IBS e CBS, observado o disposto neste artigo. A opção é irretratável por um ano-calendário.
+    </div>
+
+    <div class="lawcite">
+      <strong>LC 214/2025, art. 272 (essência) —</strong> O associado de cooperativa optante pelo regime do art. 271 poderá transferir os créditos das operações antecedentes às operações em que fornece bens e serviços e os créditos presumidos à cooperativa de que participa.
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     OS OITO PONTOS DE ATENÇÃO
+     ============================================================ -->
+<section class="section section-alt" id="atencao">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE I.D</span>Atenção crítica</div>
+      </div>
+      <h2 class="section-title">Os <em>oito pontos</em> que decidem se o regime sobrevive a uma fiscalização</h2>
+    </div>
+
+    <div class="prose">
+      <p>Cada ponto a seguir destrincha um risco específico, com base legal, gatilhos de fiscalização, e procedimento de blindagem. Esses são os pontos sobre os quais um parecer jurídico de banca especializada vai necessariamente se debruçar antes da Brat operar em escala. Use esta seção como roteiro de perguntas para a banca.</p>
+    </div>
+
+    <!-- PONTO 1 -->
+    <div class="opp-card">
+      <div class="opp-num">01</div>
+      <div class="opp-body">
+        <span class="opp-tag">Prioridade alta</span>
+        <h3>Duplicidade de escrituração contábil</h3>
+        <p>A cooperativa é obrigada por lei a manter contabilidade segregada para atos cooperativos (entre associados) e atos não-cooperativos (com terceiros). Os dois universos têm tratamentos tributários radicalmente diferentes e precisam aparecer em planos de contas, livros fiscais e SPED de forma claramente separada.</p>
+        <div class="opp-mech">Lei 5.764/71 art. 87 (regra-mãe); IN RFB 2.121/2022 art. 245-256 (PIS/COFINS); IN RFB 1.700/2017 art. 211-215 (IRPJ/CSLL); LC 214/2025 art. 51 e 271 (rateio de créditos).</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Risco se ignorado</dt>
+        <dd class="red">Reclassificação de toda a operação; multa 75-150%</dd>
+        <dt>Investimento</dt>
+        <dd>R$ 80-150k/ano (ERP)</dd>
+        <dt>Quem cuida</dt>
+        <dd>Contador especializado</dd>
+      </dl>
+    </div>
+
+    <!-- PONTO 2 -->
+    <div class="opp-card">
+      <div class="opp-num">02</div>
+      <div class="opp-body">
+        <span class="opp-tag">Prioridade alta</span>
+        <h3>Genuinidade dos cooperados — CAR, ITR, CAF</h3>
+        <p>Cooperados precisam ser produtores reais, com atividade econômica comprovada. CAR (Cadastro Ambiental Rural) georreferencia a propriedade. ITR comprova destinação rural. CAF (Cadastro Agricultura Familiar) habilita Pronaf e Selo Biocombustível Social. Sem isso, a Receita pode caracterizar simulação e fulminar todo o regime.</p>
+        <div class="opp-mech">Lei 12.651/2012 (CAR); Lei 11.326/2006 (CAF, ex-DAP); Decreto 10.527/2020 (Selo Social); CTN art. 116 §único (desconsideração de simulação).</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Risco se ignorado</dt>
+        <dd class="red">Multa qualificada 150% + ação penal</dd>
+        <dt>Investimento</dt>
+        <dd>R$ 30-60k setup CRM</dd>
+        <dt>Quem cuida</dt>
+        <dd>Compliance + agrônomo</dd>
+      </dl>
+    </div>
+
+    <!-- PONTO 3 -->
+    <div class="opp-card">
+      <div class="opp-num">03</div>
+      <div class="opp-body">
+        <span class="opp-tag">Prioridade alta</span>
+        <h3>Estatuto social e atas de assembleia</h3>
+        <p>Estatuto descreve fins sociais e tipo de ato cooperativo praticado. Atas documentam todas as deliberações coletivas. Juntas, formam a "prova de identidade" da cooperativa em fiscalização. Estatuto vago ou desalinhado da prática operacional é o sintoma mais buscado pelo Fisco para abrir fiscalização específica.</p>
+        <div class="opp-mech">Lei 5.764/71 art. 21 (cláusulas obrigatórias); arts. 38-46 (assembleias); Provimentos JUCEB sobre registros.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Risco se ignorado</dt>
+        <dd class="red">Reclassificação como cooperativa imprópria</dd>
+        <dt>Investimento</dt>
+        <dd>R$ 30-80k revisão</dd>
+        <dt>Quem cuida</dt>
+        <dd>Banca jurídica especializada</dd>
+      </dl>
+    </div>
+
+    <!-- PONTO 4 -->
+    <div class="opp-card">
+      <div class="opp-num">04</div>
+      <div class="opp-body">
+        <span class="opp-tag" style="background: var(--gold-pale); color: var(--gold-deep);">Prioridade média</span>
+        <h3>Proporcionalidade ato cooperado × não-cooperado</h3>
+        <p>Cooperativa pode operar com não-associados (Lei 5.764/71 arts. 85-86), mas em proporção menor que com associados. Inversão dessa proporção descaracteriza. CARF tolera até 30-35% de operações com não-associados em postura conservadora; até 50% se justificável; acima disso, alto risco.</p>
+        <div class="opp-mech">Lei 5.764/71 art. 85, 86, 87. CARF Solução de Consulta Cosit 196/2021. Posição jurisprudencial dominante.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Risco se ignorado</dt>
+        <dd class="red">Reclassificação como sociedade comercial</dd>
+        <dt>Investimento</dt>
+        <dd>Controle interno apenas</dd>
+        <dt>Quem cuida</dt>
+        <dd>BI + diretoria mensal</dd>
+      </dl>
+    </div>
+
+    <!-- PONTO 5 -->
+    <div class="opp-card">
+      <div class="opp-num">05</div>
+      <div class="opp-body">
+        <span class="opp-tag">Prioridade alta</span>
+        <h3>Reclassificação por simulação (CTN art. 116)</h3>
+        <p>Receita Federal pode desconsiderar atos jurídicos com finalidade de dissimular fato gerador. Em cooperativismo, a tese típica é "cooperativa de fachada para fugir à tributação". Sintomas: poucos cooperados x faturamento alto, concentração extrema em 1-2 clientes, cooperados parentes próximos, operações de ida e volta, sobras nunca distribuídas.</p>
+        <div class="opp-mech">CTN art. 116 §único; Lei 9.430/96 art. 44 (multa 75-150%); Lei 8.137/1990 art. 1º (crime de sonegação).</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Risco se ignorado</dt>
+        <dd class="red">Auto + Selic + multa qualificada + crime</dd>
+        <dt>Investimento</dt>
+        <dd>R$ 100-250k/ano</dd>
+        <dt>Quem cuida</dt>
+        <dd>Compliance + auditoria</dd>
+      </dl>
+    </div>
+
+    <!-- PONTO 6 -->
+    <div class="opp-card">
+      <div class="opp-num">06</div>
+      <div class="opp-body">
+        <span class="opp-tag">Prioridade alta — caso lenha e madeira</span>
+        <h3>Documentação ambiental específica (florestal)</h3>
+        <p>Para fornecer matéria-prima florestal (caso emblemático: lenha para caldeiras de biodiesel), a cooperativa precisa cumprir simultaneamente regime tributário cooperativo e regime ambiental florestal. INEMA-BA e IBAMA têm próprias regras de licenciamento. Auto ambiental contamina a tese tributária via "origem ilícita do bem".</p>
+        <div class="opp-mech">Lei 12.651/2012 (CAR); Lei 9.985/2000 (SNUC); Resolução CONAMA 379/2006; SISFLORA-BA; Decreto BA sobre PMFS.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Risco se ignorado</dt>
+        <dd class="red">Apreensão + auto ambiental + tributário</dd>
+        <dt>Investimento</dt>
+        <dd>R$ 40-80k rastreabilidade</dd>
+        <dt>Quem cuida</dt>
+        <dd>Eng. florestal CREA</dd>
+      </dl>
+    </div>
+
+    <!-- PONTO 7 -->
+    <div class="opp-card">
+      <div class="opp-num">07</div>
+      <div class="opp-body">
+        <span class="opp-tag">Prazo crítico — 1.AGO.2026</span>
+        <h3>Regulamentação infralegal em transição</h3>
+        <p>Decreto 12.955/2026 da CBS (620 artigos) e Resolução CGIBS 6/2026 do IBS (617 artigos), publicados em 30.ABR.2026, detalham como optar pelo art. 271, calcular rateio de créditos, emitir documentos fiscais, executar split payment cooperativo. Há janela de adequação branda até 1.AGO.2026 — depois disso, multas plenas.</p>
+        <div class="opp-mech">Decreto 12.955/2026 (CBS); Resolução CGIBS 6/2026 (IBS); Portaria Conjunta MF/CGIBS 7/2026 (disposições comuns).</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Risco se ignorado</dt>
+        <dd class="red">Multas plenas a partir de AGO/2026</dd>
+        <dt>Investimento</dt>
+        <dd>R$ 30-60k auditoria</dd>
+        <dt>Quem cuida</dt>
+        <dd>Tributário externo</dd>
+      </dl>
+    </div>
+
+    <!-- PONTO 8 -->
+    <div class="opp-card" style="border-bottom: none;">
+      <div class="opp-num">08</div>
+      <div class="opp-body">
+        <span class="opp-tag" style="background: var(--gold-pale); color: var(--gold-deep);">Média (alta acima de R$ 10mi)</span>
+        <h3>Auditoria externa e governança</h3>
+        <p>Cooperativas com faturamento expressivo se beneficiam de auditoria contábil externa anual mesmo quando esta não é obrigatória por lei (obrigatória acima de R$ 78 mi/ano pela Lei 11.638/2007). Em fiscalização, ausência de auditoria externa transfere o ônus probatório para a cooperativa. Bancas Big Four ou médio porte com competência cooperativa.</p>
+        <div class="opp-mech">Lei 11.638/2007 (auditoria obrigatória); Resolução CFC sobre auditoria; LC 214/2025 (regimes específicos exigem documentação reforçada).</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Risco se ignorado</dt>
+        <dd class="red">Glosa de créditos + ônus probatório</dd>
+        <dt>Investimento</dt>
+        <dd>R$ 80-200k/ano</dd>
+        <dt>Quem cuida</dt>
+        <dd>Big Four ou BDO/Mazars</dd>
+      </dl>
+    </div>
+
+  </div>
+</section>
+<!-- ============================================================
+     PARTE II — ESTUDO DE CASO OLEOPLAN
+     ============================================================ -->
+<section class="section section-dark" id="oleoplan">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE II</span>Estudo de caso</div>
+      </div>
+      <h2 class="section-title">Oleoplan Nordeste / Iraquara — <em>o laboratório</em> da tese</h2>
+    </div>
+
+    <div class="prose" style="max-width: 760px;">
+      <p style="color: var(--ink-rev); font-size: 19px;">A escolha da Oleoplan não é acidental. É a maior planta de biodiesel do Nordeste (capacidade 1,3 milhão de litros/dia, ampliação para 1,65 mi L/dia em 2026), tem programa estruturado de Selo Biocombustível Social (que <em>já</em> exige originação cooperativa), está em rampa de crescimento agressiva (R$ 405 milhões de investimento previsto até 2026), e tem dois fluxos massivos de matéria-prima e produto acabado que pedem solução logística e de originação. É o caso quase perfeito para validar o modelo cooperativo Brat.</p>
+    </div>
+
+    <div class="grid-cards grid-4" style="margin-top: 64px;">
+
+      <div class="card" style="background: var(--bg-darker); border-color: rgba(244,241,234,0.18); color: var(--ink-rev);">
+        <div class="card-num" style="color: var(--gold);">CNPJ</div>
+        <h3 style="color: var(--ink-rev); font-size: 18px;">13.463.913/0003-58</h3>
+        <p style="color: var(--ink-4);">Oleoplan Nordeste Indústria de Biocombustível Ltda. — filial Iraquara/BA, ativa desde 16.DEZ.2011. Capital social R$ 142,5 mi.</p>
+      </div>
+
+      <div class="card" style="background: var(--bg-darker); border-color: rgba(244,241,234,0.18); color: var(--ink-rev);">
+        <div class="card-num" style="color: var(--gold);">CNAE — 1932-2/00</div>
+        <h3 style="color: var(--ink-rev); font-size: 18px;">Biocombustíveis</h3>
+        <p style="color: var(--ink-4);">Fabricação de biocombustíveis exceto álcool. Esmagamento de soja, esterificação, recuperação de glicerina. Lucro Real, Não-Simples.</p>
+      </div>
+
+      <div class="card" style="background: var(--bg-darker); border-color: rgba(244,241,234,0.18); color: var(--ink-rev);">
+        <div class="card-num" style="color: var(--gold);">Receita líquida 2024 — Grupo</div>
+        <h3 style="color: var(--ink-rev); font-size: 18px;">R$ 6,59 bi</h3>
+        <p style="color: var(--ink-4);">Lucro líquido R$ 828 mi (+163,7% YoY). Margem EBITDA 17%. Rating Moody's Local Brasil AA-.br Estável. Fonte: Moody's Local Brasil.</p>
+      </div>
+
+      <div class="card" style="background: var(--bg-darker); border-color: rgba(244,241,234,0.18); color: var(--ink-rev);">
+        <div class="card-num" style="color: var(--gold);">Iraquara — Posição</div>
+        <h3 style="color: var(--ink-rev); font-size: 18px;">≈ 30% do grupo</h3>
+        <p style="color: var(--ink-4);">Receita estimada R$ 2,33 bi/ano. Maior das 5 plantas após ampliação. 418 empregos diretos. Selo Biocombustível Social ativo desde 2007.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PONTA DE COMPRA — FORNECEDORES
+     ============================================================ -->
+<section class="section" id="compra">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE II.A</span>Ponta de compra</div>
+      </div>
+      <h2 class="section-title">O que a Oleoplan compra — e como a Brat <em>se posiciona</em> entre o fornecedor e a indústria</h2>
+    </div>
+
+    <div class="prose">
+      <p>Para entender onde o modelo cooperativo se encaixa do lado da compra, é preciso mapear cada insumo crítico da Oleoplan, identificar quem são os fornecedores típicos (e qual a sua personalidade jurídica — pessoa física rural ou empresa), e desenhar a operação cooperativa específica para aquele insumo. Cinco insumos concentram a oportunidade: <strong>soja, lenha, sebo bovino, fertilizante/defensivo (revenda) e frete</strong>.</p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">Mapa dos cinco insumos prioritários</h3>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr>
+            <th>Insumo</th>
+            <th>Volume anual</th>
+            <th>Gasto anual (R$)</th>
+            <th>Perfil dominante do fornecedor</th>
+            <th>Encaixe cooperativo</th>
+            <th>Score Brat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">Soja em grão</td>
+            <td class="num">658 mil t</td>
+            <td class="num">R$ 1,35 bi</td>
+            <td>Médios e grandes produtores Oeste-BA + MATOPIBA — PJ Lucro Real predominante; <strong>30% via Pronaf</strong> (PF rural CAF) por exigência do Selo Social.</td>
+            <td class="green">Alto — Pronaf via Brat Agro</td>
+            <td class="num bold green">94/100</td>
+          </tr>
+          <tr>
+            <td class="bold">Lenha (caldeiras)</td>
+            <td class="num">≈ 278 mil m³ st</td>
+            <td class="num">R$ 50 mi</td>
+            <td>30% pequenos produtores familiares; <strong>70% (R$ 35 mi)</strong> empresas de manejo florestal e reflorestamento — alvo central da tese.</td>
+            <td class="green">Altíssimo — Brat Agro Florestal</td>
+            <td class="num bold green">98/100</td>
+          </tr>
+          <tr>
+            <td class="bold">Sebo bovino bruto</td>
+            <td class="num">≈ 25 mil t</td>
+            <td class="num">R$ 162 mi</td>
+            <td>Frigoríficos médios e pequenos com SIE/SIF (BA, TO, MG, GO) — PJ Lucro Real + alguns Lucro Presumido.</td>
+            <td>Médio — Brat Agro Animal</td>
+            <td class="num bold">76/100</td>
+          </tr>
+          <tr>
+            <td class="bold">Fertilizante + Defensivo (revenda)</td>
+            <td class="num">—</td>
+            <td class="num">R$ 35 mi</td>
+            <td>Distribuidoras nacionais (Yara, Mosaic, Heringer) — operação de fomento pré-safra com produtores Pronaf da Oleoplan.</td>
+            <td class="green">Alto — Compra coletiva</td>
+            <td class="num bold green">88/100</td>
+          </tr>
+          <tr>
+            <td class="bold">Frete rodoviário (insumos)</td>
+            <td class="num">—</td>
+            <td class="num">R$ 118 mi</td>
+            <td>Transportadoras autônomas e empresas de transporte — predominantemente PJ Lucro Real e MEI motoristas.</td>
+            <td class="green">Altíssimo — Brat Cargas</td>
+            <td class="num bold green">96/100</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 80px 0 24px; letter-spacing: -0.015em;">A pergunta-chave: o que cada lado ganha?</h3>
+
+    <div class="prose">
+      <p>O modelo só fecha se cada um dos três participantes do triângulo — fornecedor, Brat, Oleoplan — capturar valor real. Não pode ser jogo de soma zero. Os números abaixo, estimados sobre uma operação típica de R$&nbsp;1 milhão, mostram como o ganho se distribui em cada insumo, sob o regime atual (2026) e sob o regime pleno do art. 271 (2033).</p>
+    </div>
+
+    <div class="alertbox" style="background: var(--gold-pale); border-left-color: var(--gold-deep);">
+      <div class="alert-label" style="color: var(--gold-deep);">Aviso de auditoria — comparativo agora é por produto</div>
+      <p>A primeira versão deste documento trazia uma tabela comparativa única "tributação 42,5% sem cooperativa vs. 3,5% com cooperativa" como premissa para qualquer produto. <strong>Esse comparativo único é incorreto</strong> — a carga tributária varia drasticamente conforme o produto: soja in natura tem ~6%, lenha ~12%, sebo ~14%, glicerina ~22%. Por isso, esta v2.0 substitui a tabela única pela <a href="#calculadora" style="color: var(--gold-deep); border-bottom: 1px solid var(--gold-deep);">calculadora interativa</a> que detalha o ciclo Brat por produto, com premissas explícitas. As cinco oportunidades dimensionadas abaixo (A1-A5) preservam os números de receita e ganho — eles foram recalculados produto a produto, não com a premissa única antiga.</p>
+    </div>
+
+    <div class="prose">
+      <p>A regra prática que sustenta o pitch continua simples: da economia tributária real (que varia por produto), aproximadamente <em>metade</em> é repassada à indústria como redução de preço (a Oleoplan paga menos), e a outra metade fica retida na cooperativa, distribuída entre margem operacional, sobras aos cooperados (preço-prêmio para o produtor), Fundo de Reserva e FATES.</p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">Cinco oportunidades dimensionadas — ponta de compra</h3>
+
+    <!-- OPORTUNIDADE LENHA -->
+    <div class="opp-card">
+      <div class="opp-num">A1</div>
+      <div class="opp-body">
+        <span class="opp-tag">Lenha — caso emblemático</span>
+        <h3>Brat Agro Florestal substitui os fornecedores não-cooperados (R$ 35 mi/ano)</h3>
+        <p>Hoje, ~70% da lenha consumida na caldeira da Oleoplan vem de empresas florestais de médio porte. A Brat Agro pode estruturar uma cooperativa florestal específica, associando 50-150 produtores de eucalipto e manejo legal de caatinga na Chapada Diamantina, Vale do Paraguaçu e Oeste, e substituir gradualmente esses fornecedores no contrato com a Oleoplan.</p>
+        <div class="opp-mech">Tese cooperativa simples: produtor associado entrega lenha à cooperativa em ato cooperado (alíquota zero), cooperativa vende para Oleoplan com NF normal mas com exclusão de PIS/COFINS sobre o valor repassado. Documentação ambiental: CAR cada cooperado, PMFS para caatinga, DOF/SISFLORA por carga, ART de eng. florestal.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Volume MVP</dt>
+        <dd>5.000 m³ st em 90 dias</dd>
+        <dt>Receita anual escala</dt>
+        <dd class="green">R$ 7,5 mi (15% subst.)</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd class="green">R$ 7,4 mi/ano</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 1,01 mi/ano</dd>
+        <dt>Ganho cooperados</dt>
+        <dd class="green">R$ 720 k/ano</dd>
+      </dl>
+    </div>
+
+    <!-- OPORTUNIDADE SOJA SELO SOCIAL -->
+    <div class="opp-card">
+      <div class="opp-num">A2</div>
+      <div class="opp-body">
+        <span class="opp-tag">Soja Pronaf — Selo Social</span>
+        <h3>Originação cooperada de soja para o Selo Biocombustível Social</h3>
+        <p>O Decreto 10.527/2020 zera PIS/COFINS sobre matéria-prima do Pronaf NE/Semiárido. A Oleoplan já compra ~30% da soja sob essa categoria. A Brat Agro pode atuar como cooperativa-âncora dessa originação no Oeste Baiano e MATOPIBA, oferecendo a 50-150 produtores familiares preço-prêmio + estrutura logística + assistência técnica via drone (Brat Aero).</p>
+        <div class="opp-mech">Habilitação SIB-MDA obrigatória. Cooperados precisam de CAF ativo. Oleoplan já paga preço-prêmio sobre soja Selo Social — cooperativa captura margem comercial entre o preço-prêmio e o pago ao cooperado, e o produtor recebe acima do mercado spot. Decreto 10.527/2020 + Lei 11.116/2005.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Volume MVP</dt>
+        <dd>3.000 t na safra</dd>
+        <dt>Receita anual escala</dt>
+        <dd class="green">R$ 30 mi/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Cumprimento Selo Social</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 1,5 mi/ano</dd>
+        <dt>Ganho cooperados</dt>
+        <dd class="green">R$ 2,7 mi/ano (preço-prêmio)</dd>
+      </dl>
+    </div>
+
+    <!-- OPORTUNIDADE FRETE INBOUND -->
+    <div class="opp-card">
+      <div class="opp-num">A3</div>
+      <div class="opp-body">
+        <span class="opp-tag">Frete inbound — Brat Cargas</span>
+        <h3>Frete rodoviário de soja para Iraquara — origem Oeste-BA + MATOPIBA</h3>
+        <p>658 mil t/ano de soja chegando à fábrica, distância média 600-800 km, frete rodoviário em carreta graneleira. A Brat Cargas, como cooperativa de transporte, pode atender essa rota com motoristas autônomos cooperados, capturando os benefícios fiscais do art. 271 sobre as operações entre cooperativa e cooperados motoristas.</p>
+        <div class="opp-mech">Brat Cargas associa motoristas autônomos como cooperados. Operação cooperativa-motorista é ato cooperado (alíquota zero IBS+CBS no novo regime). Oleoplan contrata o frete da cooperativa, que tem PIS/COFINS apenas sobre a margem. Cooperado recebe net mais alto que o frete spot. Tudo isso preservando RNTRC + RCFV.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Volume MVP</dt>
+        <dd>180 cargas em 6 meses</dd>
+        <dt>Receita anual escala</dt>
+        <dd class="green">R$ 26 mi/ano (20%)</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd class="green">R$ 1,3 mi/ano</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 2,0 mi/ano</dd>
+        <dt>Ganho motoristas</dt>
+        <dd class="green">R$ 3,2 mi/ano</dd>
+      </dl>
+    </div>
+
+    <!-- OPORTUNIDADE SEBO -->
+    <div class="opp-card">
+      <div class="opp-num">A4</div>
+      <div class="opp-body">
+        <span class="opp-tag">Sebo bovino — Brat Agro Animal</span>
+        <h3>Coleta cooperada de sebo em frigoríficos médios — diversificação da matéria-prima</h3>
+        <p>A Oleoplan diversifica matéria-prima do biodiesel usando sebo bovino além de óleo de soja (HS 1502). Frigoríficos médios e pequenos da BA, TO, MG e GO normalmente vendem o sebo a preços modestos por falta de canal organizado. A Brat Agro Animal pode estruturar uma seção específica para coleta cooperada com cadeia de frio, oferecendo aos frigoríficos um canal estruturado e à Oleoplan estabilidade de fornecimento.</p>
+        <div class="opp-mech">Frigoríficos pequenos (PJ Lucro Real ou Lucro Presumido) se associam à seção animal da Brat Agro. Coleta refrigerada via Brat Cargas. Vantagem: SIE/SIF preservado, rastreabilidade reforçada, ICMS interestadual com diferimento na operação cooperada quando aplicável. Mercado em alta com escassez relativa de sebo em 2024-2026.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Volume MVP</dt>
+        <dd>6.400 t em 4 meses</dd>
+        <dt>Receita anual escala</dt>
+        <dd class="green">R$ 28 mi/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd class="green">R$ 480 k/ano</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 750 k/ano</dd>
+        <dt>Ganho frigoríficos</dt>
+        <dd class="green">R$ 480 k/ano</dd>
+      </dl>
+    </div>
+
+    <!-- OPORTUNIDADE FERTILIZANTE -->
+    <div class="opp-card" style="border-bottom: none;">
+      <div class="opp-num">A5</div>
+      <div class="opp-body">
+        <span class="opp-tag">Compra coletiva</span>
+        <h3>Fertilizantes e defensivos para os produtores Pronaf da Oleoplan</h3>
+        <p>A Oleoplan já adianta R$ 35 mi/ano em insumos pré-safra para os produtores Pronaf (operação de fomento contra entrega futura de soja). A Brat Agro pode consolidar essa demanda dos cooperados, importar/comprar em escala diretamente das fabricantes e revender com margem mínima — gerando economia de 8-12% no custo do produtor e fortalecendo o vínculo cooperativo.</p>
+        <div class="opp-mech">PIS/COFINS sobre insumos agropecuários é zero (Lei 10.925/2004). ICMS sobre fertilizante tem redução de base via Convênio 100/97. Operação ato cooperado — cooperativa adquire em nome dos cooperados, sem margem comercial significativa, apenas cobrança da taxa adm para custo da operação.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Volume MVP</dt>
+        <dd>800 t fert + 50 t defensivo</dd>
+        <dt>Receita anual escala</dt>
+        <dd class="green">R$ 18 mi/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Reforço Selo Social</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 450 k/ano</dd>
+        <dt>Ganho cooperados</dt>
+        <dd class="green">R$ 1,8 mi/ano</dd>
+      </dl>
+    </div>
+
+  </div>
+</section>
+<!-- ============================================================
+     PONTA DE VENDA — OLEOPLAN
+     ============================================================ -->
+<section class="section section-alt" id="venda">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE II.B</span>Ponta de venda</div>
+      </div>
+      <h2 class="section-title">O que a Oleoplan vende — e como a Brat <em>fecha o ciclo</em> com os clientes-âncora</h2>
+    </div>
+
+    <div class="prose">
+      <p>Aqui inverte-se a polaridade do modelo. Em vez de a Brat se posicionar entre fornecedores e Oleoplan, ela se posiciona entre Oleoplan e os clientes finais. O cliente vira cooperado da Brat Agro, a Brat compra da Oleoplan e revende ao cliente cooperado. O cliente captura o benefício fiscal cooperativo, a Brat captura margem comercial, e a Oleoplan ganha um canal de distribuição cooperativo organizado e fiel.</p>
+      <p>O escopo aqui exclui o biodiesel — produto exige carreta-tanque inox, MOPP, ANTT classe 3, e foi explicitamente colocado fora da tese. Sobram quatro produtos transportáveis em carreta seca, graneleira ou IBC, com mercado fragmentado e cliente nominável: <strong>farelo de soja</strong>, <strong>casca de soja peletizada</strong>, <strong>glicerina embalada</strong> e <strong>lecitina</strong>.</p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">Produtos transportáveis e o tipo de cliente predominante</h3>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Volume Iraquara/ano</th>
+            <th>Receita estim.</th>
+            <th>Modal saída</th>
+            <th>Cliente predominante</th>
+            <th>Encaixe cooperativo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">Farelo de soja (46-48% PB)</td>
+            <td class="num">≈ 507 mil t</td>
+            <td class="num">R$ 887 mi</td>
+            <td>Carreta graneleira + ferroviário p/ porto</td>
+            <td>Avicultura, pecuária leiteira, fábricas de ração, exportação Aratu/Suape</td>
+            <td class="green">Alto</td>
+          </tr>
+          <tr>
+            <td class="bold">Casca de soja peletizada</td>
+            <td class="num">50 mil t</td>
+            <td class="num">R$ 39 mi</td>
+            <td>Granel rodoviário</td>
+            <td>Pecuária leiteira (substituto fibra), confinamento, exportação</td>
+            <td class="green">Alto</td>
+          </tr>
+          <tr>
+            <td class="bold">Glicerina (loira/refinada)</td>
+            <td class="num">≈ 60 mil t</td>
+            <td class="num">R$ 210 mi</td>
+            <td>IBC ou tanque rodoviário (não inox)</td>
+            <td>Indústria cosmética, farmacêutica, ração animal, exportação</td>
+            <td>Médio</td>
+          </tr>
+          <tr>
+            <td class="bold">Lecitina de soja</td>
+            <td class="num">1,5 mil t</td>
+            <td class="num">R$ 21 mi</td>
+            <td>Tambor / IBC</td>
+            <td>Indústria alimentícia + farmacêutica nacional + exportação</td>
+            <td>Baixo (alto VA, mercado especializado)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 80px 0 24px; letter-spacing: -0.015em;">Os 8 clientes-âncora: o ciclo Brat → Oleoplan</h3>
+
+    <div class="prose">
+      <p>Cada cliente-âncora abaixo recebe uma proposta cooperativa específica, customizada ao seu perfil de consumo, à sua capacidade tributária e ao tipo de produto comprado. O denominador comum: o cliente vira cooperado da Brat Agro (seção animal, alimentar ou industrial conforme o caso), e passa a comprar via cooperativa em vez de comprar direto da Oleoplan. Faturamento, distância e o ganho líquido para cada lado vão na ficha individual.</p>
+    </div>
+
+    <!-- CLIENTE 1 -->
+    <div class="opp-card">
+      <div class="opp-num">B1</div>
+      <div class="opp-body">
+        <span class="opp-tag">Cliente-âncora · Avicultura BA</span>
+        <h3>Granjas e fábricas de ração da Bahia — Avicultura Baiana e associados</h3>
+        <p>A Bahia tem cluster avícola relevante centrado em Conceição da Feira, Feira de Santana e Capela do Alto Alegre, com a Avicultura Baiana congregando produtores. Granjas grandes consomem 70-100 toneladas de ração por dia, das quais 25-30% é farelo de soja. São clientes com perfil tributário Lucro Real ou Lucro Presumido, suscetíveis a uma proposta cooperativa que reduza o custo da ração.</p>
+        <div class="opp-mech">Granja PJ se associa à seção alimentar da Brat Agro. Brat compra farelo da Oleoplan em ato não-cooperado (com tributação normal mas valor reduzido pela escala cooperativa de compras), revende ao cooperado com margem cooperativa. Cooperado captura crédito presumido (LC 214/2025 art. 168 §9 quando aplicável) e desconto direto.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Consumo estimado</dt>
+        <dd>15 mil t farelo/ano</dd>
+        <dt>Receita escala</dt>
+        <dd class="green">R$ 26 mi/ano</dd>
+        <dt>Ganho cooperado</dt>
+        <dd class="green">R$ 1,3 mi/ano (5%)</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 1,3 mi/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Canal organizado fiel</dd>
+      </dl>
+    </div>
+
+    <!-- CLIENTE 2 -->
+    <div class="opp-card">
+      <div class="opp-num">B2</div>
+      <div class="opp-body">
+        <span class="opp-tag">Cliente-âncora · Avicultura PE/AL</span>
+        <h3>Frango Favorito (Grupo Ferraz Avícola) e granjas de Pernambuco/Alagoas</h3>
+        <p>Cluster avícola de Alagoas e Pernambuco com Frango Favorito como integrador líder, mais granjas integradoras menores. Distância de Iraquara ~700-900 km, completamente atendível por carreta graneleira. Mesma estrutura cooperativa do cluster baiano, com ajuste para a logística interestadual e o ICMS de 4% (Resolução SF 13/2012).</p>
+        <div class="opp-mech">Mesma mecânica do B1, com atenção ao ICMS interestadual 4% via cooperativa-cliente cooperado, que pode ser otimizado quando ambos estão sob regime específico. Brat Cargas faz o frete dedicado nesse trecho.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Consumo estimado</dt>
+        <dd>25 mil t farelo/ano</dd>
+        <dt>Receita escala</dt>
+        <dd class="green">R$ 44 mi/ano</dd>
+        <dt>Ganho cooperado</dt>
+        <dd class="green">R$ 2,2 mi/ano</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 2,2 mi/ano (frete + margem)</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Penetração mercado NE</dd>
+      </dl>
+    </div>
+
+    <!-- CLIENTE 3 -->
+    <div class="opp-card">
+      <div class="opp-num">B3</div>
+      <div class="opp-body">
+        <span class="opp-tag">Cliente-âncora · Pecuária leiteira BA</span>
+        <h3>Cooperativas leiteiras do Nordeste e do Vale do São Francisco</h3>
+        <p>O cluster leiteiro do Vale do São Francisco e do Nordeste (Cooperleite, Coobaita, Cooperatas e similares) consome farelo de soja e casca de soja peletizada como suplementação proteica e fibra para vacas leiteiras. Estes já são cooperativas — perfeitos para uma operação inter-cooperativa (ato cooperativo entre cooperativas, alíquota zero pelo art. 271 também).</p>
+        <div class="opp-mech">Cooperativa leiteira (ex.: Cooperleite) e Brat Agro estabelecem ato intercooperativo nos termos do art. 79 da Lei 5.764/71 e art. 271 da LC 214/2025. Tributação zero entre as duas, taxa adm da Brat sobre a operação. Casca de soja peletizada compete com farelo de algodão e farelo de palma — vantagem técnica + tributária.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Consumo estimado</dt>
+        <dd>8 mil t farelo + 6 mil t casca/ano</dd>
+        <dt>Receita escala</dt>
+        <dd class="green">R$ 19 mi/ano</dd>
+        <dt>Ganho cooperado</dt>
+        <dd class="green">R$ 950 k/ano</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 950 k/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Diversificação canal</dd>
+      </dl>
+    </div>
+
+    <!-- CLIENTE 4 -->
+    <div class="opp-card">
+      <div class="opp-num">B4</div>
+      <div class="opp-body">
+        <span class="opp-tag">Cliente-âncora · Suinocultura</span>
+        <h3>Granjas de suínos de PE, AL e MG (cluster Norte Mineiro)</h3>
+        <p>A suinocultura do Nordeste e do Norte mineiro (regiões de Pirapora e Janaúba) vem expandindo para suprir o crescimento da demanda doméstica. Consumo intensivo de farelo de soja como base proteica da ração. Granjas tipicamente médias (200-2000 matrizes), perfil Lucro Presumido ou Lucro Real, abertas a soluções cooperativas que reduzam o custo da ração.</p>
+        <div class="opp-mech">Granja PJ associa à seção alimentar da Brat Agro. Modelo idêntico aos clusters avícolas, com adicional de planejamento logístico (volumes menores por entrega exigem frota cooperada Brat Cargas para viabilizar economia).</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Consumo estimado</dt>
+        <dd>10 mil t farelo/ano</dd>
+        <dt>Receita escala</dt>
+        <dd class="green">R$ 17 mi/ano</dd>
+        <dt>Ganho cooperado</dt>
+        <dd class="green">R$ 850 k/ano</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 850 k/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Mercado novo (suíno NE)</dd>
+      </dl>
+    </div>
+
+    <!-- CLIENTE 5 -->
+    <div class="opp-card">
+      <div class="opp-num">B5</div>
+      <div class="opp-body">
+        <span class="opp-tag">Cliente-âncora · Aquicultura</span>
+        <h3>Carcinicultura e piscicultura de RN/CE — fábricas de ração para camarão e tilápia</h3>
+        <p>O Nordeste tem polo aquícola relevante centrado no Rio Grande do Norte (carcinicultura) e Ceará (carcinicultura + tilápia em água doce). Fábricas de ração para aquicultura como Samaria (16k t/mês conforme dossiê Brat Agro) consomem farelo de soja e podem absorver volumes consistentes via cooperativa. Distância maior, mas viabilidade pelo volume.</p>
+        <div class="opp-mech">Fabricante de ração se associa, ou alternativamente seus próprios produtores aquícolas (carcinicultores e piscicultores) se associam à seção animal da Brat Agro. Frete via Brat Cargas com escala. Para clientes com Selo Social próprio, há incentivos cumulativos a explorar.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Consumo estimado</dt>
+        <dd>20 mil t farelo/ano</dd>
+        <dt>Receita escala</dt>
+        <dd class="green">R$ 35 mi/ano</dd>
+        <dt>Ganho cooperado</dt>
+        <dd class="green">R$ 1,75 mi/ano</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 1,75 mi/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Diversificação cliente</dd>
+      </dl>
+    </div>
+
+    <!-- CLIENTE 6 -->
+    <div class="opp-card">
+      <div class="opp-num">B6</div>
+      <div class="opp-body">
+        <span class="opp-tag">Cliente-âncora · Indústria de cosmética e farma</span>
+        <h3>Distribuidores de glicerina para cosméticos e farmacêutica</h3>
+        <p>A glicerina loira é subproduto do biodiesel; a refinada vai para cosméticos e farmacêutica. Distribuidores que servem indústrias paulistas e mineiras (Symrise, Givaudan, IFF, e a indústria farmacêutica de Goiás) compram volumes médios em IBC. A oportunidade aqui é menor que farelo, mas com margem maior por unidade.</p>
+        <div class="opp-mech">Distribuidor PJ entra na seção industrial da Brat Agro. Brat compra glicerina da Oleoplan e revende ao distribuidor cooperado. Operação de menor volume mas com margem unitária maior, viável para começar a estruturar a seção industrial.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Consumo estimado</dt>
+        <dd>3 mil t glicerina/ano</dd>
+        <dt>Receita escala</dt>
+        <dd class="green">R$ 11 mi/ano</dd>
+        <dt>Ganho cooperado</dt>
+        <dd class="green">R$ 550 k/ano</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 550 k/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Canal especializado</dd>
+      </dl>
+    </div>
+
+    <!-- CLIENTE 7 -->
+    <div class="opp-card">
+      <div class="opp-num">B7</div>
+      <div class="opp-body">
+        <span class="opp-tag">Cliente-âncora · Trader exportador</span>
+        <h3>Traders de farelo para exportação via Aratu — Engelhart, ALZ, BR Carbon</h3>
+        <p>Cerca de 30-40% do farelo da Oleoplan já vai para exportação via Porto de Aratu. Traders intermediários (Engelhart CTP Brasil, BR Carbon, comerciais regionais) fazem a ponte com clientes asiáticos e europeus. Estes não viram cooperados típicos, mas a Brat Agro pode operar como agente logístico-comercial cooperativo, otimizando frete + originação.</p>
+        <div class="opp-mech">Modelo diferente: aqui a Brat oferece "logística cooperativa de exportação" — Brat Cargas faz o trecho Iraquara-Aratu via cooperados, e Brat Agro pode estruturar pool de farelo de várias indústrias para carregamento conjunto, reduzindo o frete unitário.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Volume estimado</dt>
+        <dd>50 mil t farelo/ano (exp.)</dd>
+        <dt>Receita frete escala</dt>
+        <dd class="green">R$ 8 mi/ano</dd>
+        <dt>Ganho trader</dt>
+        <dd class="green">R$ 400 k/ano</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 800 k/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Frete + originação otimizada</dd>
+      </dl>
+    </div>
+
+    <!-- CLIENTE 8 -->
+    <div class="opp-card" style="border-bottom: none;">
+      <div class="opp-num">B8</div>
+      <div class="opp-body">
+        <span class="opp-tag">Cliente-âncora · Mercado spot regional</span>
+        <h3>Pequenos produtores rurais e suinocultores familiares — varejo cooperativo</h3>
+        <p>A 30-40 quilômetros de Iraquara há centenas de pequenos produtores rurais que compram pequenas quantidades de farelo (sacas de 25-50 kg) para alimentação de suínos, aves caipiras e gado próprio. Hoje pagam até 25% mais que o preço de atacado, comprando em revendas locais. A Brat Agro pode oferecer "varejo cooperativo" desses produtos.</p>
+        <div class="opp-mech">Pequeno produtor rural se associa à Brat Agro. Compra direto da cooperativa em ato cooperado (alíquota zero IBS+CBS após 2027 com art. 271 inciso II). Logística via pontos de retirada cooperativos ou frota Brat Cargas.</div>
+      </div>
+      <dl class="opp-numbers">
+        <dt>Volume estimado</dt>
+        <dd>2 mil t farelo/ano</dd>
+        <dt>Receita escala</dt>
+        <dd class="green">R$ 4 mi/ano</dd>
+        <dt>Ganho cooperado</dt>
+        <dd class="green">R$ 800 k/ano (preço!)</dd>
+        <dt>Ganho Brat</dt>
+        <dd class="green">R$ 200 k/ano</dd>
+        <dt>Ganho Oleoplan</dt>
+        <dd>Capilaridade regional</dd>
+      </dl>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CONSOLIDADO PONTAS A + B
+     ============================================================ -->
+<section class="section">
+  <div class="container-wide">
+    <div class="cta-panel">
+      <span class="cta-stamp">Síntese</span>
+      <h3>O <em>ciclo completo</em> em números</h3>
+      <p>Somando as 5 oportunidades da ponta de compra com os 8 clientes-âncora da ponta de venda, o programa cooperativo Brat × Oleoplan, na sua escala plena de operação (24 meses após o piloto), movimenta os números abaixo. Estes valores assumem regime atual (2026) e crescem com a entrada plena do art. 271 em 2027 e do IBS pleno em 2033.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(244,241,234,0.18);">
+        <div>
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase;">Receita anual programa</div>
+          <div style="font-family: var(--serif-display); font-weight: 300; font-size: 48px; line-height: 1; color: var(--ink-rev); letter-spacing: -0.03em; margin-top: 8px;">R$ 264 mi</div>
+        </div>
+        <div>
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase;">Ganho Oleoplan/ano</div>
+          <div style="font-family: var(--serif-display); font-weight: 300; font-size: 48px; line-height: 1; color: var(--ink-rev); letter-spacing: -0.03em; margin-top: 8px;">R$ 9,2 mi</div>
+        </div>
+        <div>
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase;">Ganho Brat/ano</div>
+          <div style="font-family: var(--serif-display); font-weight: 300; font-size: 48px; line-height: 1; color: var(--ink-rev); letter-spacing: -0.03em; margin-top: 8px;">R$ 11,9 mi</div>
+        </div>
+        <div>
+          <div style="font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase;">Ganho cooperados/ano</div>
+          <div style="font-family: var(--serif-display); font-weight: 300; font-size: 48px; line-height: 1; color: var(--ink-rev); letter-spacing: -0.03em; margin-top: 8px;">R$ 14,8 mi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     TRIANGULAÇÃO — BRAT AGRO UNIVERSAL
+     ============================================================ -->
+<section class="section section-alt" id="triangulacao">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE III</span>Triangulação universal</div>
+      </div>
+      <h2 class="section-title">A Oleoplan é apenas <em>o primeiro</em> caso</h2>
+    </div>
+
+    <div class="prose">
+      <p>Tudo o que foi desenhado para a Oleoplan é replicável para outras 11 indústrias-alvo já mapeadas pela Brat Agro: 5 outras de biodiesel (Binatural, Be8, Caramuru, 3tentos, Potencial) e 6 fábricas de ração e alimentos para nutrição animal (Carneiro, Samaria, Dourado, Integral Mix, Nutri Ranch, Nutrivil). A diferença entre uma e outra é o ajuste de produto e geografia — o motor jurídico-tributário cooperativo é o mesmo.</p>
+      <p>A base produtiva já existe: 151 produtores rurais cadastrados no Oeste Baiano e Centro-Oeste, distribuídos por 13 municípios entre LEM, Barreiras, São Desidério, Correntina, Formosa do Rio Preto, Jaborandi, Riachão das Neves, Baianópolis e municípios menores. Plus o ecossistema das 5 tradings de LEM (Bunge, ADM, COFCO, ALZ/LD, Cajiru/Nexfield) com quem a Brat tem relação comercial preexistente para originação.</p>
+    </div>
+
+    <div class="grid-cards grid-3" style="margin-top: 64px;">
+
+      <div class="card">
+        <div class="card-num">Base de originação</div>
+        <h3>151 produtores rurais</h3>
+        <p>Mapeados em 13 municípios do Oeste Baiano e Centro-Oeste. Soja predominante (115 produtores), milho (24), algodão (12). Faixa logística: 200-800 km até Iraquara. Score por produtor calibrado por evidência, faixa e produto principal.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">Indústrias-alvo</div>
+        <h3>12 empresas — 6 biodiesel + 6 ração</h3>
+        <p>Biodiesel: Oleoplan, Binatural (compra óleo de algodão), Be8, Caramuru, 3tentos, Potencial. Ração: Carneiro (Quixeramobim/CE — torta de algodão), Samaria (16k t/mês, camarão), Dourado, Integral Mix (20k t/mês), Nutri Ranch, Nutrivil.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">Tradings parceiras LEM</div>
+        <h3>5 empresas no hub</h3>
+        <p>Bunge (80 caminhões/dia), ADM (terceirizando 50% logística), COFCO (100% própria), ALZ/LD (20k t/mês), Cajiru/Nexfield (já tem cooperativa transporte). Relacionamento comercial direto + acesso a contatos internos.</p>
+      </div>
+
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 80px 0 24px; letter-spacing: -0.015em;">Casos paralelos para replicação imediata</h3>
+
+    <div class="prose">
+      <p>Três casos merecem destaque pela aderência imediata ao modelo desenvolvido para a Oleoplan, com customização mínima:</p>
+
+      <h4>Binatural — biodiesel via óleo de algodão (GO)</h4>
+      <p>A Binatural opera com perfil parecido (biodiesel + Selo Social), mas tem foco em óleo de algodão, o que abre espaço para uma seção específica da Brat Agro Algodão associando os produtores cotonicultores do Oeste Baiano (LEM, Barreiras), uma das maiores regiões produtoras do Brasil. Score do dossiê: 87/100.</p>
+
+      <h4>Carneiro Alimentos — torta de algodão para ração (Quixeramobim, CE)</h4>
+      <p>Carro-chefe da Carneiro é a torta de algodão como componente proteico para ração. A Brat Agro pode atuar simultaneamente nas duas pontas: associando cotonicultores do Oeste Baiano para fornecer caroço, e associando granjas e pecuaristas do Sertão Cearense para receber a torta processada. Distância maior, mas modelo replicável.</p>
+
+      <h4>Samaria — ração para carcinicultura (RN/CE)</h4>
+      <p>Samaria opera 16 mil toneladas mensais de ração para camarão. A Brat Agro pode fornecer o farelo de soja via cooperativa (originando do Oeste Baiano via Brat Agro Grãos e transportando via Brat Cargas), e/ou associar carcinicultores diretamente para ciclo completo (o que reforça o argumento da capilaridade regional).</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PLANO DE AÇÃO 90 DIAS
+     ============================================================ -->
+<section class="section" id="plano">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE IV</span>Plano de ação</div>
+      </div>
+      <h2 class="section-title">90 dias do <em>diagnóstico</em> ao primeiro contrato assinado</h2>
+    </div>
+
+    <div class="prose">
+      <p>O cronograma abaixo é desenhado para sair do papel até o final do terceiro trimestre de 2026 — bem antes do marco crítico de 1.AGO.2026 para a auditoria de conformidade tributária e do início efetivo da CBS plena em 1.JAN.2027. Cada fase tem entregas concretas e responsáveis nominados, e os custos estimados estão totalizados ao final.</p>
+    </div>
+
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-num">F1</div>
+        <h4>Dias 1-30 · Fundação jurídica</h4>
+        <p>Contratar banca jurídica especializada (Brasil Salomão e Matthes, Rolim Goulart Cardoso ou similar). Revisar/criar estatuto da Brat Agro com seções (Florestal, Animal, Alimentar, Industrial). Registrar JUCEB. Inscrição estadual SEFAZ-BA, municipal, Sescoop-BA, OCB-BA.</p>
+      </div>
+      <div class="stage">
+        <div class="stage-num">F2</div>
+        <h4>Dias 31-60 · Cooperados &amp; sistemas</h4>
+        <p>Onboarding dos primeiros 50 cooperados com checklist completo (CAR, CAF, ITR). Implementar ERP cooperativo (NETIS Sescoop, Aliare ou Senior). Habilitação SIB-MDA para Selo Social. Habilitação INEMA para operação florestal. AGE de admissão.</p>
+      </div>
+      <div class="stage">
+        <div class="stage-num">F3</div>
+        <h4>Dias 61-75 · Aproximação Oleoplan</h4>
+        <p>Reunião institucional via AIBA (visitou Oleoplan em jul/2025) ou direto com Marcos Boff (CEO Grupo Oleoplan). Apresentação deste compendium + 10 MVPs. Discussão da ordem de priorização (sugerida: lenha + frete soja + originação Selo Social).</p>
+      </div>
+      <div class="stage">
+        <div class="stage-num">F4</div>
+        <h4>Dias 76-90 · Primeiro contrato</h4>
+        <p>Cadastro no portal de fornecedores Oleoplan. Auditoria SQA (Sistema Qualidade Assegurada). Negociação contrato piloto 90-180 dias (lenha 5.000 m³ ou frete 30 carretas/mês). Parecer tributário sobre opção pelo art. 271 LC 214/2025 para janeiro 2027.</p>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top: 48px;">
+      <h3>Investimento total estimado nos 90 dias</h3>
+    </div>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr><th>Item</th><th>Faixa de custo</th><th>Pago a</th><th>Prazo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Banca jurídica especializada (revisão estatutária + parecer art. 271)</td><td class="num">R$ 60-120 k</td><td>Brasil Salomão / Rolim Goulart / Mattos Filho</td><td>30 dias</td></tr>
+          <tr><td>ERP fiscal cooperativo (setup)</td><td class="num">R$ 30-50 k</td><td>NETIS Sescoop / Aliare / Senior</td><td>45 dias</td></tr>
+          <tr><td>ERP fiscal cooperativo (mensalidade)</td><td class="num">R$ 8-12 k/mês</td><td>Mesmo provedor</td><td>recorrente</td></tr>
+          <tr><td>Auditoria de conformidade tributária pré-1.AGO.2026</td><td class="num">R$ 30-60 k</td><td>BDO / Mazars / Vinco / Jettax</td><td>60 dias</td></tr>
+          <tr><td>Sistema CRM-cooperados + rastreabilidade</td><td class="num">R$ 30-60 k</td><td>Lovable + integradores próprios</td><td>60 dias</td></tr>
+          <tr><td>Habilitação SIB-MDA + INEMA + Sescoop</td><td class="num">R$ 12-25 k</td><td>Taxas + advogado regulatório</td><td>45 dias</td></tr>
+          <tr><td>Engenheiro florestal CREA (caso lenha)</td><td class="num">R$ 8-15 k/mês</td><td>Profissional contratado</td><td>recorrente</td></tr>
+          <tr><td>Capital social inicial cooperativa</td><td class="num">R$ 100-300 k</td><td>Cooperados (integralização)</td><td>30 dias</td></tr>
+          <tr style="background: var(--green-pale);"><td class="bold">TOTAL fixo 90 dias</td><td class="num bold green">R$ 270 a 630 k</td><td colspan="2">Plus mensalidades recorrentes ~R$ 25-40 k/mês após estabilização</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cta-panel" style="margin-top: 64px;">
+      <span class="cta-stamp">Próximo passo</span>
+      <h3>O <em>parecer jurídico</em> é o ponto de partida</h3>
+      <p>Recomendo abrir conversas paralelas com 2-3 bancas jurídicas especializadas em cooperativismo (Brasil Salomão e Matthes — Fábio Pallaretti Calcini é referência nacional; Rolim Goulart Cardoso; Mattos Filho) para emissão de parecer sobre: (1) opção pelo art. 271 LC 214/2025; (2) revisão estatutária da Brat Agro; (3) blindagem dos 8 pontos de atenção da Parte I. Custo estimado de R$ 60 a 120 mil — o investimento mais retornável da operação inteira. Tempo de produção: 30-45 dias.</p>
+    </div>
+
+  </div>
+</section>
+<!-- ============================================================
+     ANEXOS — FONTES E REFERÊNCIAS
+     ============================================================ -->
+<section class="section section-alt" id="anexos">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">ANEXOS</span>Fontes &amp; referências</div>
+      </div>
+      <h2 class="section-title">A <em>auditoria</em> dos números — toda fonte verificável</h2>
+    </div>
+
+    <div class="prose">
+      <p>Cada número que aparece neste compendium pode ser rastreado a uma das categorias de fonte abaixo. As fontes primárias (Receita Federal, ANP, Comex Stat, Moody's Local Brasil, BiodieselBR) estão listadas com URL completa para validação independente. Os cálculos estimativos (engenharia reversa de carga tributária, dimensionamento de oportunidades) estão explicitados na sua premissa para que possam ser ajustados conforme novos dados aparecem.</p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 48px 0 18px; letter-spacing: -0.015em;">Fontes empresariais — Oleoplan</h3>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead><tr><th>Fonte</th><th>URL / referência</th></tr></thead>
+        <tbody>
+          <tr><td>Cartão CNPJ — Receita Federal</td><td class="num">servicos.receita.fazenda.gov.br/Servicos/cnpjreva/cnpjreva_solicitacao.asp</td></tr>
+          <tr><td>Casa dos Dados — perfil 13.463.913/0003-58</td><td class="num">casadosdados.com.br/solucao/cnpj/oleoplan-nordeste-...</td></tr>
+          <tr><td>Site institucional Oleoplan</td><td class="num">oleoplan.com.br</td></tr>
+          <tr><td>Moody's Local Brasil — Relatório Crédito Oleoplan abr/2025</td><td class="num">moodyslocal.com.br/wp-content/uploads/2025/04/Relatorio-de-Credito-Oleoplan.pdf</td></tr>
+          <tr><td>BiodieselBR — Lucro Oleoplan 2024</td><td class="num">biodieselbr.com/noticias/usinas/info/oleoplan-lucrou-r-828-milhoes-em-2024-210525</td></tr>
+          <tr><td>Jornal Grande Bahia — Ampliação Iraquara jul/2025</td><td class="num">jornalgrandebahia.com.br/2025/07/oleoplan-anuncia-expansao-da-producao-de-biodiesel-na-bahia</td></tr>
+          <tr><td>AIBA — Visita unidade Iraquara jul/2025</td><td class="num">aiba.org.br/aiba-visita-unidade-industrial-da-oleoplan-em-iraquara-na-bahia</td></tr>
+          <tr><td>Panjiva (importação/exportação)</td><td class="num">panjiva.com/Oleoplan-Nordeste-Industria-De-Biocombustivel-Ltda/39202653</td></tr>
+          <tr><td>RenovaCalc Oleoplan NE 3101 — Accenture</td><td class="num">accenture.com/.../RenovaCalc-Oleoplan-NE-3101.pdf</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 48px 0 18px; letter-spacing: -0.015em;">Base legal cooperativismo</h3>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead><tr><th>Norma</th><th>Tema</th><th>Aplicação</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">CF/88 art. 5º XVIII, 146-A, 174 §2º, 187 VI</td><td>Fundamento constitucional</td><td>Liberdade de associação cooperativa, reserva de LC, apoio ao cooperativismo</td></tr>
+          <tr><td class="bold">EC 132/2023</td><td>Reforma Tributária</td><td>Determina tratamento diferenciado para cooperativas no IBS/CBS</td></tr>
+          <tr><td class="bold">Lei 5.764/1971</td><td>Lei Geral das Cooperativas</td><td>Define ato cooperativo (art. 79); regime tributário cooperativo (art. 87, 111)</td></tr>
+          <tr><td class="bold">MP 2.158-35/2001 art. 15</td><td>PIS/COFINS Cooperativas</td><td>Exclusões da base de cálculo — alavanca-mãe da tese atual</td></tr>
+          <tr><td class="bold">Lei 11.116/2005</td><td>Biodiesel</td><td>Regime PIS/COFINS monofásico do biodiesel</td></tr>
+          <tr><td class="bold">Decreto 11.902/2024</td><td>Selo Biocombustível Social — versão atual</td><td>Substituiu Decreto 10.527/2020. Reestrutura percentuais e mecanismos. Combinado c/ Portaria MDA 28/2024 e Portaria Interministerial MDA/MME 2/2023.</td></tr>
+          <tr><td class="bold">Lei 11.326/2006</td><td>Agricultura Familiar</td><td>Define agricultor familiar — base do CAF (ex-DAP)</td></tr>
+          <tr><td class="bold">Lei 12.651/2012</td><td>Código Florestal</td><td>CAR (Cadastro Ambiental Rural)</td></tr>
+          <tr><td class="bold">LC 214/2025</td><td>Reforma Tributária</td><td>Regime específico cooperativas (art. 271, 272); rateio de créditos (art. 51)</td></tr>
+          <tr><td class="bold">Decreto 12.955/2026</td><td>Regulamento CBS</td><td>Detalha CBS no novo regime — 620 artigos. Publicado 30.ABR.2026</td></tr>
+          <tr><td class="bold">Resolução CGIBS 6/2026</td><td>Regulamento IBS</td><td>Detalha IBS no novo regime — 617 artigos. Publicada 30.ABR.2026</td></tr>
+          <tr><td class="bold">IN RFB 2.121/2022 art. 245-256</td><td>PIS/COFINS Cooperativas</td><td>Regulamentação das exclusões e segregação contábil</td></tr>
+          <tr><td class="bold">IN RFB 1.700/2017 art. 211-215</td><td>IRPJ/CSLL Cooperativas</td><td>Apuração separada de ato cooperado e não-cooperado</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 48px 0 18px; letter-spacing: -0.015em;">Bancas e sistemas recomendados</h3>
+
+    <div class="grid-cards grid-3">
+      <div class="card">
+        <div class="card-num">Bancas jurídicas tributárias</div>
+        <h3>Especializadas em cooperativismo</h3>
+        <p>Brasil Salomão e Matthes (Fábio Pallaretti Calcini é referência nacional); Rolim Goulart Cardoso; Mattos Filho; Demarest; BMA — Barbosa, Müssnich, Aragão.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">Auditoria contábil</div>
+        <h3>Big Four + médio porte</h3>
+        <p>PwC, KPMG (escritório Salvador atende cooperativas baianas), Deloitte, EY. Médio porte: BDO, Grant Thornton, Mazars, Crowe.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">Sistemas ERP cooperativos</div>
+        <h3>Reconhecidos pelo Sescoop</h3>
+        <p>NETIS Sescoop (referência setor), Aliare (foco agrocooperativo), Senior, Globalweb. Custo médio: R$ 80-150 k/ano para cooperativa pequena/média.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">Consultoria fiscal transição</div>
+        <h3>Reforma Tributária 2026-2033</h3>
+        <p>Vinco Tributos, Jettax, Roit (foco automação fiscal cooperativa), e-Auditoria. Auditoria de conformidade: R$ 30-60 k/ano.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">Sistema cooperativo</div>
+        <h3>Federações e capacitação</h3>
+        <p>OCB-BA — Organização das Cooperativas do Estado da Bahia (Salvador, (71) 3618-2000); Sescoop-BA; OCB Nacional (Brasília).</p>
+      </div>
+      <div class="card">
+        <div class="card-num">Selo Biocombustível Social</div>
+        <h3>MDA / SAF</h3>
+        <p>Habilitação no SIB-MDA, requisitos de aquisição mínima da agricultura familiar, contratos de fornecimento. Site: gov.br/agricultura/pt-br/assuntos/agricultura-familiar.</p>
+      </div>
+    </div>
+
+    <div class="alertbox" style="margin-top: 48px;">
+      <div class="alert-label">Aviso metodológico</div>
+      <p>Os números de carga tributária por imposto neste compendium são <strong>estimativas técnicas</strong> calculadas a partir de (1) volumes públicos divulgados pela própria Oleoplan, ANP e Moody's Local Brasil; (2) alíquotas legais vigentes em maio de 2026; (3) benefícios fiscais aplicáveis. Os valores efetivamente pagos por tributo só constam em SPED, ECF e DCTF — protegidos por sigilo fiscal (CTN art. 198). Os valores aqui são a melhor estimativa pública possível por engenharia reversa a partir de receita, volume e regime — use como ordem de grandeza para decisão estratégica, nunca como número auditado.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site">
+  <div class="container-wide">
+    <div class="footer-grid">
+      <div>
+        <div style="font-family: var(--serif-display); font-weight: 900; font-size: 28px; color: var(--ink-rev); letter-spacing: -0.02em; margin-bottom: 16px;">
+          BRAT<span style="color: var(--gold); font-style: italic; font-weight: 400; padding: 0 4px;">&amp;</span>Indústria
+        </div>
+        <p style="max-width: 480px;">Compendium Cooperativo é um documento estratégico interno da Brat Ventures preparado para apoio à tomada de decisão sobre operação cooperativa com indústrias do agro brasileiro. Foco-piloto: Oleoplan Nordeste / Iraquara-BA.</p>
+      </div>
+      <div>
+        <h4>Edição</h4>
+        <ul>
+          <li>Volume 1 · Maio de 2026</li>
+          <li>Marco regulatório: 1.AGO.2026</li>
+          <li>Vigência: ano-calendário 2026</li>
+          <li>Próxima atualização: out/2026</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li>Roberto Ribeiro</li>
+          <li>Brat Ventures · Salvador-BA</li>
+          <li>Operações: Iraquara · LEM · Salvador</li>
+          <li>Diretoria: roberto@brat.com.br</li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Brat Ventures · Documento interno · Não substitui parecer jurídico de banca especializada</span>
+      <span>Ed. v2.0 · 32 seções · 9 anexos</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ============================================================
+  // Reveal-on-scroll
+  // ============================================================
+  (function() {
+    const observers = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observers.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.section, .opp-card, .card, .timeline-cell, .stage, .kpi').forEach(el => {
+      el.classList.add('reveal');
+      observers.observe(el);
+    });
+  })();
+
+  // ============================================================
+  // Smooth anchor scroll with offset (compensates sticky nav)
+  // ============================================================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

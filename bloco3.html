@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloco 3 — Reforma Estatutária da BRATCARGAS</title>
+<meta name="description" content="Auditoria do estatuto da BRATCARGAS registrado em 05/11/2025 e proposta de reforma estatutária para alinhamento ao Compendium Cooperativo Brat v2.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700;9..144,900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F4F1EA; --bg-card: #FBFAF6; --bg-elevated: #FFFFFF;
+    --bg-dark: #1A1A1A; --bg-darker: #0F0F0F;
+    --ink: #1A1A1A; --ink-2: #3D3D3D; --ink-3: #6B6B6B; --ink-4: #A0A0A0; --ink-rev: #F4F1EA;
+    --line: #D5CFC0; --line-strong: #1A1A1A;
+    --green: #2D5A3D; --green-light: #4A7C5C; --green-pale: #DDE7DF;
+    --gold: #C8A951; --gold-deep: #9A7E2C; --gold-pale: #F2EBD3;
+    --red: #B23A2C; --red-pale: #F4DDD9;
+    --blue: #2E4F7C; --blue-pale: #DCE5F0;
+    --shadow-sm: 0 1px 2px rgba(26,26,26,0.08);
+    --shadow-md: 0 4px 16px rgba(26,26,26,0.10);
+    --shadow-lg: 0 12px 40px rgba(26,26,26,0.14);
+    --serif-display: 'Fraunces', 'Times New Roman', serif;
+    --serif-body: 'Newsreader', Georgia, serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    --grain-svg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--serif-body); font-size: 17px; line-height: 1.65;
+    color: var(--ink); background: var(--bg);
+    background-image: var(--grain-svg); background-size: 200px 200px;
+    overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection { background: var(--gold); color: var(--ink); }
+  a { color: inherit; text-decoration: none; }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+  .container-tight { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+  .container-wide { max-width: 1480px; margin: 0 auto; padding: 0 32px; }
+
+  .topnav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(244,241,234, 0.92);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topnav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 32px; max-width: 1480px; margin: 0 auto;
+  }
+  .brand { font-family: var(--serif-display); font-weight: 900; font-size: 22px; letter-spacing: -0.02em; color: var(--ink); }
+  .brand .ampersand { color: var(--gold-deep); font-style: italic; font-weight: 400; padding: 0 4px; }
+  .brand-tag { font-family: var(--mono); font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-3); margin-left: 12px; }
+  .navlinks { display: flex; gap: 28px; align-items: center; }
+  .navlinks a { font-family: var(--mono); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-2); padding-bottom: 4px; border-bottom: 1px solid transparent; transition: border-color 0.2s, color 0.2s; }
+  .navlinks a:hover { border-bottom-color: var(--gold-deep); color: var(--ink); }
+  .navlinks a.alert { color: var(--red); }
+
+  .hero {
+    position: relative; padding: 96px 0 64px; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 85% 18%, rgba(200,169,81,0.18), transparent 35%),
+      radial-gradient(circle at 5% 92%, rgba(45,90,61,0.15), transparent 40%);
+    pointer-events: none;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: end; position: relative; }
+  @media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.22em;
+    color: var(--green); border-top: 2px solid var(--green);
+    padding-top: 10px; margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif-display); font-weight: 300;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.92; letter-spacing: -0.035em;
+    color: var(--ink); margin-bottom: 32px;
+  }
+  .hero h1 em { font-style: italic; font-weight: 400; color: var(--green); }
+  .hero h1 .ampersand { font-family: var(--serif-display); font-style: italic; font-weight: 300; color: var(--gold-deep); }
+
+  .hero-lede {
+    font-family: var(--serif-body); font-size: 22px; font-weight: 300;
+    line-height: 1.45; color: var(--ink-2);
+    max-width: 680px; margin-bottom: 40px; text-wrap: balance;
+  }
+  .hero-meta {
+    display: flex; gap: 36px; flex-wrap: wrap;
+    padding-top: 32px; border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .hero-meta span strong { color: var(--ink); display: block; font-weight: 600; margin-top: 4px; font-size: 13px; }
+
+  .hero-side {
+    background: var(--bg-elevated); border: 1px solid var(--line);
+    padding: 32px; box-shadow: var(--shadow-md);
+    transform: rotate(-0.5deg);
+  }
+  .hero-side h3 {
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .hero-side ol { list-style: none; counter-reset: index; }
+  .hero-side ol li {
+    counter-increment: index; padding: 14px 0; border-bottom: 1px dashed var(--line);
+    display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: baseline;
+  }
+  .hero-side ol li:last-child { border-bottom: none; }
+  .hero-side ol li::before {
+    content: counter(index, decimal-leading-zero);
+    font-family: var(--mono); font-size: 11px; font-weight: 600;
+    color: var(--gold-deep);
+  }
+  .hero-side ol li a {
+    font-family: var(--serif-body); font-size: 15px; line-height: 1.35;
+    color: var(--ink); transition: color 0.2s;
+  }
+  .hero-side ol li:hover a { color: var(--green); }
+
+  .section { padding: 96px 0; position: relative; }
+  .section-alt { background: var(--bg-card); }
+  .section-dark { background: var(--bg-dark); color: var(--ink-rev); }
+  .section-warn { background: var(--gold-pale); border-top: 3px solid var(--gold-deep); }
+
+  .section-header {
+    display: grid; grid-template-columns: 280px 1fr; gap: 64px;
+    margin-bottom: 64px; padding-bottom: 32px;
+    border-bottom: 1px solid var(--line); align-items: end;
+  }
+  @media (max-width: 880px) { .section-header { grid-template-columns: 1fr; gap: 16px; } }
+
+  .section-tag { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); }
+  .section-tag .num { color: var(--ink-4); margin-right: 12px; }
+  .section-title { font-family: var(--serif-display); font-weight: 300; font-size: clamp(40px, 6vw, 72px); line-height: 0.96; letter-spacing: -0.03em; color: var(--ink); }
+  .section-title em { font-style: italic; color: var(--green); font-weight: 400; }
+  .section-dark .section-title { color: var(--ink-rev); }
+  .section-dark .section-tag { color: var(--gold); }
+  .section-dark .section-header { border-bottom-color: rgba(244,241,234,0.2); }
+
+  .prose { max-width: 720px; }
+  .prose p { font-family: var(--serif-body); font-size: 18px; line-height: 1.7; color: var(--ink-2); margin-bottom: 22px; }
+  .prose p strong { color: var(--ink); font-weight: 600; }
+  .prose p em { color: var(--green); font-style: italic; }
+  .prose h3 { font-family: var(--serif-display); font-weight: 500; font-size: 28px; line-height: 1.2; letter-spacing: -0.015em; color: var(--ink); margin: 48px 0 18px; }
+  .prose h4 { font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--green); margin: 32px 0 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .prose ul { list-style: none; padding-left: 0; margin-bottom: 22px; }
+  .prose ul li { position: relative; padding: 6px 0 6px 28px; font-family: var(--serif-body); font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+  .prose ul li::before { content: '—'; position: absolute; left: 0; top: 5px; color: var(--gold-deep); font-weight: 600; }
+  .prose ol { list-style: none; counter-reset: prose-num; padding-left: 0; margin-bottom: 22px; }
+  .prose ol li { counter-increment: prose-num; position: relative; padding: 6px 0 6px 36px; font-family: var(--serif-body); font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+  .prose ol li::before { content: counter(prose-num, decimal-leading-zero); position: absolute; left: 0; top: 8px; font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--gold-deep); }
+
+  .lawcite {
+    background: var(--bg-elevated); border: 1px solid var(--line);
+    border-left: 3px solid var(--gold-deep);
+    padding: 18px 22px; margin: 20px 0;
+    font-family: var(--mono); font-size: 13px; line-height: 1.6; color: var(--ink-2);
+  }
+  .lawcite strong { color: var(--gold-deep); font-weight: 600; }
+
+  .alertbox {
+    background: var(--red-pale); border-left: 3px solid var(--red);
+    padding: 20px 24px; margin: 24px 0;
+  }
+  .alertbox .alert-label { font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--red); margin-bottom: 8px; }
+  .alertbox p { font-family: var(--serif-body); font-size: 16px; line-height: 1.55; color: var(--ink); margin: 0; }
+
+  .grid-cards { display: grid; gap: 24px; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 980px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--bg-elevated); border: 1px solid var(--line);
+    padding: 28px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--green); }
+  .card-num { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--gold-deep); letter-spacing: 0.18em; margin-bottom: 14px; }
+  .card h3 { font-family: var(--serif-display); font-weight: 500; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 12px; }
+  .card p { font-family: var(--serif-body); font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+
+  .ftable { width: 100%; border-collapse: collapse; font-family: var(--serif-body); margin: 24px 0; background: var(--bg-elevated); border: 1px solid var(--line); overflow: hidden; }
+  .ftable thead th { background: var(--bg-dark); color: var(--ink-rev); font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; text-align: left; padding: 14px 16px; border-right: 1px solid rgba(244,241,234,0.1); }
+  .ftable thead th:last-child { border-right: none; }
+  .ftable tbody td { padding: 14px 16px; border-top: 1px solid var(--line); border-right: 1px solid var(--line); font-size: 14px; color: var(--ink-2); vertical-align: top; }
+  .ftable tbody td:last-child { border-right: none; }
+  .ftable tbody tr:hover { background: var(--bg-card); }
+  .ftable td.num { font-family: var(--mono); font-size: 13px; text-align: right; color: var(--ink); font-weight: 500; }
+  .ftable td.bold { font-weight: 600; color: var(--ink); }
+  .ftable td.green { color: var(--green); font-weight: 600; }
+  .ftable td.red { color: var(--red); font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+
+  /* ============================================================
+     ESPECIAL — BLOCO 3
+     Cards de auditoria estatutária com severidade
+     ============================================================ */
+  .audit-card {
+    display: grid; grid-template-columns: 70px 1fr 200px;
+    gap: 28px; align-items: start;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 880px) { .audit-card { grid-template-columns: 1fr; gap: 12px; } }
+  .audit-num { font-family: var(--serif-display); font-weight: 300; font-size: 56px; line-height: 1; letter-spacing: -0.04em; }
+  .audit-num.critico { color: var(--red); }
+  .audit-num.alto { color: var(--gold-deep); }
+  .audit-num.medio { color: var(--blue); }
+  .audit-body h3 { font-family: var(--serif-display); font-weight: 500; font-size: 24px; line-height: 1.2; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.015em; }
+  .audit-body .audit-tag { display: inline-block; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 12px; margin-right: 8px; }
+  .audit-tag.critico { color: var(--red); background: var(--red-pale); }
+  .audit-tag.alto { color: var(--gold-deep); background: var(--gold-pale); }
+  .audit-tag.medio { color: var(--blue); background: var(--blue-pale); }
+  .audit-body p { font-family: var(--serif-body); font-size: 15px; line-height: 1.55; color: var(--ink-2); margin-bottom: 12px; }
+  .audit-body .audit-mech { font-family: var(--mono); font-size: 12px; line-height: 1.5; color: var(--ink-3); background: var(--bg-card); padding: 12px 14px; border-left: 2px solid var(--gold); margin-top: 8px; }
+  .audit-numbers { font-family: var(--mono); }
+  .audit-numbers dt { font-size: 9px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-4); margin-bottom: 4px; }
+  .audit-numbers dd { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px dashed var(--line); }
+  .audit-numbers dd:last-child { border-bottom: none; }
+
+  /* ============================================================
+     DIFF — Comparativo antes/depois do artigo estatutário
+     ============================================================ */
+  .diff {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; margin: 32px 0;
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+  }
+  @media (max-width: 760px) { .diff { grid-template-columns: 1fr; } }
+  .diff-side { padding: 28px; }
+  .diff-side.left { border-right: 1px solid var(--line); background: var(--red-pale); }
+  .diff-side.right { background: var(--green-pale); }
+  @media (max-width: 760px) {
+    .diff-side.left { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+  .diff-side h4 { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 14px; }
+  .diff-side.left h4 { color: var(--red); }
+  .diff-side.right h4 { color: var(--green); }
+  .diff-side .article-num { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--ink-3); margin-bottom: 8px; letter-spacing: 0.1em; }
+  .diff-side .article-body { font-family: var(--serif-body); font-size: 14px; line-height: 1.55; color: var(--ink); }
+  .diff-side .article-body em { color: var(--green); font-weight: 600; background: rgba(45,90,61,0.1); padding: 1px 4px; }
+  .diff-side.left .article-body em { color: var(--red); background: rgba(178,58,44,0.1); }
+
+  /* ============================================================
+     STATUTE — Bloco de artigo do novo estatuto
+     ============================================================ */
+  .statute-block {
+    background: var(--bg-elevated); border: 1px solid var(--line);
+    padding: 32px; margin-bottom: 16px;
+    position: relative;
+  }
+  .statute-block.changed { border-left: 4px solid var(--green); }
+  .statute-block.new { border-left: 4px solid var(--gold-deep); background: var(--bg-card); }
+  .statute-tag {
+    position: absolute; top: 16px; right: 16px;
+    font-family: var(--mono); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 4px 10px;
+  }
+  .statute-tag.changed { color: var(--green); background: var(--green-pale); }
+  .statute-tag.new { color: var(--gold-deep); background: var(--gold-pale); }
+  .statute-tag.unchanged { color: var(--ink-3); background: var(--bg-card); }
+  .statute-block h4 { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
+  .statute-block .art-title { font-family: var(--serif-display); font-weight: 600; font-size: 18px; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em; }
+  .statute-block .art-text { font-family: var(--serif-body); font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+  .statute-block .art-text strong { color: var(--ink); font-weight: 600; }
+  .statute-block .art-text em.add { color: var(--green); background: rgba(45,90,61,0.1); padding: 1px 4px; font-style: normal; font-weight: 600; }
+  .statute-block .art-text em.del { color: var(--red); background: rgba(178,58,44,0.1); padding: 1px 4px; font-style: normal; text-decoration: line-through; }
+  .statute-block .art-note {
+    font-family: var(--mono); font-size: 11px; line-height: 1.5;
+    color: var(--ink-3); background: var(--bg-card);
+    padding: 10px 14px; border-left: 2px solid var(--gold);
+    margin-top: 14px;
+  }
+  .statute-block .art-note strong { color: var(--gold-deep); }
+
+  footer.site {
+    background: var(--bg-darker); color: var(--ink-rev);
+    padding: 80px 0 40px; border-top: 4px solid var(--gold);
+  }
+  footer.site .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; margin-bottom: 48px; }
+  @media (max-width: 760px) { footer.site .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+  footer.site h4 { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  footer.site p, footer.site li { font-family: var(--serif-body); font-size: 14px; line-height: 1.6; color: var(--ink-4); }
+  footer.site ul { list-style: none; padding: 0; }
+  footer.site ul li { padding: 5px 0; }
+  footer.site ul li a:hover { color: var(--gold); }
+  footer.site .colophon {
+    padding-top: 28px; border-top: 1px solid rgba(244,241,234,0.1);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 18px;
+    font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-4);
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .cta-panel {
+    background: var(--bg-dark); color: var(--ink-rev);
+    padding: 64px; margin: 64px 0; position: relative; overflow: hidden;
+  }
+  .cta-panel::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .cta-panel h3 { font-family: var(--serif-display); font-weight: 300; font-size: 36px; line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.02em; max-width: 620px; }
+  .cta-panel h3 em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .cta-panel p { font-family: var(--serif-body); font-size: 16px; color: var(--ink-4); max-width: 620px; margin-bottom: 28px; }
+  .cta-stamp { position: absolute; top: 48px; right: 48px; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 8px 12px; transform: rotate(8deg); }
+  @media (max-width: 760px) { .cta-stamp { display: none; } .cta-panel { padding: 40px; } }
+
+  /* KPI band */
+  .kpi-band { background: var(--bg-dark); color: var(--ink-rev); padding: 80px 0; position: relative; overflow: hidden; }
+  .kpi-band::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .kpi-eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 16px; }
+  .kpi-title { font-family: var(--serif-display); font-weight: 300; font-style: italic; font-size: clamp(32px, 5vw, 56px); line-height: 1.05; text-align: center; margin-bottom: 64px; letter-spacing: -0.02em; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid rgba(244,241,234,0.18); }
+  @media (max-width: 980px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .kpi-grid { grid-template-columns: 1fr; } }
+  .kpi { padding: 36px 32px; border-right: 1px solid rgba(244,241,234,0.18); border-bottom: 1px solid rgba(244,241,234,0.18); }
+  .kpi:last-child { border-right: none; }
+  @media (max-width: 980px) { .kpi:nth-child(2n) { border-right: none; } }
+  .kpi-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 16px; }
+  .kpi-value { font-family: var(--serif-display); font-weight: 300; font-size: clamp(38px, 5vw, 56px); line-height: 1; letter-spacing: -0.04em; color: var(--ink-rev); margin-bottom: 8px; }
+  .kpi-value .unit { font-size: 0.5em; font-weight: 400; color: var(--gold); margin-left: 4px; }
+  .kpi-note { font-family: var(--serif-body); font-size: 13px; color: var(--ink-4); line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div>
+      <span class="brand">BRAT<span class="ampersand">&amp;</span>Estatuto</span>
+      <span class="brand-tag">Bloco 3 v2.0 • Reforma estatutária • 2026</span>
+    </div>
+    <div class="navlinks">
+      <a href="#auditoria" style="color: var(--red);">Auditoria</a>
+      <a href="#gaps">Gaps</a>
+      <a href="#novo">Novo Estatuto</a>
+      <a href="#juceb" style="color: var(--gold-deep);">JUCEB</a>
+      <a href="#ata">Ata AGE</a>
+      <a href="#radar">RADAR</a>
+      <a href="#plano">Plano</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="container-wide">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Bloco 3 — Maio de 2026 — Brat Ventures</span>
+        <h1>Reforma <em>estatutária</em><br>da BRATCARGAS</h1>
+        <p class="hero-lede">
+          Auditoria crítica do estatuto registrado na JUCEB em <strong>05.NOV.2025</strong>
+          (NIRE 29400047688 — CNPJ 63.531.166/0001-54), proposta de reforma para alinhamento
+          ao Compendium Cooperativo Brat v2, varredura JUCEB-BA para registro sem fricção,
+          e ata da AGE realizada em <em>17 de abril de 2026</em>.
+        </p>
+        <div class="hero-meta">
+          <span>Estatuto vigente<strong>05.NOV.2025 · 58 artigos</strong></span>
+          <span>Estatuto reformado<strong>53 artigos · 5 Seções</strong></span>
+          <span>AGE realizada<strong>17.ABR.2026 — em conformidade</strong></span>
+          <span>Edital publicado<strong>02.ABR.2026 — 15 dias antes</strong></span>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <h3>O que este documento entrega</h3>
+        <ol>
+          <li><a href="#auditoria" style="color: var(--red); font-weight: 600;">Auditoria — 12 problemas do estatuto atual</a></li>
+          <li><a href="#gaps">8 gaps vs. Compendium v2 e reforma tributária</a></li>
+          <li><a href="#novo">Proposta de novo estatuto artigo a artigo</a></li>
+          <li><a href="#juceb" style="color: var(--gold-deep); font-weight: 600;">JUCEB-BA — varredura para registro sem fricção</a></li>
+          <li><a href="#ata">Ata da AGE realizada em 17/abr/2026</a></li>
+          <li><a href="#radar">Roteiro habilitação RADAR/Siscomex para Comex</a></li>
+          <li><a href="#regimento">Regimento Interno — operações com Seções</a></li>
+          <li><a href="#plano">Plano de implementação JUCEB+RADAR</a></li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     KPI BAND — Sumário Auditoria
+     ============================================================ -->
+<section class="kpi-band">
+  <div class="container-wide">
+    <div class="kpi-eyebrow">Sumário Executivo da Auditoria</div>
+    <h2 class="kpi-title">O estatuto atual em <em>quatro problemas estruturais</em></h2>
+    <div class="kpi-grid">
+
+      <div class="kpi">
+        <div class="kpi-label">Escopo do objeto social</div>
+        <div class="kpi-value">1 ramo</div>
+        <div class="kpi-note">Estatuto limita BRATCARGAS ao ramo TRANSPORTE. Bloqueia tudo o que o Compendium v2 prevê.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Adesão regime art. 271 LC 214</div>
+        <div class="kpi-value">0<span class="unit">menções</span></div>
+        <div class="kpi-note">Nenhuma referência ao novo regime opcional cooperativo. Sem cláusula = sem opção formal.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Compra internacional</div>
+        <div class="kpi-value">Não<span class="unit">prevista</span></div>
+        <div class="kpi-note">Sem cláusula de Comex. Sem RADAR. Sem importação. Inviabiliza compra coletiva metanol, fertilizante.</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Ata da AGE</div>
+        <div class="kpi-value">17.ABR.2026</div>
+        <div class="kpi-note">Realizada na sede em LEM-BA, com edital publicado em 02/04/2026 — 15 dias antes (mínimo legal: 10 dias).</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     AUDITORIA CRÍTICA DETALHADA
+     ============================================================ -->
+<section class="section section-warn" id="auditoria">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag" style="color: var(--red);"><span class="num">PARTE I</span>Auditoria crítica</div>
+      </div>
+      <h2 class="section-title">Os <em>doze pontos</em> que precisam ser revistos no estatuto atual</h2>
+    </div>
+
+    <div class="prose" style="max-width: 800px;">
+      <p>O estatuto registrado na JUCEB em 05.NOV.2025 (protocolo 256811784, NIRE 29400047688) é um <strong>estatuto-padrão de cooperativa de transporte</strong>, bem feito tecnicamente para esse fim restrito. O problema não é a qualidade redacional — é o <em>escopo</em>. Ele foi escrito para uma cooperativa de transporte tradicional (motoristas autônomos que dividem cargas, captação de fretes), e não para a tese transversal que o Compendium v2 desenhou: uma cooperativa que opera bidirecionalmente em torno da Oleoplan e outras 11 indústrias, comprando insumos para originar, vendendo produtos beneficiados, transportando, importando metanol e fertilizante, e oferecendo crédito presumido aos cooperados via art. 271 da LC 214/2025.</p>
+      <p>Cada um dos 12 pontos abaixo é classificado por <strong>severidade</strong> (crítico, alto, médio), com indicação da base legal violada ou ignorada, do efeito prático, e da correção proposta. A íntegra da nova redação está na seção <a href="#novo" style="border-bottom: 1px solid currentColor;">Novo Estatuto</a>.</p>
+    </div>
+
+    <!-- AUDIT 1 - CRÍTICO -->
+    <div class="audit-card">
+      <div class="audit-num critico">01</div>
+      <div class="audit-body">
+        <span class="audit-tag critico">Crítico — bloqueia toda a tese v2</span>
+        <h3>Objeto social restrito a "transporte de cargas não perigosas"</h3>
+        <p><strong>O que está no estatuto atual (Art. 5º):</strong> "tem como objetivo social, prestar serviços aos seus cooperados visando o desenvolvimento de suas atividades nas áreas de <em>transporte de cargas não perigosas</em> municipais, estaduais e para exportação". E os CNAEs listados (I a VII) são todos do grupo 49.30 (transporte) e 45.20 (manutenção veicular).</p>
+        <p><strong>Problema:</strong> esse objeto social autoriza apenas as 5 das 13 frentes do Compendium v2 — todas as operações de originação (soja Pronaf, lenha, sebo, fertilizante, metanol) e de revenda (farelo, casca, glicerina) ficam <em>fora</em> do objeto estatutário. Operar fora do objeto é ato ultra vires da cooperativa: pode ser anulado, e o Fisco usa isso como evidência de fraude.</p>
+        <div class="audit-mech">Lei 5.764/71 art. 4º (objeto cooperativo); art. 21 inciso II (objeto deve constar no estatuto); art. 22 §único (atos fora do objeto são nulos). Princípio cooperativo: a cooperativa só faz o que o estatuto autoriza.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Frentes bloqueadas</dt>
+        <dd class="red">8 de 13 do Compendium v2</dd>
+        <dt>Receita anual em risco</dt>
+        <dd>R$ 235 mi/ano (programa)</dd>
+        <dt>Correção proposta</dt>
+        <dd>Novo Art. 5º com 9 CNAEs</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 2 - CRÍTICO -->
+    <div class="audit-card">
+      <div class="audit-num critico">02</div>
+      <div class="audit-body">
+        <span class="audit-tag critico">Crítico — perde benefício de R$ 6,7 mi/ano em 2033</span>
+        <h3>Zero menção ao regime específico do art. 271 da LC 214/2025</h3>
+        <p><strong>O que está no estatuto atual:</strong> nada. O Art. 43 menciona apenas que "as operações da Cooperativa com seus cooperados não estão sujeitas à incidência de PIS/COFINS, conforme entendimento consolidado do Superior Tribunal de Justiça". Bom para o regime atual, mas <em>silente</em> sobre o novo regime IBS+CBS.</p>
+        <p><strong>Problema:</strong> a partir de 1º.JAN.2027, a cooperativa precisa <em>formalmente optar</em> pelo regime específico do art. 271 da LC 214/2025 para ter alíquota zero de IBS+CBS sobre o ato cooperado. A opção é decisão de assembleia, irretratável por ano-calendário. Sem cláusula estatutária autorizando a opção, a diretoria não tem legitimidade para fazer essa adesão — precisa convocar nova AGE só pra isso.</p>
+        <div class="audit-mech">LC 214/2025 art. 271 (regime opcional). Art. 21 da Lei 5.764/71 manda fazer constar no estatuto "o objeto cooperativo e o capítulo das operações". Boa prática: cláusula expressa autorizando a diretoria a fazer a opção e renovar anualmente.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Severidade</dt>
+        <dd class="red">Crítico — perda do principal benefício</dd>
+        <dt>Economia perdida (2033)</dt>
+        <dd>R$ 6,7 mi/ano</dd>
+        <dt>Correção proposta</dt>
+        <dd>Novo Art. 44 + 45</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 3 - CRÍTICO -->
+    <div class="audit-card">
+      <div class="audit-num critico">03</div>
+      <div class="audit-body">
+        <span class="audit-tag critico">Crítico — inviabiliza compra coletiva internacional</span>
+        <h3>Nenhuma autorização para compra e importação coletiva</h3>
+        <p><strong>O que está no estatuto atual (Art. 44):</strong> "A Cooperativa prestará aos cooperados os seguintes serviços: I - Intermediação na obtenção de cargas; II - Celebração de contratos coletivos de transporte; III - Assistência técnica e jurídica; IV - Programas de benefícios exclusivos; V - Representação dos interesses dos cooperados perante órgãos públicos e entidades privadas; VI - Intercooperação com outras cooperativas e entidades afins; VII - Outros serviços aprovados em Assembleia Geral."</p>
+        <p><strong>Problema:</strong> nada permite a cooperativa <em>comprar</em> insumos para os cooperados, muito menos <em>importar</em>. O Compendium v2 prevê pelo menos quatro operações que exigem isso: importação coletiva de metanol da Argentina/Trinidad para os biocombustíveis (R$ 25 mi/ano), compra coletiva de fertilizantes e defensivos para produtores Pronaf (R$ 18 mi/ano), compra coletiva de pneus para motoristas (estimado R$ 8 mi/ano), e compra coletiva de combustível B100 direto da refinaria. Sem objeto estatutário expresso, é tudo impossível.</p>
+        <div class="audit-mech">Receita Federal — Instrução Normativa 1.984/2020 (regulamenta RADAR e habilitação Siscomex). A primeira exigência é que o objeto social da pessoa jurídica habilite a importação. Sem cláusula expressa = RADAR negado pelo Auditor Fiscal. Receita Federal exige que o objeto seja "compatível com a atividade de importação".</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Operações bloqueadas</dt>
+        <dd class="red">4 (metanol, fert., pneu, B100)</dd>
+        <dt>Volume comex/ano</dt>
+        <dd>R$ 25-50 mi estimados</dd>
+        <dt>Correção proposta</dt>
+        <dd>Novo Art. 5º incisos VIII-IX + Cap. Comex</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 4 - CRÍTICO -->
+    <div class="audit-card">
+      <div class="audit-num critico">04</div>
+      <div class="audit-body">
+        <span class="audit-tag critico">Crítico — bloqueia cliente-cooperado</span>
+        <h3>Admissão de pessoa jurídica restrita a "área de serviços"</h3>
+        <p><strong>O que está no estatuto atual (Art. 6º):</strong> "Podem associar-se à Cooperativa as pessoas físicas que: I - Sejam maiores de 18 anos e civilmente capazes; II - Possuam veículo próprio para transporte de cargas ou comprovem interesse em adquiri-lo; [...] e <em>pessoas jurídicas que atuem na área de serviços</em>."</p>
+        <p><strong>Problema:</strong> a cláusula "pessoas jurídicas que atuem na área de serviços" é vaga e ambígua. Excluiu (ou pelo menos não admite explicitamente) os perfis-chave do Compendium v2: frigoríficos médios fornecendo sebo (Ponta A4), granjas e fábricas de ração comprando farelo (Ponta B1-B5), distribuidores de glicerina (Ponta B6), traders exportadores (Ponta B7), produtores rurais PJ entregando soja Pronaf (Ponta A2). Cada um desses precisa de uma redação estatutária específica que os habilite expressamente como cooperados.</p>
+        <div class="audit-mech">Lei 5.764/71 art. 4º inciso I (livre acesso e adesão voluntária — base do princípio cooperativo) c/c art. 6º (cooperativa singular admite pessoa física e PJ, desde que estatuto autorize). Princípio: o estatuto define quem pode ser cooperado, e essa definição é vinculante.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Tipos PJ bloqueados</dt>
+        <dd class="red">5 perfis-chave v2</dd>
+        <dt>Receita perdida</dt>
+        <dd>R$ 156 mi/ano (Ponta B)</dd>
+        <dt>Correção proposta</dt>
+        <dd>Novo Art. 6º — categorias I a V</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 5 - ALTO -->
+    <div class="audit-card">
+      <div class="audit-num alto">05</div>
+      <div class="audit-body">
+        <span class="audit-tag alto">Alto — bloqueia tese tributária</span>
+        <h3>Operações com não-associados sem proporcionalidade clara</h3>
+        <p><strong>O que está no estatuto atual (Art. 42):</strong> "A Cooperativa operará preferencialmente com seus cooperados, podendo fazê-lo com terceiros desde que tal faculdade seja aprovada em Assembleia Geral ou em reunião de diretoria."</p>
+        <p><strong>Problema:</strong> dois subproblemas. <em>Primeiro:</em> "preferencialmente" é palavra vaga — não há indicador numérico de proporção máxima de operações com não-associados. A jurisprudência do CARF trabalha com baliza de 30-50% como limite tolerável. Sem indicador no estatuto, o Fisco constrói a sua própria interpretação. <em>Segundo:</em> autorizar "em reunião de diretoria" é processualmente frouxo — facilita autuação por ato fora do objeto. O ideal é que cada autorização ampla seja decidida em assembleia (mais conservador), com diretoria executando dentro de tetos pré-aprovados.</p>
+        <div class="audit-mech">Lei 5.764/71 art. 85 e 86 (cooperativa pode operar com não-associados desde que atendido objetivo social). CARF Solução de Consulta Cosit 196/2021 (tolerância prática 30-50%). Boa prática estatutária: fixar percentual máximo objetivo + processo de autorização.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Severidade</dt>
+        <dd>Alto — risco fiscal</dd>
+        <dt>Procedimento Fisco</dt>
+        <dd>Reclassificação sociedade</dd>
+        <dt>Correção proposta</dt>
+        <dd>Novo Art. 42 com teto 30%</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 6 - ALTO -->
+    <div class="audit-card">
+      <div class="audit-num alto">06</div>
+      <div class="audit-body">
+        <span class="audit-tag alto">Alto — risco operacional</span>
+        <h3>Sem estrutura de seções por ramo / atividade</h3>
+        <p><strong>O que está no estatuto atual:</strong> não há previsão de seções. A cooperativa é tratada como entidade única e indivisível para todos os efeitos.</p>
+        <p><strong>Problema:</strong> o Compendium v2 prevê cinco frentes operacionais com perfis tributários, riscos e KPIs distintos: <em>Transporte</em> (Brat Cargas tradicional), <em>Agro / Originação</em> (soja Pronaf, originação grãos), <em>Florestal</em> (lenha, manejo, DOF), <em>Animal</em> (sebo, ração), <em>Trade / Comex</em> (importação metanol, fertilizante, B100, exportação). Tratá-las como um caldeirão único dificulta governança, exige plano de contas mais complexo, e expõe a cooperativa a contaminação cruzada de riscos (problema ambiental do florestal afeta o tributário do trade).</p>
+        <div class="audit-mech">Boa prática consagrada no cooperativismo brasileiro — Coopeavi, Aurora, Coamo todas operam com seções. Não é exigência legal, mas é exigência prática para escalar e para auditoria contábil. Lei 5.764/71 art. 79 (segregação contábil ato cooperado / não-cooperado) torna a estrutura de seções operacionalmente quase inevitável.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Severidade</dt>
+        <dd>Alto — governança</dd>
+        <dt>Risco</dt>
+        <dd>Contaminação cruzada</dd>
+        <dt>Correção proposta</dt>
+        <dd>Novo Art. 5º §1º + Cap. Seções</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 7 - ALTO -->
+    <div class="audit-card">
+      <div class="audit-num alto">07</div>
+      <div class="audit-body">
+        <span class="audit-tag alto">Alto — capital muito baixo</span>
+        <h3>Capital social inicial de R$ 32.620 — muito baixo para o porte planejado</h3>
+        <p><strong>O que está no estatuto atual (Art. 17):</strong> "O capital social inicial é de R$ 32.620,00, dividido em quotas-partes de valor unitário de R$ 1.631,00." E Art. 8º: "O valor da anual será de R$ 1.631,00 onde deve ser integralizado no ato da admissão R$ 1.631,00; As contribuições mensais podem variar conforme: I - Tipo e capacidade do veículo [...]"</p>
+        <p><strong>Problema:</strong> R$ 32.620 (20 cooperados × R$ 1.631 cada) é capital adequado para uma cooperativa-piloto, mas o Compendium v2 prevê escala R$ 264 mi/ano em receita programa. A relação Capital/Receita ficaria em 0,01% — fortíssima sinalização ao Fisco e ao mercado de que a cooperativa não tem substância patrimonial. A jurisprudência tributária trabalha com a noção de "subcapitalização" para reclassificar cooperativas que operam volumes muito altos com capital muito baixo. Plus: a redação do Art. 8º tem um erro material — "O valor da anual será de R$ 1.631,00" (palavra faltando: "quota-parte" ou "contribuição"; provavelmente "subscrição inicial").</p>
+        <div class="audit-mech">Lei 5.764/71 art. 24 (capital social formado por quotas-partes); art. 28 (Fundos obrigatórios). CARF reiteradamente aplica teste de substância patrimonial — capital muito baixo associado a operação muito alta é red flag. Recomendação técnica para cooperativa do porte planejado: capital integralizado proporcional ao volume mensal médio de operação (1-2 meses).</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Capital atual</dt>
+        <dd class="red">R$ 32.620 (20 cooperados)</dd>
+        <dt>Recomendado v2</dt>
+        <dd>R$ 500 k a R$ 2 mi</dd>
+        <dt>Correção proposta</dt>
+        <dd>Novo Art. 17 + escalonamento</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 8 - ALTO -->
+    <div class="audit-card">
+      <div class="audit-num alto">08</div>
+      <div class="audit-body">
+        <span class="audit-tag alto">Alto — risco trabalhista</span>
+        <h3>Benefícios "exclusivos" do Art. 45 com risco de descaracterização do vínculo cooperativo</h3>
+        <p><strong>O que está no estatuto atual (Art. 45):</strong> "A Cooperativa oferecerá aos cooperados os seguintes benefícios exclusivos: I - Clube de Descontos: a) Acesso a mais de 15.000 empresas parceiras; b) Descontos em combustível, alimentação, hospedagem [...]; III - Seguro de Vida Gratuito; IV - Plano de Assistência Médica e Telemedicina; V - Assistência jurídica relativa exceto criminal; VI - Intermediar programas de Combustível com Valor Justo; VII - Intermediar programas de Assinatura para Troca de Óculos; VIII - Intermediar programas de Assinatura para Troca de Pneus."</p>
+        <p><strong>Problema:</strong> dois subproblemas. <em>Primeiro:</em> a oferta de "Plano de Assistência Médica e Telemedicina" combinada com "Seguro de Vida" e "Assistência Jurídica" desenha um pacote muito próximo de <em>benefícios trabalhistas</em>. Em fiscalização do MTE ou ação trabalhista, o cooperado-motorista pode alegar relação de emprego disfarçada — risco grave nas cooperativas de trabalho e mão de obra, com jurisprudência consolidada nos tribunais. Plus, falta o inciso II (numeração quebrada: I, III, IV — pula o II). <em>Segundo:</em> "Troca de Óculos" e "Troca de Pneus" são programas adequados, mas precisam estar destacados como <em>compra coletiva</em> com contrato cooperativa-fornecedor, não como "benefício exclusivo".</p>
+        <div class="audit-mech">CLT art. 442 §único (cooperativa de trabalho); Lei 12.690/2012 (regulamenta cooperativas de trabalho). TST Súmula 331 sobre terceirização. Bom desenho dos benefícios deve estar no Regimento Interno, não no estatuto — e benefícios devem ter natureza claramente cooperativa, não trabalhista.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Severidade</dt>
+        <dd>Alto — trabalhista</dd>
+        <dt>Risco</dt>
+        <dd>Reclamação de vínculo</dd>
+        <dt>Correção proposta</dt>
+        <dd>Mover Art. 45 para Regimento</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 9 - DIRETORIA OPTOU POR MANTER -->
+    <div class="audit-card">
+      <div class="audit-num medio">09</div>
+      <div class="audit-body">
+        <span class="audit-tag medio" style="color: var(--gold-deep); background: var(--gold-pale);">Mantido — decisão da diretoria</span>
+        <h3>Conselho de Administração com 4 membros e mandato de 4 anos — diretoria optou por manter</h3>
+        <p><strong>O que está no estatuto atual (Art. 33-34):</strong> "O Conselho de Administração é o órgão executivo da Cooperativa, sendo composto por 04 membros efetivos todos cooperados, eleitos pela Assembleia Geral para mandato de 4 (quatro) anos, com renovação de no mínimo um terço dos membros a cada eleição."</p>
+        <p><strong>Apontamento original da auditoria:</strong> a redação "renovação de no mínimo um terço a cada eleição" combinada com mandato de 4 anos eleito de uma só vez gera tensão com o art. 47 da Lei 5.764/71 (que obriga renovação obrigatória trienal de pelo menos 1/3). A sugestão inicial era ampliar para 5-7 membros com renovação escalonada a cada 2 anos.</p>
+        <p><strong>Decisão da diretoria (acatada nesta versão):</strong> manter a redação atual do Art. 33 e introduzir flexibilidade apenas via Art. 34, que passa a permitir "até 3 (três) Conselheiros adicionais com atribuições específicas por Seção operacional". Essa solução preserva a composição consolidada do Conselho atual sem necessidade de eleição de substitutos imediatos, e ainda assim cria o caminho para coordenação das novas Seções operacionais (Agro, Florestal, Animal/Trade).</p>
+        <div class="audit-mech">Lei 5.764/71 art. 47 (Conselho mínimo 3 membros, mandato máximo 4 anos, renovação obrigatória ≥1/3). A interpretação prática do art. 47 admite o "todos saem ao fim do mandato" desde que o estatuto não vede expressamente — é o que ocorre no estatuto atual. Risco residual, mas operacionalmente aceitável dado o estágio da Cooperativa.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Severidade reclassificada</dt>
+        <dd>Médio — diretoria optou</dd>
+        <dt>Composição mantida</dt>
+        <dd>4 + até 3 adicionais</dd>
+        <dt>Ajuste real</dt>
+        <dd>Apenas Art. 34</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 10 - MÉDIO -->
+    <div class="audit-card">
+      <div class="audit-num medio">10</div>
+      <div class="audit-body">
+        <span class="audit-tag medio">Médio — risco bancário/lavagem</span>
+        <h3>Movimentação financeira centralizada em Presidente+Diretor Financeiro sem alçada</h3>
+        <p><strong>O que está no estatuto atual (Art. 36 e 38):</strong> "Compete ao Presidente: IV - Movimentar contas bancárias conjuntamente com o diretor Financeiro." E "Compete ao diretor financeiro: I - Movimentar contas bancárias conjuntamente com o Presidente."</p>
+        <p><strong>Problema:</strong> assinatura conjunta de duas pessoas é boa prática, mas o estatuto não define <em>limites de alçada</em> por valor. Numa cooperativa que vai operar volumes de centenas de milhões, isso significa que cada PIX precisa de duas assinaturas — operacionalmente inviável. Plus, em fiscalização do COAF / Banco Central, a ausência de matriz de alçada documentada é red flag para risco de lavagem. Recomendação: matriz com 3 níveis (até R$ 50 k assinatura individual de qualquer um, R$ 50-500 k conjunta presidente+financeiro, acima de R$ 500 k aprovação do Conselho).</p>
+        <div class="audit-mech">Lei 9.613/98 (lavagem de dinheiro); Lei 12.683/2012; Circular Bacen 3.978/2020 (cooperativas e PEP). Sistema cooperativo: norma OCB sobre governança bancária. Boa prática: matriz de alçada em Regimento Interno, com revisão anual em AGE.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Severidade</dt>
+        <dd>Médio — operacional</dd>
+        <dt>Risco</dt>
+        <dd>COAF + operacional</dd>
+        <dt>Correção proposta</dt>
+        <dd>Matriz alçada Regimento</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 11 - MÉDIO -->
+    <div class="audit-card">
+      <div class="audit-num medio">11</div>
+      <div class="audit-body">
+        <span class="audit-tag medio">Médio — falha redacional</span>
+        <h3>Numeração quebrada do Art. 45, Art. 8º com texto incompleto, Art. 51 sem destinação clara</h3>
+        <p><strong>O que está no estatuto atual:</strong> três pequenos vícios redacionais. <em>Art. 8º:</em> "O valor da anual será de R$ 1.631,00" — palavra faltando ("contribuição"? "subscrição"?). <em>Art. 45:</em> "I - Clube de Descontos [...]; III - Seguro de Vida Gratuito; IV - Plano de Assistência Médica" — pula o inciso II. <em>Art. 51:</em> "As sobras líquidas apuradas no exercício serão destinadas: I - 10% para o Fundo de Reserva; II - 5% para o FATES; III - O restante será distribuído aos cooperados proporcionalmente às operações realizadas, ou conforme deliberação da Assembleia Geral" — a alternativa "ou conforme deliberação da Assembleia Geral" abre brecha para sobras serem distribuídas <em>desproporcionalmente</em>, o que viola o princípio do art. 4º inciso VII da Lei 5.764/71 (retorno proporcional das sobras).</p>
+        <div class="audit-mech">Lei 5.764/71 art. 4º inciso VII (retorno proporcional ao valor das operações, salvo deliberação contrária da AGE — mas a regra geral é proporcional). Boas práticas redacionais: estatuto cooperativo deve passar por revisão final de advogado especialista para correção desses pequenos vícios.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Severidade</dt>
+        <dd>Médio — redacional</dd>
+        <dt>Vícios identificados</dt>
+        <dd>3 pontos</dd>
+        <dt>Correção proposta</dt>
+        <dd>Revisão integral</dd>
+      </dl>
+    </div>
+
+    <!-- AUDIT 12 - MÉDIO -->
+    <div class="audit-card" style="border-bottom: none;">
+      <div class="audit-num medio">12</div>
+      <div class="audit-body">
+        <span class="audit-tag medio">Médio — oportunidade perdida</span>
+        <h3>Intercooperação só com COHAPM — falta a Brat Agro, OCB-BA, sistema cooperativo</h3>
+        <p><strong>O que está no estatuto atual (Art. 47-48):</strong> "A Cooperativa poderá celebrar convênios de intercooperação com outras cooperativas e entidades afins, visando ao desenvolvimento mútuo. Fica desde já aprovada a intercooperação com a COHAPM (Cooperativa Habitacional da Polícia Militar e Servidores Públicos) para disponibilizar os projetos habitacionais aos cooperados ativos da BRATCARGAS."</p>
+        <p><strong>Problema:</strong> a única intercooperação pré-aprovada é com COHAPM (cooperativa habitacional — programa social secundário). Faltam as intercooperações relevantes para o Compendium v2: (a) Brat Agro (cooperativa agro-alimentar a ser constituída ou já existente), para operacionalizar conjuntamente as pontas A e B; (b) OCB-BA e Sescoop-BA (filiação institucional, obrigatória de fato para acesso a benefícios e capacitação); (c) cooperativas centrais de transporte e agro do Nordeste para ato intercooperativo do art. 271 LC 214 (alíquota zero também entre cooperativas filiadas a central). Sem essas intercooperações no estatuto, cada uma requer AGE específica.</p>
+        <div class="audit-mech">Lei 5.764/71 art. 8º (cooperativas de cooperativas); art. 79 (ato cooperativo intercooperativo); LC 214/2025 art. 271 (alíquota zero para operações entre cooperativas filiadas). OCB Resolução sobre filiação. Sescoop Lei 11.250/2005.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Severidade</dt>
+        <dd>Médio — operacional</dd>
+        <dt>Intercoops faltantes</dt>
+        <dd>4 estratégicas</dd>
+        <dt>Correção proposta</dt>
+        <dd>Novo Art. 47 ampliado</dd>
+      </dl>
+    </div>
+
+  </div>
+</section>
+<!-- ============================================================
+     GAPS vs COMPENDIUM v2
+     ============================================================ -->
+<section class="section" id="gaps">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE II</span>Gaps específicos</div>
+      </div>
+      <h2 class="section-title">O <em>delta</em> entre o estatuto atual e o que o Compendium v2 exige</h2>
+    </div>
+
+    <div class="prose" style="max-width: 800px;">
+      <p>Os doze problemas auditados na Parte I são consequências de uma origem específica: o estatuto foi construído para uma cooperativa de transporte tradicional. A tabela abaixo cruza, item por item, o que o Compendium v2 prescreve com o que o estatuto atual permite — e identifica oito gaps estruturais que o novo estatuto precisa fechar.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr>
+            <th style="width: 35%;">O que o Compendium v2 prescreve</th>
+            <th style="width: 30%;">O que o estatuto atual permite</th>
+            <th style="width: 35%;">Gap estrutural a fechar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">Cooperativa transversal a Transporte + Agro + Florestal + Animal + Trade (5 seções)</td>
+            <td>Apenas Transporte (CNAEs 49.30 e 45.20)</td>
+            <td class="red">Adicionar 9 CNAEs novos e estrutura formal de seções</td>
+          </tr>
+          <tr>
+            <td class="bold">Adesão formal art. 271 LC 214/2025 a partir de 1.JAN.2027</td>
+            <td>Apenas menção genérica art. 43 ao "entendimento STJ" sobre PIS/COFINS</td>
+            <td class="red">Cláusula expressa autorizando opção pelo regime específico IBS+CBS</td>
+          </tr>
+          <tr>
+            <td class="bold">Compra coletiva nacional + importação coletiva via RADAR</td>
+            <td>Nenhuma autorização — Art. 44 cobre apenas intermediação de cargas e benefícios</td>
+            <td class="red">Adicionar objeto comércio atacadista + Comex + capítulo Comex</td>
+          </tr>
+          <tr>
+            <td class="bold">Clientes-âncora B1-B8 como cooperados (granjas, frigoríficos, distribuidores, traders)</td>
+            <td>"Pessoas jurídicas que atuem na área de serviços" (genérico, ambíguo)</td>
+            <td class="red">Definir 5 categorias de cooperado PJ com perfis específicos</td>
+          </tr>
+          <tr>
+            <td class="bold">Compra direta do produtor rural Pronaf (PF rural com CAF) para Selo Social</td>
+            <td>Apenas "pessoas físicas maiores de 18 anos com veículo próprio"</td>
+            <td class="red">Admitir produtor rural PF como categoria de cooperado</td>
+          </tr>
+          <tr>
+            <td class="bold">Capital social compatível com R$ 264 mi/ano de receita</td>
+            <td>R$ 32.620 inicial (sub-capitalização severa)</td>
+            <td class="red">Escalonar capital social conforme volume; tetos por seção</td>
+          </tr>
+          <tr>
+            <td class="bold">Intercooperação com Brat Agro + OCB-BA + Sescoop + Centrais</td>
+            <td>Pré-aprovada apenas com COHAPM (habitacional)</td>
+            <td class="red">Adicionar intercooperações estratégicas</td>
+          </tr>
+          <tr>
+            <td class="bold">Governança escalada com matriz de alçada e auditoria externa</td>
+            <td>Conselho 4 membros, assinatura conjunta sem alçada</td>
+            <td class="red">5-7 conselheiros + alçada + auditoria externa obrigatória acima R$ 10mi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PROPOSTA NOVO ESTATUTO — INTRO
+     ============================================================ -->
+<section class="section section-alt" id="novo">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE III</span>Novo estatuto</div>
+      </div>
+      <h2 class="section-title">A reforma <em>artigo por artigo</em> — texto pronto para assembleia</h2>
+    </div>
+
+    <div class="prose">
+      <p>A proposta abaixo preserva o que está sólido no estatuto atual (princípios cooperativos, estrutura de órgãos, capital social, regime tributário cooperativo) e <em>amplia</em> onde o Compendium v2 exige. Cada artigo está marcado por uma das três tags: <strong style="color: var(--ink-3);">INALTERADO</strong> (mantém redação atual), <strong style="color: var(--green);">ALTERADO</strong> (redação atual modificada), <strong style="color: var(--gold-deep);">NOVO</strong> (artigo inexistente no estatuto atual). A numeração foi mantida onde possível, e os artigos novos foram inseridos por interpolação.</p>
+      <p>A íntegra do estatuto reformado tem 78 artigos (vs. 58 do atual). Recomendo que a aprovação se dê via reforma integral em AGE única, e não por reformas parcelares — operacionalmente mais limpo no registro JUCEB e juridicamente mais robusto.</p>
+    </div>
+
+    <!-- TÍTULO I — DA CONSTITUIÇÃO, DENOMINAÇÃO, SEDE, OBJETOS -->
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">Título I — Da Constituição, Denominação e Objetos</h3>
+
+    <div class="statute-block">
+      <div class="statute-tag unchanged">Inalterado</div>
+      <h4>Capítulo I — Da Constituição e Denominação</h4>
+      <div class="art-title">Art. 1º — Denominação e regência</div>
+      <div class="art-text">A <strong>COOPERATIVA DE TRANSPORTE DE CARGAS DO BRASIL</strong>, com a sigla <strong>BRATCARGAS</strong>, é uma sociedade cooperativa de natureza civil, sem fins lucrativos, constituída por deliberação da Assembleia Geral de Constituição realizada em 11 de outubro de 2025, regendo-se pelo presente Estatuto, pela Lei nº 5.764, de 16 de dezembro de 1971, e demais disposições legais aplicáveis.</div>
+    </div>
+
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado</div>
+      <div class="art-title">Art. 2º — Princípios cooperativos e adesão ao sistema cooperativista</div>
+      <div class="art-text">A Cooperativa adota os princípios universais do cooperativismo estabelecidos pela Aliança Cooperativa Internacional: I - Adesão livre e voluntária; II - Gestão democrática pelos cooperados; III - Participação econômica dos cooperados; IV - Autonomia e independência; V - Educação, formação e informação; VI - Intercooperação; VII - Interesse pela comunidade. <em class="add">§1º — A Cooperativa filia-se à Organização das Cooperativas Brasileiras (OCB) por intermédio da Organização das Cooperativas do Estado da Bahia (OCB-BA) e adere ao Serviço Nacional de Aprendizagem do Cooperativismo (SESCOOP), nos termos da Lei nº 11.250/2005.</em></div>
+      <div class="art-note"><strong>Por que mudou:</strong> a filiação OCB-BA + SESCOOP é praticamente obrigatória de fato para acesso a capacitação, intercooperação e reconhecimento institucional. Melhor já constar no estatuto.</div>
+    </div>
+
+    <div class="statute-block">
+      <div class="statute-tag unchanged">Inalterado</div>
+      <h4>Capítulo II — Da Sede, Foro, Duração e Número de Cooperados</h4>
+      <div class="art-title">Art. 3º — Sede e foro</div>
+      <div class="art-text">A Cooperativa tem sede e foro na cidade de <strong>Luís Eduardo Magalhães, Estado da Bahia</strong>, na RUA GETÚLIO VARGAS Nº 860, JARDIM PARAÍSO, CEP: 47855-692, podendo criar filiais, escritórios, postos de atendimento e outras dependências em qualquer parte do território nacional, mediante deliberação do Conselho de Administração.</div>
+    </div>
+
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado</div>
+      <div class="art-title">Art. 4º — Número mínimo de cooperados e duração</div>
+      <div class="art-text">O número mínimo para criação e constituição da BRATCARGAS foi de 20 (vinte) pessoas físicas <em class="del">ou jurídicas</em><em class="add"> e jurídicas, conforme art. 6º deste Estatuto</em>, e a duração da Cooperativa é por prazo indeterminado, iniciando suas atividades na data de registro de seus atos constitutivos na Junta Comercial do Estado da Bahia - JUCEB.</div>
+      <div class="art-note"><strong>Por que mudou:</strong> ajuste técnico-redacional para fazer referência cruzada ao novo Art. 6º que detalha categorias de cooperado.</div>
+    </div>
+
+    <!-- ART 5 - O MAIS IMPORTANTE - OBJETO SOCIAL EXPANDIDO -->
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado — CRÍTICO</div>
+      <h4>Capítulo III — Dos Objetos e Finalidades</h4>
+      <div class="art-title">Art. 5º — Objeto social expandido</div>
+      <div class="art-text">A <strong>BRATCARGAS</strong>, atuando como cooperativa multifuncional, tem como objetivo social <em class="add">prestar serviços, intermediar operações de compra e venda, originar produtos e prestar logística</em> aos seus cooperados, visando o desenvolvimento de suas atividades econômicas e captura de benefícios cooperativos, e especialmente realizando as seguintes atividades:
+        <br><br>
+        <strong style="color: var(--green);">— SEÇÃO TRANSPORTE (mantida do estatuto atual)</strong><br>
+        I - Transporte rodoviário de carga, exceto produtos perigosos e mudanças, intermunicipal, interestadual e <em class="add">internacional</em> (CNAE 4930-2/02);<br>
+        II - Serviços de manutenção e reparação mecânica de veículos automotores (CNAE 45.20-0-01);<br>
+        III - Serviços de manutenção e reparação elétrica de veículos automotores (CNAE 45.20-0-03);<br>
+        IV - Serviços de lavagem, lubrificação e polimento de veículos automotores (CNAE 45.20-0-05);<br>
+        V - Serviços de borracharia para veículos automotores (CNAE 45.20-0-06);<br>
+        VI - Serviços de instalação, manutenção e reparação de acessórios para veículos automotores (CNAE 45.20-0-07);<br>
+        VII - Treinamento em desenvolvimento profissional e gerencial (CNAE 85.99-6-04);<br>
+        <br>
+        <em class="add"><strong style="color: var(--green);">— SEÇÃO AGRO / ORIGINAÇÃO (nova)</strong><br>
+        VIII - Comércio atacadista de soja, milho e demais cereais (CNAE 46.32-0-01);<br>
+        IX - Comércio atacadista de sementes, flores, plantas e gramas (CNAE 46.23-1/05);<br>
+        X - Atividades de apoio à produção agrícola: classificação, padronização, secagem, armazenagem (CNAE 01.63-6/00);<br>
+        <br>
+        <strong style="color: var(--green);">— SEÇÃO FLORESTAL (nova)</strong><br>
+        XI - Comércio atacadista de madeira em bruto, lenha e biomassa (CNAE 46.71-1/00);<br>
+        XII - Atividades de apoio à produção florestal — manejo, transporte, classificação (CNAE 02.30-6/00);<br>
+        <br>
+        <strong style="color: var(--green);">— SEÇÃO ANIMAL (nova)</strong><br>
+        XIII - Comércio atacadista de matérias-primas agrícolas em natura: sebo bovino, despojos animais para indústria (CNAE 46.23-1/99);<br>
+        XIV - Comércio atacadista de alimentos para animais — farelo, casca peletizada, ração (CNAE 46.23-1/09);<br>
+        <br>
+        <strong style="color: var(--green);">— SEÇÃO TRADE / COMEX (nova)</strong><br>
+        XV - Comércio atacadista de combustíveis, lubrificantes e produtos correlatos, exceto a varejo de combustíveis em postos (CNAE 46.81-8/01);<br>
+        XVI - Comércio atacadista de defensivos agrícolas, adubos, fertilizantes e corretivos do solo (CNAE 46.83-4/00);<br>
+        XVII - Comércio atacadista de produtos químicos e petroquímicos, exceto agroquímicos — incluindo metanol e álcoois industriais (CNAE 46.84-2/99);<br>
+        XVIII - Atividades auxiliares dos transportes aquaviários não especificadas anteriormente (CNAE 52.39-7/00); para fins de operação logística internacional;<br>
+        XIX - Comércio atacadista de produtos do extrativismo vegetal — para exportação de farelo de soja e similares (CNAE 46.32-0-99).
+        <br><br>
+        <strong>§1º — Estrutura em Seções:</strong> as atividades descritas neste artigo são organizadas em 5 (cinco) Seções operacionais autônomas e contabilmente segregadas — Transporte, Agro, Florestal, Animal e Trade — nos termos do Regimento Interno aprovado pela Assembleia Geral.<br>
+        <strong>§2º — Operações de comércio exterior:</strong> a Cooperativa fica autorizada a realizar operações de importação e exportação de bens e serviços, para fornecimento aos cooperados e para originação de matérias-primas em nome dos cooperados, observada a habilitação no Radar/Siscomex perante a Receita Federal.<br>
+        <strong>§3º — Captação de cargas e intermediação:</strong> a Cooperativa, especialmente em sua Seção Transporte, fará captação de cargas e direcionamento aos cooperados motoristas, e nas demais seções fará intermediação de compra e venda em nome dos cooperados produtores ou compradores.<br>
+        <strong>§4º — Beneficiamento e industrialização:</strong> as atividades de beneficiamento, secagem, classificação, armazenagem e padronização poderão ser executadas em estabelecimentos próprios ou de terceiros contratados pela Cooperativa, sempre em nome dos cooperados.</em>
+      </div>
+      <div class="art-note"><strong>Por que mudou (CRÍTICO):</strong> esta é a alteração mais relevante de todo o estatuto. Sem a expansão do objeto social, a tese transversal do Compendium v2 não pode ser executada. Os CNAEs adicionados são exatamente os necessários para suportar (a) originação cooperativa nas 5 frentes de compra, (b) revenda cooperativa nas 4 frentes de venda, e (c) habilitação RADAR para Comex. Recomenda-se que a banca jurídica especializada confirme cada CNAE contra a tabela CONCLA-IBGE vigente antes da AGE.</div>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">Título II — Dos Cooperados</h3>
+
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado — CRÍTICO</div>
+      <h4>Capítulo I — Da Admissão</h4>
+      <div class="art-title">Art. 6º — Categorias de cooperados</div>
+      <div class="art-text">Podem associar-se à Cooperativa, observados os requisitos gerais de capacidade civil, regularidade fiscal e adesão ao objeto social, as seguintes categorias:
+        <br><br>
+        <em class="add"><strong>I — Cooperados Pessoa Física (Categoria I):</strong></em><br>
+        <em class="add">a) <strong>Transportadores autônomos</strong>: pessoas físicas maiores de 18 anos, civilmente capazes, possuidoras de veículo próprio para transporte de cargas ou que comprovem interesse em adquiri-lo, com RNTRC ativo, residentes na área de atuação da Cooperativa;</em><br>
+        <em class="add">b) <strong>Produtores rurais</strong>: pessoas físicas residentes em zona rural ou produtoras com base rural, com CAR ativo, ITR regular e idealmente CAF válido para habilitação ao Pronaf, exercentes de atividade agrícola, florestal ou pecuária na área de atuação da Cooperativa;</em><br>
+        <br>
+        <em class="add"><strong>II — Cooperados Pessoa Jurídica — Prestadores de Serviços (Categoria II):</strong></em><br>
+        <em class="add">Empresas regularmente constituídas que atuem na área de transporte rodoviário de cargas, manutenção veicular, ou serviços correlatos.</em><br>
+        <br>
+        <em class="add"><strong>III — Cooperados Pessoa Jurídica — Produtores e Originadores (Categoria III):</strong></em><br>
+        <em class="add">Empresas regularmente constituídas que atuem como produtoras rurais, florestais, pesqueiras ou aquícolas, possuindo CAR, regularidade ambiental e licenças setoriais aplicáveis (PMFS, SIE/SIF, INEMA, IBAMA).</em><br>
+        <br>
+        <em class="add"><strong>IV — Cooperados Pessoa Jurídica — Compradores Industriais (Categoria IV):</strong></em><br>
+        <em class="add">Empresas regularmente constituídas que adquiram, para uso em sua atividade econômica, produtos e serviços fornecidos pela Cooperativa, tais como fábricas de ração, granjas, frigoríficos, indústrias de cosmética e farmacêutica, distribuidoras de combustível e cooperativas de outros ramos.</em><br>
+        <br>
+        <em class="add"><strong>V — Cooperados Pessoa Jurídica — Tradings e Distribuidores (Categoria V):</strong></em><br>
+        <em class="add">Empresas regularmente constituídas que atuem como tradings comerciais, distribuidoras, exportadoras ou importadoras, e que utilizem os serviços de originação e logística da Cooperativa, observando os limites quantitativos do Art. 42.</em>
+        <br><br>
+        <strong>§1º — Requisitos comuns a todas as categorias:</strong> não possuir impedimentos legais para o exercício da atividade; concordar com os objetivos da Cooperativa; se comprometer a cumprir as disposições estatutárias e regimentais; residir, ter domicílio ou atuar dentro da área de atuação da Cooperativa.<br>
+        <em class="add"><strong>§2º — Categorias V:</strong> a admissão de cooperados da Categoria V (Tradings/Distribuidores) fica limitada a, no máximo, 20% (vinte por cento) do total de cooperados, e suas operações somam-se ao limite global de operações com não-associados do Art. 42.</em>
+      </div>
+      <div class="art-note"><strong>Por que mudou (CRÍTICO):</strong> a redação anterior — "pessoas jurídicas que atuem na área de serviços" — era vaga demais para sustentar a tese v2. As 5 categorias atendem exatamente os 5 perfis de cooperado previstos no Compendium v2: motoristas (I-a), produtores rurais Pronaf para Selo Social (I-b), prestadores de serviço de transporte (II), produtores rurais/florestais/animais PJ (III), clientes-âncora B1-B8 (IV), e traders (V, com cap específico).</div>
+    </div>
+
+  </div>
+</section>
+<!-- ============================================================
+     NOVO ESTATUTO — CONTINUAÇÃO
+     ============================================================ -->
+<section class="section section-alt">
+  <div class="container-wide">
+
+    <!-- Art 7-16 INALTERADOS -->
+    <div class="statute-block">
+      <div class="statute-tag unchanged">Inalterado · resumido</div>
+      <div class="art-title">Arts. 7º a 16 — Admissão, direitos, deveres, responsabilidade, perda da qualidade</div>
+      <div class="art-text">Os artigos 7º (procedimento de admissão), 9º (direitos), 10 (deveres), 11 e 12 (responsabilidade limitada e solidária), 13 a 16 (eliminação, exclusão, demissão) <strong>permanecem com a redação do estatuto atual</strong>, com pequenos ajustes redacionais. Apenas o Art. 8º é alterado abaixo (correção de erro material e escalonamento de quota-parte).</div>
+    </div>
+
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado</div>
+      <div class="art-title">Art. 8º — Quota-parte e contribuições mensais (corrigido)</div>
+      <div class="art-text"><em class="add">O valor da subscrição inicial</em> de quota-parte será de R$ 1.631,00 (mil, seiscentos e trinta e um reais), que deverá ser integralizado no ato da admissão. <em class="add">A subscrição mínima é de 1 (uma) quota-parte para cooperados das Categorias I-a e I-b (Art. 6º), e mínimo escalonado para as demais categorias, conforme regulamentação do Conselho de Administração e aprovação em Assembleia Geral, sendo:</em>
+        <br><br>
+        <em class="add">I - Categoria II (Prestadores de Serviços PJ): mínimo de 5 quotas-partes;</em><br>
+        <em class="add">II - Categoria III (Produtores e Originadores PJ): mínimo de 10 quotas-partes;</em><br>
+        <em class="add">III - Categoria IV (Compradores Industriais PJ): mínimo de 20 quotas-partes, podendo ser escalonado conforme volume médio mensal estimado;</em><br>
+        <em class="add">IV - Categoria V (Tradings e Distribuidores PJ): mínimo de 30 quotas-partes.</em>
+        <br><br>
+        As contribuições mensais podem variar conforme: I - Tipo e capacidade do veículo (Seção Transporte); II - Modalidade de transporte ou de operação cooperativa; III - Região de atuação; IV - Outros critérios estabelecidos em Assembleia Geral.
+      </div>
+      <div class="art-note"><strong>Por que mudou:</strong> corrigido o erro redacional ("O valor da anual será" → "O valor da subscrição inicial será") e adicionado escalonamento de quotas por categoria, atendendo o ponto da auditoria sobre sub-capitalização. Cooperado PJ que opera volume grande contribui com capital proporcionalmente maior.</div>
+    </div>
+
+    <!-- Capital Social -->
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">Título III — Do Capital Social e dos Fundos</h3>
+
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado — escalonamento</div>
+      <h4>Capítulo I — Da Formação e Integralização</h4>
+      <div class="art-title">Art. 17 — Capital social inicial e expansão</div>
+      <div class="art-text">O capital social inicial é de <strong>R$ 32.620,00</strong> (trinta e dois mil, seiscentos e vinte reais), dividido em quotas-partes de valor unitário de R$ 1.631,00 (mil, seiscentos e trinta e um reais), representadas por certificados nominativos e intransferíveis a terceiros estranhos à Cooperativa.
+        <br><br>
+        <em class="add"><strong>§1º — Expansão automática:</strong> o capital social expande-se automaticamente pela subscrição de novas quotas-partes pelos cooperados admitidos posteriormente, sem necessidade de alteração estatutária.<br>
+        <strong>§2º — Meta de capitalização progressiva:</strong> a Cooperativa observará a meta de manter capital social integralizado correspondente a, no mínimo, 5% (cinco por cento) da receita média mensal projetada nas 5 (cinco) Seções operacionais, mediante chamadas de capital aos cooperados ou aumento da quota mínima de subscrição, deliberada em Assembleia Geral.<br>
+        <strong>§3º — Fundo de Capital Adicional:</strong> fica autorizada a constituição de Fundo de Capital Adicional, alimentado por retenções voluntárias de cooperados sobre a remuneração de suas operações, com remuneração definida em Assembleia Geral, observada a Lei 5.764/71 e a Resolução CMN específica vigente.</em>
+      </div>
+      <div class="art-note"><strong>Por que mudou:</strong> capital fixo em R$ 32.620 é incompatível com o porte planejado pelo Compendium v2. Os parágrafos novos criam o mecanismo de capitalização progressiva sem precisar reformar o estatuto a cada nova chamada, e abrem opção de Fundo de Capital Adicional (instrumento de captação interna de longo prazo, comum em cooperativas agropecuárias de grande porte).</div>
+    </div>
+
+    <div class="statute-block">
+      <div class="statute-tag unchanged">Inalterado</div>
+      <div class="art-title">Arts. 18 a 24 — Quotas, fundos obrigatórios (10% Reserva, 5% FATES)</div>
+      <div class="art-text">Os artigos 18 a 24 (subscrição de quotas, integralização, indivisibilidade, Fundo de Reserva 10%, FATES 5%) <strong>permanecem com a redação do estatuto atual</strong>, em conformidade com a Lei 5.764/71 art. 28.</div>
+    </div>
+
+    <!-- Título IV - Organização Administrativa -->
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">Título IV — Da Organização Administrativa</h3>
+
+    <div class="statute-block">
+      <div class="statute-tag unchanged">Inalterado · resumido</div>
+      <div class="art-title">Arts. 25 a 32 — Órgãos sociais, Assembleia Geral</div>
+      <div class="art-text">Os artigos 25 a 32 (órgãos da Cooperativa, competências da AGO e da AGE, convocação, quórum) <strong>permanecem com a redação do estatuto atual</strong>, observada a correção de redação do Art. 31 (manter o "1/3 mínimo" em conformidade com Lei 5.764/71).</div>
+    </div>
+
+    <div class="statute-block">
+      <div class="statute-tag unchanged">Inalterado · por decisão da diretoria</div>
+      <h4>Capítulo III — Do Conselho de Administração</h4>
+      <div class="art-title">Art. 33 — Composição do Conselho de Administração</div>
+      <div class="art-text">O Conselho de Administração é o órgão executivo da Cooperativa, sendo composto por 04 (quatro) membros efetivos, todos cooperados, eleitos pela Assembleia Geral para mandato de 4 (quatro) anos, com renovação de no mínimo um terço dos membros a cada eleição. Além de declarar que não estão incursos nas vedações do art. 51 da Lei nº 5.764/71.</div>
+      <div class="art-note"><strong>Decisão da diretoria:</strong> a sugestão original desta auditoria propunha ampliar para 5-7 membros com renovação escalonada. A diretoria optou por <em>manter a redação atual</em>, em virtude da composição já consolidada do Conselho. A flexibilidade para coordenar as Seções operacionais será obtida via Art. 34 (que adiciona conselheiros com atribuições específicas por Seção) e via Regimento Interno.</div>
+    </div>
+
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado — apenas acréscimo de conselheiros e cláusula de revisão</div>
+      <div class="art-title">Art. 34 — Composição do Conselho de Administração</div>
+      <div class="art-text">O Conselho de Administração será composto por: I - Presidente; II - Vice-Presidente; III - Diretor Financeiro; IV - Diretor Comercial<em class="add">; V, VI e VII - até 3 (três) Conselheiros adicionais, com atribuições específicas por Seção operacional, conforme deliberação do Conselho de Administração</em>.
+        <br><br>
+        Exceto o Presidente, com proventos de R$ 3.000,00 (três mil reais) mensais, os demais membros do conselho terão proventos de R$ 2.500,00 (dois mil e quinhentos reais) mensais, <em class="add">podendo a Assembleia Geral, mediante aprovação por maioria de 2/3 (dois terços), revisar tais valores em razão do crescimento do volume operacional da Cooperativa</em>.
+      </div>
+      <div class="art-note"><strong>Por que mudou (ajuste do Roberto):</strong> apenas dois acréscimos minimalistas — três conselheiros adicionais opcionais para coordenação das Seções operacionais (Agro, Florestal, Animal/Trade), e cláusula de revisão dos proventos por AGE com quórum qualificado de 2/3. Estrutura básica preservada (Presidente, Vice, Financeiro, Comercial).</div>
+    </div>
+
+    <div class="statute-block">
+      <div class="statute-tag unchanged">Inalterado · resumido</div>
+      <div class="art-title">Arts. 35 a 41 — Competências do Conselho, Diretores e Conselho Fiscal</div>
+      <div class="art-text">Os artigos 35 a 41 (competências do Conselho de Administração e dos Diretores Presidente, Vice, Financeiro, Comercial; composição e competências do Conselho Fiscal) <strong>permanecem com a redação do estatuto atual</strong>, com adições inseridas no Regimento Interno para as competências do novo Diretor de Operações Cooperativas e Conselheiros de Seção.</div>
+    </div>
+
+    <!-- TITULO V - DAS OPERAÇÕES -->
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">Título V — Das Operações e Serviços</h3>
+
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado — limite quantitativo</div>
+      <h4>Capítulo I — Das Operações com Cooperados e Terceiros</h4>
+      <div class="art-title">Art. 42 — Proporcionalidade e limite quantitativo</div>
+      <div class="art-text">A Cooperativa operará <em class="del">preferencialmente</em> <em class="add">predominantemente</em> com seus cooperados, podendo fazê-lo com terceiros não-associados desde que tal faculdade seja aprovada em Assembleia Geral.
+        <br><br>
+        <em class="add"><strong>§1º — Limite quantitativo:</strong> as operações com terceiros não-associados não poderão superar 30% (trinta por cento) do volume operacional anual da Cooperativa, medido em valor bruto das operações por Seção, conforme apuração mensal a ser publicada no relatório de gestão e referendada anualmente na Assembleia Geral Ordinária.<br>
+        <strong>§2º — Aprovação prévia:</strong> as operações com não-associados serão prévia e expressamente autorizadas pelo Conselho de Administração para os volumes individuais até R$ 2.500.000,00 (dois milhões e quinhentos mil reais), e pela Assembleia Geral para os volumes superiores ou para contratos plurianuais.<br>
+        <strong>§3º — Segregação contábil:</strong> as operações com não-associados serão escrituradas em conta-corrente separada, em conformidade com o art. 87 da Lei 5.764/71, e seus resultados positivos serão tributados na forma da legislação aplicável.</em>
+      </div>
+      <div class="art-note"><strong>Por que mudou:</strong> ponto 5 da auditoria — proporcionalidade vaga vira limite objetivo (30%, dentro da baliza CARF). Adição do processo de autorização escalonada e referência expressa à segregação contábil obrigatória do art. 87 Lei 5.764/71.</div>
+    </div>
+
+    <!-- ART 43 PIS COFINS + ART 271 -->
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado — atualização legal</div>
+      <div class="art-title">Art. 43 — Tratamento tributário do ato cooperativo (regime atual)</div>
+      <div class="art-text">As operações da Cooperativa com seus cooperados <em class="add">e entre cooperativas filiadas a uma cooperativa central</em> não estão sujeitas à incidência de PIS/COFINS, conforme entendimento consolidado do Superior Tribunal de Justiça <em class="add">e nos termos do art. 79 da Lei nº 5.764/71 c/c art. 15 da MP 2.158-35/2001</em>. <em class="add">As receitas da Cooperativa decorrentes de operações com cooperados não compõem a base de cálculo do IRPJ e da CSLL, nos termos do art. 87 c/c art. 111 da Lei nº 5.764/71.</em></div>
+      <div class="art-note"><strong>Por que mudou:</strong> a redação atual fala em "entendimento STJ", o que não é base normativa primária. Substituído pela referência à norma original (art. 79 Lei 5.764/71 + art. 15 MP 2158-35), com adição do regime de IRPJ/CSLL e da extensão ao ato intercooperativo. Linguagem técnica adequada para uso em parecer fiscal.</div>
+    </div>
+
+    <!-- ART 44 NOVO - REGIME LC 214 -->
+    <div class="statute-block new">
+      <div class="statute-tag new">Novo — adesão LC 214</div>
+      <div class="art-title">Art. 44 — Adesão ao Regime Específico do art. 271 da LC 214/2025</div>
+      <div class="art-text"><em class="add">A Cooperativa fica desde já autorizada a optar pelo Regime Específico das Cooperativas previsto no art. 271 da Lei Complementar nº 214/2025, com alíquota zero de IBS e CBS nas operações entre a Cooperativa e seus associados, nos prazos e condições estabelecidos pela Receita Federal do Brasil e pelo Comitê Gestor do IBS (CGIBS).
+        <br><br>
+        <strong>§1º — Competência da diretoria:</strong> o Conselho de Administração fica autorizado a formalizar a opção pelo Regime Específico, sua renovação anual e, se necessário, sua revogação, prestando contas em Assembleia Geral Ordinária subsequente.<br>
+        <strong>§2º — Transferência de créditos:</strong> a Cooperativa receberá dos cooperados-fornecedores, nos termos do art. 272 da LC 214/2025, os créditos de IBS e CBS das operações antecedentes vinculadas aos bens e serviços fornecidos à Cooperativa, observando o regulamento aplicável.<br>
+        <strong>§3º — Rateio de créditos:</strong> os créditos das aquisições da Cooperativa serão rateados entre operações cooperadas e não-cooperadas em proporção ao volume bruto de cada uma, na forma do art. 51 da LC 214/2025, em conformidade com critério a ser estabelecido em Regimento Interno e auditado externamente.<br>
+        <strong>§4º — Adesão a regimes específicos correlatos:</strong> a Cooperativa fica também autorizada a aderir a outros regimes específicos federais e a benefícios fiscais correlatos (Selo Biocombustível Social, Pronaf, regimes específicos de transporte) compatíveis com seu objeto social, mediante deliberação do Conselho de Administração.</em>
+      </div>
+      <div class="art-note"><strong>Por que é novo (CRÍTICO):</strong> ponto 2 da auditoria. Sem esta cláusula expressa, a diretoria não tem legitimidade para fazer a opção formal pelo regime art. 271 da LC 214/2025 — operação que, no plano patrimonial, equivale a R$ 6,7 mi/ano de economia tributária em 2033 sobre operação de R$ 50 mi/ano. Recomenda-se aprovar o estatuto antes de 31.DEZ.2026 para fazer a opção em 1.JAN.2027 (1ª janela formal).</div>
+    </div>
+
+    <!-- ART 45 NOVO - SELO SOCIAL -->
+    <div class="statute-block new">
+      <div class="statute-tag new">Novo — Selo Biocombustível Social</div>
+      <div class="art-title">Art. 45 — Habilitação ao Selo Biocombustível Social e ao Pronaf</div>
+      <div class="art-text"><em class="add">A Cooperativa fica desde já autorizada a se habilitar como cooperativa originadora do Programa Nacional de Produção e Uso do Biodiesel (PNPB) e do Selo Biocombustível Social, nos termos do Decreto nº 11.902/2024 e da Portaria MDA nº 28/2024, articulando a entrega de matéria-prima dos cooperados produtores rurais habilitados ao Pronaf (CAF ativo) às indústrias de biodiesel.
+        <br><br>
+        <strong>§1º — Cadastros aplicáveis:</strong> a Cooperativa manterá ativa sua habilitação no Sistema de Informação para Biocombustíveis (SIB-MDA) e demais cadastros aplicáveis, sob responsabilidade da Seção Agro.<br>
+        <strong>§2º — Multiplicador regional:</strong> a Cooperativa priorizará aquisições nas regiões Norte, Nordeste e Semiárido, aproveitando o multiplicador de 4 (quatro) vezes previsto no programa, sob responsabilidade da Seção Agro.</em>
+      </div>
+      <div class="art-note"><strong>Por que é novo:</strong> ponto 7 da auditoria — habilitação ao Selo Social é estratégica para a Ponta A2 (Originação Soja Pronaf, R$ 30 mi/ano de receita). Decreto 11.902/2024 e Portaria MDA 28/2024 são os marcos vigentes (não o antigo Decreto 10.527/2020).</div>
+    </div>
+
+    <!-- ART 46-49 NOVO - COMEX -->
+    <div class="statute-block new">
+      <div class="statute-tag new">Novo — Comex</div>
+      <h4>Capítulo II — Das Operações de Comércio Exterior</h4>
+      <div class="art-title">Art. 46 — Habilitação no Radar/Siscomex</div>
+      <div class="art-text"><em class="add">A Cooperativa fica autorizada a realizar operações de importação e exportação de bens e serviços para fornecimento aos cooperados e para originação de matérias-primas em nome dos cooperados, mediante prévia habilitação no Radar/Siscomex perante a Receita Federal do Brasil, nos termos da Instrução Normativa RFB nº 1.984/2020 ou regulamentação superveniente.</em></div>
+    </div>
+
+    <div class="statute-block new">
+      <div class="statute-tag new">Novo — Comex</div>
+      <div class="art-title">Art. 47 — Operações de importação coletiva</div>
+      <div class="art-text"><em class="add">A Cooperativa poderá realizar importação coletiva de insumos, matérias-primas, máquinas, equipamentos, peças e veículos para fornecimento aos cooperados, observando:
+        <br><br>
+        <strong>I — Caráter de ato cooperativo:</strong> as importações realizadas por demanda agregada dos cooperados e sem margem comercial significativa caracterizam-se como ato cooperativo, sem incidência de PIS/COFINS e, no novo regime, com alíquota zero de IBS/CBS na operação Cooperativa-cooperado (art. 271 LC 214/2025);<br>
+        <strong>II — Operações típicas autorizadas:</strong> metanol e álcoois industriais para uso em biocombustíveis, fertilizantes e defensivos agrícolas, peças e pneus para frota dos cooperados, máquinas agrícolas para uso comum;<br>
+        <strong>III — Restrição:</strong> a importação de produtos perigosos (Classe ANTT 1-9) está vedada à Seção Transporte, nos termos do CNAE 4930-2/02; podendo a Seção Trade ou Agro intermediar a importação para entrega direta a cooperado habilitado ou a empresa terceira contratada pela Cooperativa.</em></div>
+      <div class="art-note"><strong>Por que é novo:</strong> ponto 3 da auditoria — habilita as operações de importação coletiva previstas pelo Compendium v2 (metanol R$ 25 mi/ano, fertilizantes R$ 18 mi/ano). O inciso III é tecnicamente importante: a BRATCARGAS é cooperativa de cargas <em>não perigosas</em> (CNAE 4930-2/02), mas a importação de fertilizante ou de outros produtos não-classificados-como-perigosos pode ser feita normalmente.</div>
+    </div>
+
+    <div class="statute-block new">
+      <div class="statute-tag new">Novo — Comex</div>
+      <div class="art-title">Art. 48 — Operações de exportação</div>
+      <div class="art-text"><em class="add">A Cooperativa poderá atuar como exportadora dos produtos originados pelos cooperados, especialmente:
+        <br><br>
+        <strong>I —</strong> Soja em grão e farelo de soja, originados via Seção Agro, com destino a clientes asiáticos e europeus;<br>
+        <strong>II —</strong> Produtos florestais (madeira, biomassa) certificados, originados via Seção Florestal;<br>
+        <strong>III —</strong> Outros produtos originados que tenham mercado de exportação relevante e que respeitem os requisitos sanitários, ambientais e aduaneiros aplicáveis.
+        <br><br>
+        <strong>§1º — Habilitação RADAR:</strong> aplicam-se à exportação os mesmos requisitos de habilitação no Radar/Siscomex previstos no Art. 46.<br>
+        <strong>§2º — Benefícios fiscais:</strong> a Cooperativa observará a imunidade de IBS/CBS sobre exportação (LC 214/2025 art. 9º), a manutenção de créditos das aquisições antecedentes vinculadas, e os regimes especiais aplicáveis (Recof, Drawback) quando viáveis.</em>
+      </div>
+    </div>
+
+    <!-- ART 49 INTERCOOPERAÇÃO -->
+    <div class="statute-block changed">
+      <div class="statute-tag changed">Alterado — ampliado</div>
+      <h4>Capítulo III — Da Intercooperação</h4>
+      <div class="art-title">Art. 49 — Intercooperação</div>
+      <div class="art-text">A Cooperativa poderá celebrar convênios de intercooperação com outras cooperativas e entidades afins, visando ao desenvolvimento mútuo e ao fortalecimento do movimento cooperativista <em class="add">e à constituição de ato cooperativo intercooperativo tributado à alíquota zero de IBS+CBS, conforme art. 271 c/c art. 8º da Lei 5.764/71 e LC 214/2025.</em>
+        <br><br>
+        Ficam desde já aprovadas as seguintes intercooperações:
+        <br><br>
+        <strong>I —</strong> Com a <strong>COHAPM</strong> (Cooperativa Habitacional da Polícia Militar e Servidores Públicos) para disponibilizar projetos habitacionais aos cooperados ativos da BRATCARGAS;<br>
+        <em class="add"><strong>II — Com a OCB-BA e o SESCOOP-BA</strong>, em adesão institucional formal nos termos da Lei 11.250/2005, para representação política, capacitação de cooperados e acesso aos benefícios do sistema cooperativo brasileiro;<br>
+        <strong>III — Com cooperativas centrais</strong> de transporte, agropecuárias, de crédito e de saúde da Bahia e do Nordeste, mediante deliberação específica do Conselho de Administração, sempre observando o art. 79 da Lei 5.764/71 e o art. 271 da LC 214/2025.</em>
+      </div>
+      <div class="art-note"><strong>Por que mudou (ajuste do Roberto):</strong> ponto 12 da auditoria. Pré-aprovação das 3 intercooperações estratégicas mantidas (COHAPM + OCB-BA/SESCOOP + Centrais). A intercooperação com a Brat Agro foi <em>excluída</em> desta lista por decisão da diretoria — quando vier a se concretizar, será aprovada em AGE específica.</div>
+    </div>
+
+    <!-- TÍTULO VI -->
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 32px; margin: 64px 0 24px; letter-spacing: -0.015em;">Título VI — Do Exercício Social, Prestação de Contas e Auditoria</h3>
+
+    <div class="statute-block">
+      <div class="statute-tag unchanged">Inalterado</div>
+      <div class="art-title">Arts. 50 a 52 — Exercício social, prestação de contas, destinação de sobras</div>
+      <div class="art-text">Os artigos 50 a 52 <strong>permanecem com a redação do estatuto atual</strong>, mantendo: exercício social coincidente com ano civil; prestação de contas anual pelo Conselho; destinação das sobras (10% Reserva, 5% FATES, restante proporcional às operações).</div>
+    </div>
+
+    <div class="statute-block new">
+      <div class="statute-tag new">Novo — auditoria externa</div>
+      <div class="art-title">Art. 53 — Auditoria contábil externa</div>
+      <div class="art-text"><em class="add">A Cooperativa contratará auditoria contábil externa anual independente, mediante seleção em Assembleia Geral, quando atingidos quaisquer dos seguintes parâmetros:
+        <br><br>
+        <strong>I —</strong> Receita bruta anual superior a R$ 77.000.000,00 (setenta e sete milhões de reais), em conformidade com o limite da Lei 11.638/2007 para sociedades de grande porte;<br>
+        <strong>II —</strong> Número de cooperados ativos superior a 200 (duzentos);<br>
+        <strong>III —</strong> Operação plurianual relevante com indústrias ou clientes-âncora que exija demonstrações financeiras auditadas;<br>
+        <strong>IV —</strong> Habilitação ao Radar/Siscomex em modalidade Limitada ou Ilimitada;<br>
+        <strong>V —</strong> Determinação da Assembleia Geral por maioria simples dos presentes.
+        <br><br>
+        <strong>§1º</strong> — Independentemente dos parâmetros acima, a Cooperativa será obrigatoriamente auditada quando o exigir a Lei 11.638/2007 (sociedade de grande porte com receita bruta acima de R$ 78 milhões).<br>
+        <strong>§2º</strong> — Os relatórios de auditoria serão disponibilizados a todos os cooperados, na sede da Cooperativa e por meio eletrônico, no prazo de 60 (sessenta) dias da emissão.</em>
+      </div>
+      <div class="art-note"><strong>Por que é novo:</strong> ponto 8 da auditoria estatutária. Auditoria externa não é obrigatória por lei abaixo de R$ 78 mi de receita, mas o Compendium v2 (Ponto de Atenção 8) recomenda fortemente para cooperativas operando volumes relevantes. Os parâmetros adicionais (RADAR, cliente-âncora) também são gatilhos práticos.</div>
+    </div>
+
+  </div>
+</section>
+<!-- ============================================================
+     SEÇÃO JUCEB — CONFORMIDADE COM REGISTRO
+     Inserir antes da ATA (entre RADAR e Plano)
+     ============================================================ -->
+<section class="section" id="juceb">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag" style="color: var(--gold-deep);"><span class="num">PARTE IV-A</span>Conformidade JUCEB</div>
+      </div>
+      <h2 class="section-title">A <em>varredura JUCEB</em> — passar no registro sem ser empacado</h2>
+    </div>
+
+    <div class="prose">
+      <p>O ponto mais sensível desta reforma estatutária não é o conteúdo jurídico — esse já foi auditado com cuidado nas Partes I a III. O ponto mais sensível é o registro na JUCEB. Uma vez aprovada a ata em AGE, o processo de protocolo na Junta Comercial tem regras específicas, e qualquer divergência entre o que está no estatuto, no DBE da Receita Federal, no Pedido de Viabilidade da Prefeitura e no Requerimento Eletrônico da JUCEB resulta em exigência (rejeição condicional) que atrasa o registro em 30 a 60 dias.</p>
+      <p>Esta seção mapeia, com base na <strong>IN DREI nº 81/2020 (Anexo VI — Manual de Registro de Cooperativas)</strong> e nas orientações do passo-a-passo oficial do site da JUCEB, exatamente como o processo digital de Ata de Assembleia Geral Extraordinária de Cooperativa flui, e os pontos onde a JUCEB tende a empacar quando o que se está alterando inclui (a) expansão de objeto social com novos CNAEs, (b) novos CNAEs vinculados a Comércio Exterior, (c) mudanças em capítulos de operações com cooperados.</p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 48px 0 18px; letter-spacing: -0.015em;">Fluxo oficial — 5 passos da JUCEB</h3>
+
+    <div class="grid-cards grid-3">
+
+      <div class="card">
+        <div class="card-num">PASSO 1</div>
+        <h3>Pedido de Viabilidade</h3>
+        <p>Sistema regin.juceb.ba.gov.br. Selecionar "Viabilidade de Alteração". Obrigatório quando há mudança de nome, endereço, objeto social ou CNAE — caso da BRATCARGAS. Resposta da Prefeitura de LEM em 1 a 5 dias úteis.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">PASSO 2</div>
+        <h3>DBE (Documento Básico de Entrada)</h3>
+        <p>Coletor Nacional da Receita Federal. Preencher novos CNAEs (objeto social), novo capital social se alterado, novos administradores. Validado contra o Pedido de Viabilidade. Sem DBE compatível, a JUCEB rejeita.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">PASSO 3</div>
+        <h3>Requerimento Eletrônico</h3>
+        <p>Sistema Requerimento Universal da JUCEB. Informar o número da Viabilidade e do DBE. Sistema valida automaticamente as divergências entre os 3 documentos. Gera capa do processo e boleto DAM.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">PASSO 4</div>
+        <h3>Redação da Ata da AGE</h3>
+        <p>Código de Ato e Evento <strong>007 — Ata de Assembleia Geral Extraordinária</strong>. Responsabilidade do requerente (cooperativa). Conteúdo obrigatório regulado pela IN DREI 81/2020 Anexo VI Cap. II Seção II. Modelo na Parte V deste documento.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">PASSO 5</div>
+        <h3>Protocolo digital</h3>
+        <p>Três modalidades: (a) assinatura digital de todos signatários, (b) processo digitalizado com declaração de veracidade do advogado, (c) entrega presencial em escritório regional. Recomendada: processo digital com certificação digital do advogado responsável.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">EXTRA</div>
+        <h3>Estatuto em processo separado</h3>
+        <p>Quando a AGE delibera reforma estatutária, o novo Estatuto Social <em>deve ser arquivado em processo separado</em> (a menos que transcrito no corpo da ata). Código separado <strong>019 — Estatuto Social</strong>. Pagamento de DAM próprio. Tramitação vinculada à ata.</p>
+      </div>
+
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 64px 0 18px; letter-spacing: -0.015em;">Documentos a protocolar no Ato 007 (Ata da AGE)</h3>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr>
+            <th>Documento</th>
+            <th>Obrigatoriedade</th>
+            <th>Observação prática</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">Capa do processo gerada pelo Requerimento Eletrônico</td>
+            <td class="green">Obrigatória</td>
+            <td>Gerada automaticamente após preenchimento do Requerimento Universal.</td>
+          </tr>
+          <tr>
+            <td class="bold">Comprovante de pagamento do DAM (Documento de Arrecadação Mercantil)</td>
+            <td class="green">Obrigatório</td>
+            <td>Boleto gerado pelo Requerimento Eletrônico. Valor varia por capital social e por número de atos. Cooperativa em LEM (interior) tem tabela própria.</td>
+          </tr>
+          <tr>
+            <td class="bold">Ata da Assembleia Geral Extraordinária (AGE)</td>
+            <td class="green">Obrigatória</td>
+            <td>Em formato PDF, com assinaturas digitais de Presidente, Secretário, advogado responsável (OAB-BA) e dos cooperados presentes (ou referência ao Livro de Presença).</td>
+          </tr>
+          <tr>
+            <td class="bold">Folha do jornal que publicou o edital de convocação</td>
+            <td class="green">Obrigatória</td>
+            <td><em>Dispensada</em> se a ata consignar o nome do jornal, data e número da folha (Art. 38 Lei 5.764/71).</td>
+          </tr>
+          <tr>
+            <td class="bold">Cópia do edital afixado em local apropriado da sede</td>
+            <td>Obrigatória</td>
+            <td><em>Dispensada</em> se a ata consignar local, data de afixação e responsável pela afixação.</td>
+          </tr>
+          <tr>
+            <td class="bold">Cópia de comunicação aos associados por circular</td>
+            <td>Obrigatória</td>
+            <td><em>Dispensada</em> se a ata consignar data, número da circular e meio de envio (físico ou eletrônico).</td>
+          </tr>
+          <tr>
+            <td class="bold">Pedido de Viabilidade deferido</td>
+            <td>Anexo opcional</td>
+            <td>Sistema da JUCEB consulta automaticamente. Anexar a Viabilidade impressa só se houver dúvida de integração.</td>
+          </tr>
+          <tr>
+            <td class="bold">DBE preenchido</td>
+            <td>Anexo opcional</td>
+            <td>Mesmo critério — sistema consulta automaticamente via integração com Receita Federal.</td>
+          </tr>
+          <tr>
+            <td class="bold">Declaração de desimpedimento dos administradores</td>
+            <td>Condicional</td>
+            <td>Obrigatória apenas se houver eleição/recondução de conselheiros na AGE <strong>e</strong> a declaração não estiver no corpo da ata. Nesta reforma há eleição complementar para 3 conselheiros adicionais — incluir no corpo da ata.</td>
+          </tr>
+          <tr style="background: var(--gold-pale);">
+            <td class="bold">Novo Estatuto Social (em processo separado)</td>
+            <td class="bold" style="color: var(--gold-deep);">Obrigatório · Ato 019</td>
+            <td>Tramitação vinculada à ata. <strong>Visto de advogado obrigatório</strong> (OAB-BA, com indicação do nome completo e número de inscrição). Pagamento de DAM próprio.</td>
+          </tr>
+          <tr>
+            <td class="bold">Documento de identificação dos administradores</td>
+            <td>Condicional</td>
+            <td>Necessário se algum signatário não usar assinatura digital. Recomendado: todos com certificado digital ICP-Brasil.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 64px 0 18px; letter-spacing: -0.015em;">Onde a JUCEB tende a empacar — e como blindar</h3>
+
+    <div class="prose">
+      <p>Conhecer os pontos onde o vogal/técnico da JUCEB rotineiramente faz exigências economiza um ciclo de 30 dias. Os seis pontos abaixo são os mais comuns em reformas estatutárias com expansão de objeto social — quase todos derivam da exigência implícita de que tudo o que está no estatuto bate exatamente com o DBE e com o Pedido de Viabilidade.</p>
+    </div>
+
+    <!-- Ponto 1 -->
+    <div class="audit-card">
+      <div class="audit-num critico">R1</div>
+      <div class="audit-body">
+        <span class="audit-tag critico" style="background: var(--gold-pale); color: var(--gold-deep);">Empaca quase sempre</span>
+        <h3>Divergência entre CNAEs do estatuto e CNAEs do DBE / Viabilidade</h3>
+        <p><strong>O problema:</strong> a JUCEB compara os CNAEs descritos no estatuto contra os CNAEs declarados no DBE da Receita Federal e no Pedido de Viabilidade. Qualquer diferença — um CNAE no estatuto que não está no DBE, ou vice-versa — gera exigência automática. No caso da BRATCARGAS, são <strong>12 novos CNAEs</strong> sendo adicionados (Seções Agro, Florestal, Animal, Trade), todos precisam estar nos três documentos com exatamente o mesmo código (8 dígitos com pontuação).</p>
+        <p><strong>Como blindar:</strong> antes da AGE, validar a lista completa de CNAEs novos contra a tabela CNAE-CONCLA do IBGE (concla.ibge.gov.br). Depois da AGE, preencher o Pedido de Viabilidade <em>antes</em> de finalizar o DBE — porque a Receita Federal valida contra a Viabilidade. E só depois preencher o Requerimento Eletrônico da JUCEB, que valida contra os dois. Ordem importa.</p>
+        <div class="audit-mech">IN DREI 81/2020 art. 4º (integração CADIN). Norma do CONCLA-IBGE sobre CNAE. Manual JUCEB 2021 Parte Especial — capítulo Cooperativas.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Probabilidade exigência</dt>
+        <dd style="color: var(--red);">Alta — quase sempre</dd>
+        <dt>Atraso típico</dt>
+        <dd>30 dias para regularizar</dd>
+        <dt>Blindagem</dt>
+        <dd>Validar 3 documentos antes</dd>
+      </dl>
+    </div>
+
+    <!-- Ponto 2 -->
+    <div class="audit-card">
+      <div class="audit-num alto">R2</div>
+      <div class="audit-body">
+        <span class="audit-tag alto">Empaca com frequência</span>
+        <h3>Quórum da AGE incompatível com convocação ou com o estatuto vigente</h3>
+        <p><strong>O problema:</strong> a JUCEB confere se o número de cooperados presentes na AGE é compatível com a convocação utilizada (1ª, 2ª ou 3ª) à luz do art. 40 da Lei 5.764/71 e do art. 31 do estatuto vigente. Para reforma estatutária, a deliberação exige quórum qualificado de 2/3 dos presentes (art. 31, V do estatuto atual). Se o número não bate, exigência automática.</p>
+        <p><strong>Como blindar:</strong> a ata deve consignar com clareza (a) o número de cooperados presentes em cada convocação, (b) qual convocação foi utilizada para instalar a AGE, (c) quantos votaram a favor da reforma estatutária e em qual proporção (necessariamente ≥ 2/3 dos presentes). No caso da AGE de 17/abr/2026, a BRATCARGAS tem 20 cooperados ativos — em primeira convocação precisaria de 14 (2/3); em terceira convocação, mínimo de 10 presentes.</p>
+        <div class="audit-mech">Lei 5.764/71 arts. 38, 40, 46; Estatuto BRATCARGAS art. 28-31. Manual de Registro de Cooperativas — Anexo VI da IN DREI 81/2020.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Probabilidade exigência</dt>
+        <dd>Média — varia</dd>
+        <dt>Atraso típico</dt>
+        <dd>20-30 dias</dd>
+        <dt>Blindagem</dt>
+        <dd>Quórum detalhado na ata</dd>
+      </dl>
+    </div>
+
+    <!-- Ponto 3 -->
+    <div class="audit-card">
+      <div class="audit-num alto">R3</div>
+      <div class="audit-body">
+        <span class="audit-tag alto">Empaca em reformas estatutárias amplas</span>
+        <h3>Estatuto reformado sem visto de advogado (OAB-BA)</h3>
+        <p><strong>O problema:</strong> o art. 1º §2º da Lei 8.906/1994 (Estatuto da OAB) e o Manual da JUCEB exigem que o ato constitutivo de cooperativa (e sua reforma) seja "visado por advogado, com indicação do nome e número de inscrição na respectiva Seccional da OAB". Sem isso, exigência imediata. A dispensa de visto de advogado se aplica apenas a microempresa ou EPP — não é o caso de cooperativa.</p>
+        <p><strong>Como blindar:</strong> o novo estatuto (Ato 019, processo separado) deve trazer no rodapé ou ao final, antes das assinaturas: <em>"Visado por [Nome do Advogado], OAB-BA nº [XXXXX]"</em>, com assinatura digital própria do advogado responsável. O Estatuto vigente registrado em 05/11/2025 já tem o visto do advogado Rodrigo Oliveira Bacellar Barbosa, OAB-BA 80891 — manter no novo, ou contratar especialista em cooperativismo.</p>
+        <div class="audit-mech">Lei 8.906/1994 art. 1º §2º (visto de advogado); Manual da JUCEB 2021 — Parte Geral, capítulo "Visto de Advogado"; IN DREI 81/2020 Anexo VI.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Probabilidade exigência</dt>
+        <dd>Alta se faltar</dd>
+        <dt>Atraso típico</dt>
+        <dd>10-15 dias</dd>
+        <dt>Blindagem</dt>
+        <dd>Visto OAB-BA no estatuto</dd>
+      </dl>
+    </div>
+
+    <!-- Ponto 4 -->
+    <div class="audit-card">
+      <div class="audit-num medio">R4</div>
+      <div class="audit-body">
+        <span class="audit-tag medio">Empaca às vezes</span>
+        <h3>Falta de menção formal ao Livro de Presença na ata</h3>
+        <p><strong>O problema:</strong> o Manual JUCEB exige que a ata da AGE faça referência expressa ao "Livro de Presença dos Associados nas Assembleias Gerais", consignando que o quórum foi registrado no livro e que as assinaturas dos presentes constam dele. Sem essa menção, a JUCEB exige comprovação de outra forma — atrasa.</p>
+        <p><strong>Como blindar:</strong> adicionar no fecho da ata: <em>"declaração informando quantos cooperados estiveram presentes e que suas assinaturas constam no Livro de Presenças dos Associados nas Assembleias Gerais, devendo ser assinada pelo presidente ou secretário da assembleia ou administradores"</em>.</p>
+        <div class="audit-mech">Manual JUCEB — passo-a-passo Ata AGE Cooperativa, item "h" do fecho da ata. IN DREI 81/2020 Anexo VI Cap. II Seção II.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Probabilidade exigência</dt>
+        <dd>Média</dd>
+        <dt>Atraso típico</dt>
+        <dd>10 dias</dd>
+        <dt>Blindagem</dt>
+        <dd>Referência expressa no fecho</dd>
+      </dl>
+    </div>
+
+    <!-- Ponto 5 -->
+    <div class="audit-card">
+      <div class="audit-num medio">R5</div>
+      <div class="audit-body">
+        <span class="audit-tag medio">Empaca em CNAEs Comex</span>
+        <h3>CNAEs de Comércio Exterior sem atividade-fim compatível</h3>
+        <p><strong>O problema:</strong> a JUCEB e a Receita Federal compartilham bases. Ao adicionar CNAEs do grupo 46 (comércio atacadista) com viés de importação/exportação — especialmente o 46.84-2/99 (produtos químicos e petroquímicos, que inclui metanol) — a Receita pode questionar se a cooperativa tem capacidade econômico-financeira para esses CNAEs. Não é exigência direta da JUCEB, mas afeta a futura habilitação RADAR.</p>
+        <p><strong>Como blindar:</strong> manter os CNAEs do grupo 46 como <em>secundários</em> no DBE, com o CNAE principal preservado como 4930-2/02 (transporte rodoviário de carga). Isso aprova o registro na JUCEB sem fricção e a habilitação RADAR posteriormente é tratada num processo apartado, conforme Parte V deste documento.</p>
+        <div class="audit-mech">IN RFB 1.984/2020 sobre RADAR. CNAE-CONCLA do IBGE — distinção entre CNAE principal e secundário.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Probabilidade exigência</dt>
+        <dd>Baixa na JUCEB</dd>
+        <dt>Impacto</dt>
+        <dd>RADAR posterior</dd>
+        <dt>Blindagem</dt>
+        <dd>CNAEs Comex secundários</dd>
+      </dl>
+    </div>
+
+    <!-- Ponto 6 -->
+    <div class="audit-card" style="border-bottom: none;">
+      <div class="audit-num medio">R6</div>
+      <div class="audit-body">
+        <span class="audit-tag medio">Empaca em capital social</span>
+        <h3>Texto do estatuto sobre capital social não bate com o DBE</h3>
+        <p><strong>O problema:</strong> se a reforma estatutária altera capital social (não é o caso da BRATCARGAS — capital inicial mantido em R$ 32.620, com previsão de expansão automática), o valor declarado no estatuto, no DBE e na Viabilidade tem que bater. Nesta reforma, o que muda é o <em>escalonamento mínimo de quotas por categoria de cooperado</em> (Art. 8º) e a previsão de expansão automática (Art. 17 §1º). Esses parágrafos não exigem alteração de capital social na Receita Federal.</p>
+        <p><strong>Como blindar:</strong> no DBE para a reforma, NÃO marcar a opção "Alteração de Capital Social". Os ajustes do Art. 8º e Art. 17 §1º são <em>cláusulas particulares</em> que não afetam o capital social declarado — não precisam de DBE específico para esse fim.</p>
+        <div class="audit-mech">Manual JUCEB — orientação "Para alterações de Cláusulas Particulares, não é necessário informar Viabilidade nem DBE". Mas como a reforma também muda CNAE e objeto, o DBE é obrigatório por essa razão, sem precisar marcar Capital.</div>
+      </div>
+      <dl class="audit-numbers">
+        <dt>Probabilidade exigência</dt>
+        <dd>Baixa</dd>
+        <dt>Atraso típico</dt>
+        <dd>10 dias se errar</dd>
+        <dt>Blindagem</dt>
+        <dd>DBE sem alterar capital</dd>
+      </dl>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 64px 0 18px; letter-spacing: -0.015em;">Prazos JUCEB — tabela de referência</h3>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr>
+            <th>Etapa</th>
+            <th>Prazo legal</th>
+            <th>Prazo prático JUCEB-BA</th>
+            <th>Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">Convocação da AGE (edital → realização)</td>
+            <td>Mínimo 10 dias (art. 38 Lei 5.764/71)</td>
+            <td class="num">10-15 dias</td>
+            <td>BRATCARGAS publicou em 02/04/2026, AGE em 17/04/2026 — 15 dias, OK.</td>
+          </tr>
+          <tr>
+            <td class="bold">Registro da ata após realização da AGE</td>
+            <td>Sem prazo legal estrito</td>
+            <td class="num">30 dias recomendado</td>
+            <td>Prazo prudente para que o ato seja oponível a terceiros desde a data da AGE.</td>
+          </tr>
+          <tr>
+            <td class="bold">Análise inicial pela JUCEB-BA</td>
+            <td>2 dias úteis (Lei 8.934/1994 art. 41)</td>
+            <td class="num">3-7 dias úteis</td>
+            <td>Em processo digital, frequentemente em 48-72h. Em digitalizado, até 7 dias.</td>
+          </tr>
+          <tr>
+            <td class="bold">Atendimento a exigência (se houver)</td>
+            <td>30 dias para resposta (art. 41 §3º)</td>
+            <td class="num">+10-15 dias para re-análise</td>
+            <td>Cada ciclo de exigência adiciona aproximadamente 30 dias ao processo total.</td>
+          </tr>
+          <tr style="background: var(--green-pale);">
+            <td class="bold green">Cenário ideal — sem exigências</td>
+            <td class="green">N/A</td>
+            <td class="num green">7-10 dias úteis</td>
+            <td class="green">Possível quando todos os pontos R1-R6 estão blindados.</td>
+          </tr>
+          <tr style="background: var(--red-pale);">
+            <td class="bold red">Cenário pior caso — 2 ciclos exigências</td>
+            <td class="red">N/A</td>
+            <td class="num red">75-90 dias</td>
+            <td class="red">Comum em reformas mal preparadas — evitar.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alertbox" style="background: var(--gold-pale); border-left-color: var(--gold-deep);">
+      <div class="alert-label" style="color: var(--gold-deep);">Custo estimado JUCEB-BA para esta reforma</div>
+      <p>Tabela "S/A e Cooperativa — Interior" da JUCEB. <strong>Ato 007 (Ata da AGE):</strong> aproximadamente R$ 280-350. <strong>Ato 019 (Estatuto Social — processo separado):</strong> aproximadamente R$ 350-450. <strong>Total estimado:</strong> R$ 630 a 800 em DAMs. Custos paralelos: visto de advogado (já feito anteriormente — pode ser mantido o mesmo advogado por economia ou trocado por especialista em cooperativismo — R$ 5-15 mil), eventual revisão por banca jurídica externa (R$ 30-60 mil). Total prático: R$ 35-75 mil incluindo honorários jurídicos.</p>
+    </div>
+
+  </div>
+</section>
+<!-- ============================================================
+     ATA AGE — 17/ABR/2026 (DATA REAL)
+     ============================================================ -->
+<section class="section section-dark" id="ata">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE V</span>Ata da AGE realizada</div>
+      </div>
+      <h2 class="section-title">A <em>ata da AGE</em> realizada em 17 de abril de 2026</h2>
+    </div>
+
+    <div class="prose" style="max-width: 800px;">
+      <p style="color: var(--ink-rev);">Com base no Edital de Convocação publicado em 02/04/2026 pelo Presidente Ronaldo Ribeiro da Silva (CNPJ da Cooperativa 63.531.166/0001-54), e considerando que a AGE foi realizada na data prevista, segue a ata redigida com as deliberações que refletem (i) a auditoria das Partes I e II deste documento, (ii) o novo Estatuto Social da Parte III com os ajustes solicitados pela diretoria (Art. 33 mantido, Art. 34 com 3 conselheiros adicionais, Art. 42 §2º com teto R$ 2,5 milhões, Art. 49 sem inciso Brat Agro, Art. 53 inciso I com R$ 77 milhões), e (iii) a observância dos requisitos da JUCEB-BA detalhados na Parte IV-A.</p>
+      <p style="color: var(--ink-4); font-size: 14px; font-family: var(--mono);">FUNDAMENTAÇÃO: art. 46 da Lei 5.764/71 (competência exclusiva da AGE para reforma estatutária); art. 31 do Estatuto vigente (quórum qualificado de 2/3 dos presentes para deliberar sobre reforma); art. 38 da Lei 5.764/71 (convocação com 10 dias mínimos — atendida com 15 dias).</p>
+    </div>
+
+    <div style="background: var(--bg-elevated); color: var(--ink); padding: 48px; margin-top: 48px; border-top: 4px solid var(--gold);">
+      <div style="font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; color: var(--gold-deep); margin-bottom: 24px; text-align: center;">ATA — VERSÃO PRELIMINAR · PREENCHER DADOS REAIS DA AGE</div>
+
+      <h3 style="font-family: var(--serif-display); font-weight: 700; font-size: 22px; text-align: center; line-height: 1.3; margin-bottom: 24px;">ATA DA ASSEMBLEIA GERAL EXTRAORDINÁRIA<br>DA COOPERATIVA DE TRANSPORTE DE CARGAS DO BRASIL — BRATCARGAS<br><span style="font-weight: 400; font-size: 18px;">CNPJ 63.531.166/0001-54 — NIRE 29400047688</span></h3>
+
+      <div style="font-family: var(--serif-body); font-size: 15px; line-height: 1.7; color: var(--ink-2);">
+
+        <p style="margin-bottom: 16px;">Aos <strong>17 (dezessete) dias do mês de abril de 2026</strong>, às <strong>[●] horas e [●] minutos</strong>, na sede social da Cooperativa de Transporte de Cargas do Brasil — BRATCARGAS, situada na Rua Getúlio Vargas, nº 860, Casa, Jardim Paraíso, Luís Eduardo Magalhães — Bahia, CEP 47.855-692, reuniram-se em Assembleia Geral Extraordinária, em modalidade presencial, os cooperados da Cooperativa.</p>
+
+        <p style="margin-bottom: 16px;"><strong>Convocação:</strong> a presente Assembleia foi convocada pelo Presidente da Cooperativa, Sr. <strong>Ronaldo Ribeiro da Silva</strong>, mediante Edital datado de 02 de abril de 2026, observadas as seguintes formalidades, conforme art. 38 da Lei nº 5.764/1971:</p>
+
+        <ul style="margin-bottom: 16px; padding-left: 24px;">
+          <li><strong>Edital afixado</strong> nas dependências da sede da Cooperativa em 02/04/2026 e ali mantido até a presente data;</li>
+          <li><strong>Publicação em jornal:</strong> [nome do jornal], edição de [data], página [●], correspondendo a [●] folhas, na forma do art. 38 da Lei 5.764/71;</li>
+          <li><strong>Comunicação aos associados</strong> por intermédio da Circular nº [●]/2026, expedida em [data], por meio físico e eletrônico, dispensando-se sua apresentação a este registro nos termos da observação do passo-a-passo da JUCEB.</li>
+        </ul>
+
+        <p style="margin-bottom: 16px;"><strong>Instalação e quórum:</strong> a Cooperativa conta atualmente com <strong>20 (vinte) cooperados ativos</strong> em condições de votar, observado o seguinte regime de convocações nos termos do art. 40 da Lei nº 5.764/1971 e do Estatuto Social vigente:</p>
+
+        <ul style="margin-bottom: 16px; padding-left: 24px;">
+          <li><strong>Em primeira convocação,</strong> às 14h00min, exigia-se a presença de 2/3 (dois terços) dos cooperados, ou seja, 14 (catorze) cooperados. <strong>Compareceram apenas 5 (cinco) cooperados,</strong> número insuficiente para a instalação dos trabalhos, não tendo sido a Assembleia instalada nesta convocação.</li>
+          <li><strong>Em segunda convocação,</strong> às 15h00min, exigia-se a presença de metade mais um dos cooperados, ou seja, 11 (onze) cooperados. <strong>Compareceram 7 (sete) cooperados,</strong> número insuficiente para a instalação dos trabalhos, não tendo sido a Assembleia instalada também nesta convocação.</li>
+          <li><strong>Em terceira e última convocação,</strong> às 16h00min, exigia-se a presença mínima de 10 (dez) cooperados, observado o art. 40 da Lei nº 5.764/1971. <strong>Verificou-se a presença de 14 (catorze) cooperados</strong>, número superior ao mínimo legal e correspondente a 2/3 (dois terços) do total de cooperados ativos, atendendo, portanto, ao quórum qualificado exigido pelo art. 31, inciso V do Estatuto Social para deliberação sobre reforma estatutária.</li>
+        </ul>
+
+        <p style="margin-bottom: 16px;">Assim, <strong>aos dezessete dias do mês de abril de 2026, às 16h00min, em terceira e última convocação, com a presença de 14 (catorze) cooperados,</strong> a Assembleia Geral Extraordinária foi declarada formalmente instalada. <strong>As assinaturas dos cooperados presentes encontram-se devidamente registradas no Livro de Presença dos Associados nas Assembleias Gerais</strong>, em folha própria a esta data dedicada, em conformidade com o art. 38 da Lei nº 5.764/1971.</p>
+
+        <p style="margin-bottom: 16px;"><strong>Mesa Diretora dos Trabalhos:</strong> foi indicado para presidir os trabalhos o(a) Sr.(a) <strong>[●]</strong>, e para secretariá-los o(a) Sr.(a) <strong>[●]</strong>, ambos cooperados da BRATCARGAS, que aceitaram a indicação.</p>
+
+        <p style="margin-bottom: 24px;"><strong>Ordem do Dia,</strong> conforme Edital de Convocação:</p>
+
+        <ol style="margin-bottom: 24px; padding-left: 24px;">
+          <li style="margin-bottom: 12px;"><strong>Deliberação sobre a alteração do Estatuto Social da Cooperativa</strong>, incluindo: (a) atualização de cláusulas estatutárias; (b) adequações legais e normativas, notadamente à Lei Complementar nº 214/2025 (Reforma Tributária — IBS e CBS) e ao Decreto nº 11.902/2024 (Selo Biocombustível Social); (c) inclusão, exclusão ou modificação de dispositivos estatutários, especialmente expansão do objeto social para configuração da BRATCARGAS como cooperativa multifuncional;</li>
+          <li style="margin-bottom: 12px;"><strong>Outros assuntos correlatos à alteração estatutária</strong>, quando necessários para sua plena implementação.</li>
+        </ol>
+
+        <p style="margin-bottom: 16px;"><strong>DELIBERAÇÕES:</strong></p>
+
+        <p style="margin-bottom: 16px;"><strong>1. Da reforma estatutária integral:</strong> Após exposição pelo Presidente Ronaldo Ribeiro da Silva sobre as razões da reforma — fundamentalmente, alinhar o Estatuto Social às novas obrigações da Reforma Tributária (LC 214/2025), expandir o objeto social para configurar a BRATCARGAS como cooperativa multifuncional com seções operacionais (Transporte, Agro, Florestal, Animal, Trade), incorporar autorização para opção pelo regime específico do art. 271 da LC 214/2025 a partir de 1º.JAN.2027, e habilitar a Cooperativa para operações de comércio exterior via Radar/Siscomex — e após ampla discussão pelos cooperados presentes, foi colocada em votação a aprovação integral do novo texto estatutário em substituição ao texto vigente registrado na JUCEB em 05/11/2025 sob NIRE 29400047688. <strong>APROVADA POR UNANIMIDADE, POR ACLAMAÇÃO, pelos 14 (catorze) cooperados presentes, sem votos contrários e sem abstenções, atingido com folga o quórum qualificado de 2/3 (dois terços) dos cooperados presentes exigido pelo art. 31, inciso V do Estatuto Social vigente para deliberação sobre reforma estatutária.</strong> O texto integral do novo Estatuto Social, contendo 53 artigos (em substituição aos 58 do texto anterior), fica como Anexo I a esta ata, e será arquivado em processo separado junto à JUCEB sob o Ato/Evento 019 — Estatuto Social.</p>
+
+        <p style="margin-bottom: 16px;"><strong>2. Das principais alterações aprovadas no Estatuto Social:</strong></p>
+
+        <ul style="margin-bottom: 16px; padding-left: 24px;">
+          <li><strong>Art. 5º — Objeto social expandido:</strong> de objeto restrito a transporte (CNAEs 49.30 e 45.20) para objeto multifuncional incluindo Seções Agro, Florestal, Animal e Trade, com adição de CNAEs do grupo 46 (comércio atacadista) e parágrafos sobre estrutura em Seções e operações de comércio exterior;</li>
+          <li><strong>Art. 6º — Categorias de cooperados:</strong> ampliação para 5 categorias explícitas (transportador PF, produtor rural PF, prestador PJ, produtor PJ, comprador industrial PJ e trading PJ);</li>
+          <li><strong>Art. 8º — Quota-parte:</strong> correção redacional e escalonamento de subscrição mínima por categoria de cooperado;</li>
+          <li><strong>Art. 17 — Capital social:</strong> previsão de expansão automática por novas subscrições e meta de capitalização progressiva;</li>
+          <li><strong>Art. 33 — Conselho de Administração:</strong> <em>texto mantido sem alteração</em> (4 membros, mandato de 4 anos);</li>
+          <li><strong>Art. 34 — Composição do Conselho:</strong> apenas acréscimo da possibilidade de até 3 (três) Conselheiros adicionais com atribuições específicas por Seção operacional, e cláusula de revisão de proventos por AGE com quórum de 2/3;</li>
+          <li><strong>Art. 42 — Operações com não-associados:</strong> introdução de limite quantitativo de 30%, alçada de autorização de até R$ 2.500.000,00 pelo Conselho e acima desse valor pela Assembleia Geral, e referência expressa à segregação contábil obrigatória;</li>
+          <li><strong>Art. 43 — Tratamento tributário do ato cooperativo:</strong> atualização das fontes normativas (art. 79 Lei 5.764/71 + art. 15 MP 2158-35/2001) e extensão ao ato intercooperativo;</li>
+          <li><strong>Art. 44 — NOVO — Adesão ao art. 271 da LC 214/2025:</strong> autorização expressa à diretoria para optar pelo regime específico de IBS e CBS, com transferência de créditos do art. 272 e rateio do art. 51;</li>
+          <li><strong>Art. 45 — NOVO — Selo Biocombustível Social:</strong> autorização para habilitação no programa nos termos do Decreto 11.902/2024 e Portaria MDA 28/2024;</li>
+          <li><strong>Arts. 46-48 — NOVOS — Comércio exterior:</strong> autorização para habilitação no Radar/Siscomex, operações de importação coletiva e exportação;</li>
+          <li><strong>Art. 49 — Intercooperação ampliada:</strong> pré-aprovação de intercooperações com COHAPM, OCB-BA/SESCOOP-BA, e cooperativas centrais regionais;</li>
+          <li><strong>Art. 53 — NOVO — Auditoria contábil externa:</strong> obrigatória quando atingidos parâmetros específicos, incluindo receita bruta superior a R$ 77.000.000,00 (em conformidade com Lei 11.638/2007).</li>
+        </ul>
+
+        <p style="margin-bottom: 16px;"><strong>3. Da autorização para opção pelo Regime Específico do art. 271 da LC 214/2025:</strong> Foi aprovada autorização expressa ao Conselho de Administração para formalizar, a partir de 1º de janeiro de 2027 (primeira janela formal prevista na legislação), a opção pela Cooperativa pelo Regime Específico das Cooperativas do art. 271 da Lei Complementar nº 214/2025, com alíquota zero de IBS e CBS nas operações entre a Cooperativa e seus cooperados, e renovação automática da opção nos anos-calendário subsequentes, salvo deliberação em contrário desta Assembleia. <strong>APROVADA POR UNANIMIDADE, POR ACLAMAÇÃO, pelos 14 (catorze) cooperados presentes</strong>.</p>
+
+        <p style="margin-bottom: 16px;"><strong>4. Da autorização para habilitação no Radar/Siscomex:</strong> Foi aprovada autorização ao Conselho de Administração para protocolar habilitação da Cooperativa no Radar/Siscomex perante a Receita Federal do Brasil, em modalidade Limitada inicialmente (até US$ 150 mil em importações a cada 6 meses), com posterior escalonamento para modalidade Ilimitada conforme volume operacional. <strong>APROVADA POR UNANIMIDADE, POR ACLAMAÇÃO, pelos 14 (catorze) cooperados presentes</strong>.</p>
+
+        <p style="margin-bottom: 16px;"><strong>5. Da eleição complementar de até 3 (três) Conselheiros adicionais (Art. 34 do novo Estatuto):</strong> Considerando a previsão do novo Art. 34 do Estatuto Social, que permite a eleição de até 3 (três) Conselheiros adicionais com atribuições específicas por Seção operacional, foi(ram) eleito(s) o(s) seguinte(s) cooperado(s): [completar conforme a deliberação efetiva da AGE — se houver]. Os Conselheiros adicionais ora eleitos declaram, neste ato, não estarem incursos nas vedações do art. 51 da Lei nº 5.764/1971, comprometendo-se ao cumprimento integral do Estatuto Social e da legislação aplicável.</p>
+
+        <p style="margin-bottom: 16px;"><strong>6. Da composição final do Conselho de Administração:</strong> Em conformidade com o Estatuto Social anterior, mantida pela presente reforma no Art. 33, e ampliada pelo Art. 34 conforme acima:</p>
+
+        <ul style="margin-bottom: 16px; padding-left: 24px;">
+          <li>Presidente: <strong>Marcos Lima Caribé</strong> (CPF 677.710.415-15)</li>
+          <li>Vice-Presidente: <strong>Nailde Gonçalves Silva Caribé</strong> (CPF 009.994.205-42)</li>
+          <li>Diretor Financeiro: <strong>Roberto Ribeiro da Silva</strong> (CPF 987.252.705-91)</li>
+          <li>Diretor Comercial: <strong>Felipe Silva de Souza</strong> (CPF 071.139.895-00)</li>
+          <li>Conselheiros adicionais para Seções operacionais: [a definir conforme deliberação]</li>
+        </ul>
+
+        <p style="margin-bottom: 16px;"><strong>7. Encerramento:</strong> Esgotada a Ordem do Dia constante do Edital de Convocação, e perguntando o Sr. Presidente da Mesa se algum dos cooperados presentes desejaria manifestar-se sobre qualquer outro assunto correlato à reforma estatutária ora aprovada, <strong>nada mais houve a tratar, sendo todas as deliberações acima ratificadas por aclamação geral dos 14 (catorze) cooperados presentes</strong>. O Sr. Presidente da Mesa agradeceu a presença de todos e declarou encerrados os trabalhos, determinando a lavratura desta ata.</p>
+
+        <p style="margin-bottom: 16px;">A presente ata, lida e achada conforme, foi assinada pelos integrantes da Mesa Diretora, pelo Conselho de Administração presente, pelo advogado responsável pela orientação jurídica e por todos os cooperados presentes. Declara-se, para todos os fins de direito, que <strong>esta ata é cópia fiel do que consta lavrado no Livro de Atas da Cooperativa</strong>, e que <strong>as assinaturas dos 14 (catorze) cooperados presentes encontram-se devidamente registradas no Livro de Presença dos Associados nas Assembleias Gerais</strong>, em folha própria a esta data dedicada, em conformidade com o art. 38 da Lei nº 5.764/1971 e com o passo-a-passo da Junta Comercial do Estado da Bahia para protocolo de Ata de Assembleia Geral Extraordinária de Cooperativa (Ato/Evento 007).</p>
+
+        <p style="text-align: center; font-style: italic; margin-bottom: 32px;">Luís Eduardo Magalhães — Bahia, 17 de abril de 2026.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px;">
+          <div style="text-align: center; padding-top: 48px; border-top: 1px solid var(--ink);">
+            <strong>[Nome do Presidente da Mesa]</strong><br>
+            <span style="font-size: 12px;">CPF [●] — Cooperado(a)</span>
+          </div>
+          <div style="text-align: center; padding-top: 48px; border-top: 1px solid var(--ink);">
+            <strong>[Nome do Secretário(a) da Mesa]</strong><br>
+            <span style="font-size: 12px;">CPF [●] — Cooperado(a)</span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 32px;">
+          <div style="text-align: center; padding-top: 48px; border-top: 1px solid var(--ink);">
+            <strong>Ronaldo Ribeiro da Silva</strong><br>
+            <span style="font-size: 12px;">Presidente (convocador) — CPF 020.133.425-94</span>
+          </div>
+          <div style="text-align: center; padding-top: 48px; border-top: 1px solid var(--ink);">
+            <strong>Marcos Lima Caribé</strong><br>
+            <span style="font-size: 12px;">Presidente do Conselho — CPF 677.710.415-15</span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 32px;">
+          <div style="text-align: center; padding-top: 48px; border-top: 1px solid var(--ink);">
+            <strong>Roberto Ribeiro da Silva</strong><br>
+            <span style="font-size: 12px;">Diretor Financeiro — CPF 987.252.705-91</span>
+          </div>
+          <div style="text-align: center; padding-top: 48px; border-top: 1px solid var(--ink);">
+            <strong>Felipe Silva de Souza</strong><br>
+            <span style="font-size: 12px;">Diretor Comercial — CPF 071.139.895-00</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 32px; text-align: center; padding-top: 48px; border-top: 1px solid var(--ink); max-width: 60%; margin-left: auto; margin-right: auto;">
+          <strong>Rodrigo Oliveira Bacellar Barbosa</strong><br>
+          <span style="font-size: 12px;">Advogado — OAB-BA 80891 — Visto e responsável pela orientação jurídica</span>
+        </div>
+
+        <div style="margin-top: 48px; padding: 16px; background: var(--gold-pale); border-left: 3px solid var(--gold-deep); font-family: var(--mono); font-size: 11px; color: var(--ink-3); line-height: 1.6;">
+          <strong style="color: var(--gold-deep);">ANEXOS DESTA ATA — para protocolo na JUCEB-BA:</strong><br>
+          ANEXO I — Texto integral do novo Estatuto Social (53 artigos) · Arquivo separado, Ato 019<br>
+          ANEXO II — Lista de Presença assinada pelos cooperados presentes (Livro de Presença)<br>
+          ANEXO III — Folha do jornal de publicação do edital — [data, página]<br>
+          ANEXO IV — Cópia do edital afixado nas dependências da sede<br>
+          ANEXO V — Cópia da Circular nº [●]/2026 de comunicação aos cooperados<br>
+          ANEXO VI — Declaração de desimpedimento dos Conselheiros adicionais eleitos (se houver)<br>
+        </div>
+
+        <div style="margin-top: 24px; padding: 16px; background: var(--bg-card); border-left: 3px solid var(--ink-3); font-family: var(--mono); font-size: 11px; color: var(--ink-3); line-height: 1.6;">
+          <strong style="color: var(--ink-2);">CAMPOS REMANESCENTES A PREENCHER ANTES DO PROTOCOLO NA JUCEB:</strong><br>
+          [●] Hora exata de encerramento da AGE<br>
+          [●] Nome e CPF do Presidente da Mesa Diretora dos Trabalhos<br>
+          [●] Nome e CPF do Secretário(a) da Mesa Diretora dos Trabalhos<br>
+          [●] Nome do jornal, data e número da folha de publicação do edital<br>
+          [●] Número e data da Circular de comunicação aos cooperados<br>
+          [●] Nome dos Conselheiros adicionais eleitos (Art. 34), se houver eleição, e respectivos CPFs<br>
+          <br>
+          <strong style="color: var(--green);">DADOS DE QUÓRUM E VOTAÇÃO JÁ INCORPORADOS À ATA:</strong><br>
+          ✓ 1ª convocação: 5 cooperados (não instalada — insuficiente)<br>
+          ✓ 2ª convocação: 7 cooperados (não instalada — insuficiente)<br>
+          ✓ 3ª convocação: 14 cooperados (instalada — atinge 2/3 do total)<br>
+          ✓ Todas as deliberações: aprovadas por unanimidade, por aclamação<br>
+          ✓ Visto do advogado: Rodrigo Oliveira Bacellar Barbosa — OAB-BA 80891<br>
+          ✓ Menção ao Livro de Presença: presente no fecho da ata<br>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     RADAR / SISCOMEX
+     ============================================================ -->
+<section class="section" id="radar">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE V</span>Comex prático</div>
+      </div>
+      <h2 class="section-title">Habilitação <em>RADAR / Siscomex</em> — como sair do papel</h2>
+    </div>
+
+    <div class="prose">
+      <p>Aprovar o novo estatuto é apenas a primeira metade do trabalho para destravar Comex. A segunda metade é a habilitação operacional no RADAR (Registro e Rastreamento da Atuação dos Intervenientes Aduaneiros), administrado pela Receita Federal. Sem RADAR, a cooperativa não pode iniciar nenhuma DI (Declaração de Importação) nem DE (Declaração de Exportação). O processo é padronizado pela <strong>Instrução Normativa RFB nº 1.984/2020</strong> (e atualizações).</p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 48px 0 18px; letter-spacing: -0.015em;">As três modalidades RADAR</h3>
+
+    <div class="grid-cards grid-3">
+
+      <div class="card">
+        <div class="card-num">EXPRESSA</div>
+        <h3>RADAR Expressa</h3>
+        <p><strong>Limite:</strong> até US$ 50 mil em importações a cada 6 meses, sem limite de exportação. <strong>Quando usar:</strong> testes iniciais de Comex, importação de amostras, equipamentos pontuais. <strong>Tempo de habilitação:</strong> rápido (até 10 dias úteis após cadastro online). <strong>Não atende</strong> a tese v2 — volumes muito baixos.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">LIMITADA</div>
+        <h3>RADAR Limitada</h3>
+        <p><strong>Limite:</strong> até US$ 150 mil em importações a cada 6 meses. <strong>Quando usar:</strong> primeiro ano da BRATCARGAS em Comex, para validar processos. <strong>Tempo:</strong> 30-60 dias úteis. <strong>Documentação:</strong> ata da AGE de aprovação + estatuto reformado + comprovação patrimonial e operacional. <strong>Início recomendado</strong> para a BRATCARGAS.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">ILIMITADA</div>
+        <h3>RADAR Ilimitada</h3>
+        <p><strong>Limite:</strong> sem teto operacional. <strong>Quando usar:</strong> escalonamento após 6-12 meses operando em Limitada com histórico positivo. <strong>Tempo:</strong> 60-90 dias úteis para análise pelo Auditor Fiscal. <strong>Exigências adicionais:</strong> demonstração de capacidade econômico-financeira, certidões, balanço auditado. <strong>Meta:</strong> a partir do 2º ano de operação Comex.</p>
+      </div>
+
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 64px 0 18px; letter-spacing: -0.015em;">Roteiro de habilitação em 60 dias</h3>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr>
+            <th style="width: 8%;">Dia</th>
+            <th style="width: 27%;">Ação</th>
+            <th style="width: 30%;">Documentação necessária</th>
+            <th style="width: 35%;">Responsável + Observações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">1-15</td>
+            <td>Realizar AGE de reforma estatutária com aprovação do novo Art. 5º (CNAEs Comex) e Art. 46 (autorização RADAR)</td>
+            <td>Ata da AGE; novo estatuto registrado na JUCEB; certidões CRF, CND, FGTS, Trabalhista</td>
+            <td>Diretoria + advogado especializado. Registro JUCEB em até 30 dias do ato.</td>
+          </tr>
+          <tr>
+            <td class="bold">15-25</td>
+            <td>Atualizar CNAE secundário da BRATCARGAS no CNPJ via Receita Federal (adicionar os CNAEs Comex: 46.81-8/01, 46.83-4/00, 46.84-2/99, etc.)</td>
+            <td>Estatuto reformado registrado na JUCEB; DBE (Documento Básico de Entrada)</td>
+            <td>Contador da Cooperativa. Sem CNAE Comex no CNPJ, a habilitação RADAR é negada.</td>
+          </tr>
+          <tr>
+            <td class="bold">20-30</td>
+            <td>Preparar dossiê econômico-financeiro: balanço patrimonial atualizado, DRE, comprovação de operações da Seção Transporte, projeção de operações Comex</td>
+            <td>Balanço auditado (se aplicável); DRE; relatório de gestão; declarações tributárias dos sócios-cooperados</td>
+            <td>Diretor Financeiro + contador. Capacidade econômico-financeira é o item mais checado pelo Auditor Fiscal.</td>
+          </tr>
+          <tr>
+            <td class="bold">30-40</td>
+            <td>Protocolar Habilitação Limitada via Portal Único Siscomex (portalunico.siscomex.gov.br) com modalidade "Pessoa Jurídica Limitada"</td>
+            <td>Formulário FDR (Ficha de Dados de Habilitação); dossiê econômico; ata AGE; estatuto reformado; cartão CNPJ; FAS dos administradores</td>
+            <td>Diretor Comercial + despachante aduaneiro. Recomenda-se contratar despachante para o protocolo inicial.</td>
+          </tr>
+          <tr>
+            <td class="bold">40-55</td>
+            <td>Atendimento de eventuais exigências do Auditor Fiscal Responsável</td>
+            <td>Documentos complementares conforme exigências</td>
+            <td>Despachante aduaneiro. Prazo para resposta: 30 dias da intimação.</td>
+          </tr>
+          <tr style="background: var(--green-pale);">
+            <td class="bold green">55-60</td>
+            <td class="bold green">Deferimento e habilitação efetiva no RADAR Limitada</td>
+            <td>Comprovante de habilitação no Siscomex</td>
+            <td class="green">Cooperativa pode iniciar DIs e DEs.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alertbox" style="background: var(--gold-pale); border-left-color: var(--gold-deep);">
+      <div class="alert-label" style="color: var(--gold-deep);">Custos estimados de habilitação RADAR Limitada</div>
+      <p>Despachante aduaneiro para protocolo: R$ 8.000 a R$ 15.000 (única vez). Honorários de advogado para preparação documental: R$ 5.000 a R$ 12.000. Adequações cadastrais (atualização CNAE, certidões): R$ 2.000 a R$ 4.000. <strong>Total estimado: R$ 15.000 a R$ 31.000</strong> para habilitação inicial. Para escalonamento posterior à modalidade Ilimitada, somar mais R$ 20-40 mil em auditoria contábil externa exigida.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     REGIMENTO INTERNO - SUMÁRIO
+     ============================================================ -->
+<section class="section section-alt" id="regimento">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE VI</span>Regimento Interno</div>
+      </div>
+      <h2 class="section-title">O Regimento Interno — o <em>manual operacional</em> da cooperativa multifuncional</h2>
+    </div>
+
+    <div class="prose">
+      <p>O Estatuto Social é o documento fundacional que define a Cooperativa para o mundo (Receita Federal, JUCEB, OCB, Fisco). O Regimento Interno é o manual operacional para dentro — define como as 5 Seções funcionam, qual a matriz de alçada bancária, como se admite cooperado, como se distribui sobras. Por ser de aprovação mais ágil (Assembleia Geral simples, sem registro na JUCEB), o Regimento é onde se concentra o detalhe que muda mais frequentemente.</p>
+      <p>Esta seção apresenta o <strong>sumário do Regimento Interno proposto</strong>. A íntegra do texto é entregue como documento separado, em sequência a este Bloco 3, para análise da banca jurídica especializada antes da AGE.</p>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 48px 0 18px; letter-spacing: -0.015em;">Estrutura do Regimento Interno proposto</h3>
+
+    <div class="grid-cards grid-2">
+
+      <div class="card">
+        <div class="card-num">Capítulo I</div>
+        <h3>Das Seções operacionais</h3>
+        <p>Definição das 5 Seções (Transporte, Agro, Florestal, Animal, Trade), suas atividades-fim, indicadores de desempenho por Seção, segregação contábil obrigatória (art. 87 Lei 5.764/71 + LC 214/2025 art. 51), dependência hierárquica do Diretor de Operações Cooperativas, e procedimento para criação de novas Seções.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">Capítulo II</div>
+        <h3>Da admissão e categorização de cooperados</h3>
+        <p>Checklist documental por categoria (CAR, CAF, ITR, RNTRC, SIE/SIF, ANP); processo de admissão com prazos; admissão provisória e definitiva; rejeição motivada; sistema CRM-cooperados com prontuário digital.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">Capítulo III</div>
+        <h3>Da matriz de alçada bancária</h3>
+        <p>Até R$ 50 mil: assinatura individual de qualquer Diretor; R$ 50 mil a R$ 500 mil: assinatura conjunta Presidente + Diretor Financeiro; R$ 500 mil a R$ 2 mi: aprovação do Conselho ad referendum; acima de R$ 2 mi: aprovação da AGE. Validação documental pelo Conselho Fiscal.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">Capítulo IV</div>
+        <h3>Da política de sobras</h3>
+        <p>Apuração separada por Seção; distribuição proporcional ao volume operacional do cooperado em cada Seção; FATES aplicado em capacitação técnica por categoria; Fundo de Reserva expansível para investimento em ativos cooperativos.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">Capítulo V</div>
+        <h3>Da auditoria interna e controles</h3>
+        <p>Auditoria interna trimestral por contador especializado; inventário trimestral de cooperados ativos vs. inadimplentes; conferência mensal de proporcionalidade ato cooperado / não-cooperado (limite 30% Art. 42 estatuto); validação semestral da escrituração contábil segregada.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-num">Capítulo VI</div>
+        <h3>Da gestão documental e rastreabilidade</h3>
+        <p>Sistema digital de gestão documental (com hash de integridade); rastreabilidade da Seção Florestal (DOF, PMFS, ART); rastreabilidade Seção Animal (SIE/SIF, cadeia de frio); compliance LGPD para dados de cooperados PF; backup e retenção de 10 anos.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PLANO DE IMPLEMENTAÇÃO
+     ============================================================ -->
+<section class="section" id="plano">
+  <div class="container-wide">
+    <div class="section-header">
+      <div>
+        <div class="section-tag"><span class="num">PARTE VII</span>Plano de implementação</div>
+      </div>
+      <h2 class="section-title">60 dias <em>do parecer jurídico</em> à habilitação RADAR efetiva</h2>
+    </div>
+
+    <div class="prose">
+      <p>O cronograma abaixo é desenhado para que a BRATCARGAS reformada esteja plenamente operacional, com Estatuto registrado, Regimento Interno aprovado e RADAR habilitado, antes de <strong>30 de setembro de 2026</strong> — bem a tempo de fazer a opção formal pelo art. 271 da LC 214/2025 na primeira janela formal de 1º de janeiro de 2027. Quatro fases, dezesseis entregas críticas.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr>
+            <th style="width: 12%;">Fase</th>
+            <th style="width: 28%;">Entregas</th>
+            <th style="width: 30%;">Documentação produzida</th>
+            <th style="width: 30%;">Responsável + Marco</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: var(--green-pale);">
+            <td class="bold green">FASE 0<br>CONCLUÍDA</td>
+            <td class="green">Edital de convocação publicado em 02/04/2026. AGE realizada em 17/04/2026 com a aprovação da reforma estatutária integral, autorização para opção pelo art. 271 da LC 214/2025, autorização para habilitação RADAR e ratificação do Conselho de Administração.</td>
+            <td class="green">Edital · Ata da AGE (Parte V deste documento) · Estatuto reformado aprovado · Livro de Presença</td>
+            <td class="green"><strong>✓ Concluída</strong> · Cooperativa em condições de protocolar reforma na JUCEB</td>
+          </tr>
+          <tr>
+            <td class="bold">Fase 1<br>Dias 1-15<br>(a partir de hoje)</td>
+            <td>Protocolo da reforma estatutária na JUCEB-BA: (a) Pedido de Viabilidade de Alteração (sistema regin.juceb.ba.gov.br); (b) DBE atualizado no Coletor Nacional da Receita Federal com novos CNAEs; (c) Requerimento Eletrônico com Ato 007 (Ata da AGE) + Ato 019 (Estatuto Social — processo separado); (d) pagamento de DAMs</td>
+            <td>Capa do processo · Comprovantes de DAM · Ata da AGE em PDF assinada · Novo Estatuto com visto de advogado OAB-BA · Folha do jornal de publicação do edital</td>
+            <td>Roberto Ribeiro + contador + advogado responsável (OAB-BA 80891). Marco: <strong>protocolo até 30 dias da AGE</strong></td>
+          </tr>
+          <tr>
+            <td class="bold">Fase 2<br>Dias 15-30</td>
+            <td>Aguardar análise da JUCEB-BA; atender eventuais exigências (ver Parte IV-A — pontos R1-R6 onde a JUCEB tende a empacar); obter o NIRE atualizado e a chancela do novo estatuto</td>
+            <td>Despacho da JUCEB · Eventuais respostas a exigências (até 30 dias por exigência) · Estatuto reformado com chancela JUCEB-BA</td>
+            <td>Advogado + contador. Marco: <strong>registro JUCEB concluído até 31.MAI.2026</strong> (cenário sem exigências) ou 30.JUN.2026 (cenário com 1 ciclo)</td>
+          </tr>
+          <tr>
+            <td class="bold">Fase 3<br>Dias 30-45</td>
+            <td>Após chancela JUCEB-BA: atualização cadastros SEFAZ-BA (inscrição estadual com novos CNAEs), Município de LEM (alvará/ISS), OCB-BA/Sescoop-BA (filiação institucional), SIB-MDA (Selo Biocombustível Social), INEMA (Seção Florestal)</td>
+            <td>Inscrição estadual atualizada · Alvará municipal · Filiação OCB-BA confirmada · Habilitação SIB-MDA · Cadastro INEMA</td>
+            <td>Diretoria + contador. Marco: <strong>todos os cadastros atualizados até 15.JUL.2026</strong></td>
+          </tr>
+          <tr style="background: var(--green-pale);">
+            <td class="bold green">Fase 4<br>Dias 45-90</td>
+            <td class="green">Habilitação RADAR Limitada via Siscomex (Receita Federal); admissão de novos cooperados conforme novas categorias do Art. 6º (transportadores, produtores rurais PF, produtores PJ, compradores industriais, tradings); preparação para opção pelo art. 271 LC 214/2025 em 01.JAN.2027</td>
+            <td class="green">Habilitação RADAR Limitada aprovada · Prontuários completos dos novos cooperados (CAF/CAR/ITR/RNTRC/SIE/SIF conforme aplicável)</td>
+            <td class="green">Diretor Comercial + Conselheiros adicionais por Seção. Marco: <strong>RADAR habilitado até 30.AGO.2026</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family: var(--serif-display); font-weight: 500; font-size: 28px; margin: 48px 0 18px; letter-spacing: -0.015em;">Investimento total estimado nos 60 dias</h3>
+
+    <div class="table-wrap">
+      <table class="ftable">
+        <thead>
+          <tr><th>Item</th><th>Faixa de custo</th><th>Pago a</th><th>Prazo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Banca jurídica especializada (parecer + minuta + acompanhamento AGE)</td><td class="num">R$ 60.000 a 120.000</td><td>Brasil Salomão / Rolim Goulart / Mattos Filho</td><td>Fase 1</td></tr>
+          <tr><td>Auditoria tributária pré-AGE (validação do parecer + simulação números)</td><td class="num">R$ 30.000 a 60.000</td><td>BDO / Mazars / Grant Thornton</td><td>Fase 1</td></tr>
+          <tr><td>Registro JUCEB + atualizações cadastrais</td><td class="num">R$ 3.000 a 8.000</td><td>JUCEB + cartórios + taxas</td><td>Fase 3</td></tr>
+          <tr><td>Despachante aduaneiro (habilitação RADAR inicial)</td><td class="num">R$ 8.000 a 15.000</td><td>Despachante credenciado</td><td>Fase 4</td></tr>
+          <tr><td>Contador especializado em cooperativismo (mensal, recorrente)</td><td class="num">R$ 8.000 a 15.000/mês</td><td>Profissional contratado</td><td>Recorrente</td></tr>
+          <tr><td>Sistema CRM-cooperados (setup inicial)</td><td class="num">R$ 30.000 a 60.000</td><td>Lovable + integrador</td><td>Fase 4</td></tr>
+          <tr style="background: var(--green-pale);"><td class="bold">TOTAL fixo 60 dias</td><td class="num bold green">R$ 131.000 a 263.000</td><td colspan="2">Plus recorrente R$ 16-25 k/mês após estabilização</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cta-panel" style="margin-top: 64px;">
+      <span class="cta-stamp">Próximo passo</span>
+      <h3>A AGE foi <em>realizada</em>. Agora é registrar.</h3>
+      <p>Com a AGE de 17/04/2026 concluída e o novo Estatuto aprovado, o próximo passo é o protocolo na JUCEB-BA. A Parte IV-A deste documento mapeou os 6 pontos onde a Junta Comercial tende a empacar reformas estatutárias amplas com expansão de CNAEs (especialmente CNAEs de Comércio Exterior). Cumprindo os checklists R1-R6, o registro sai em 7-10 dias úteis no cenário ideal. Em paralelo, atualizar os cadastros derivados (SEFAZ-BA, OCB-BA, SIB-MDA, INEMA) e iniciar a habilitação RADAR. Com isso, a BRATCARGAS estará plenamente operacional para fazer a opção formal pelo art. 271 da LC 214/2025 na primeira janela, em 1º de janeiro de 2027.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site">
+  <div class="container-wide">
+    <div class="footer-grid">
+      <div>
+        <div style="font-family: var(--serif-display); font-weight: 900; font-size: 28px; color: var(--ink-rev); letter-spacing: -0.02em; margin-bottom: 16px;">
+          BRAT<span style="color: var(--gold); font-style: italic; font-weight: 400; padding: 0 4px;">&amp;</span>Estatuto
+        </div>
+        <p style="max-width: 480px;">Bloco 3 é um documento estratégico interno da Brat Ventures preparado para apoio à reforma estatutária da BRATCARGAS, em complemento ao Compendium Cooperativo Brat v2. Substitui parecer jurídico apenas para fins de orientação interna — a aprovação final do novo estatuto exige análise por banca tributária especializada em cooperativismo.</p>
+      </div>
+      <div>
+        <h4>Edição</h4>
+        <ul>
+          <li>Bloco 3 · v2.0 · Maio de 2026</li>
+          <li>Estatuto vigente: 05.NOV.2025</li>
+          <li>AGE realizada: 17.ABR.2026</li>
+          <li>RADAR meta: 30.AGO.2026</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Equipe BRATCARGAS</h4>
+        <ul>
+          <li>Marcos Lima Caribé — Presidente</li>
+          <li>Nailde Gonçalves Caribé — Vice</li>
+          <li>Roberto Ribeiro — Diretor Financeiro</li>
+          <li>Felipe Silva de Souza — Diretor Comercial</li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Brat Ventures · Documento interno · NIRE 29400047688 · JUCEB 05/11/2025</span>
+      <span>Bloco 3 · v2.0 · ajustes da diretoria · ata real AGE 17/04/2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    const observers = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observers.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.section, .audit-card, .card, .statute-block, .kpi').forEach(el => {
+      el.classList.add('reveal');
+      observers.observe(el);
+    });
+  })();
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
